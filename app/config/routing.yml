@@ -1,0 +1,4 @@
+amilio_core:
+    resource: "@AmilioCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
