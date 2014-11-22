@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new Amilio\CoreBundle\AmilioCoreBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Amilio\ShopBundle\AmilioShopBundle(),
+            new Exeu\ApaiIOBundle\ExeuApaiIOBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
