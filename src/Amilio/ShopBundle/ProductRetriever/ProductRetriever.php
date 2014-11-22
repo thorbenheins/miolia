@@ -13,6 +13,8 @@ use Amilio\CoreBundle\Entity\Product;
 
 interface ProductRetriever {
 
+    public function canHandleUrl($url);
+    
     /**
      * @param string $url The url of the product that is
      *

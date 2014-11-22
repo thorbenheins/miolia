@@ -1,7 +1,9 @@
 <?php
-
 namespace Amilio\ShopBundle\Controller;
 
+use Amilio\CoreBundle\Entity\Product;
+
+use Amilio\ShopBundle\ProductRetriever\CompositeRetriever;
 use Amilio\ShopBundle\ProductRetriever\AmazonRetriever;
 use Amilio\ShopBundle\ProductRetriever\ProductRetriever;
 use ApaiIO\ApaiIO;
@@ -10,16 +12,22 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
+
     public function getProductInfoAction($productUrl)
     {
         $url = base64_decode($productUrl);
-
-        /** @var ProductRetriever $retriever */
-        $retriever = new AmazonRetriever($this->get("apaiio"));
-
-        //get the info from the site
-        $retriever->retrieve($url);
-
-        return $this->render('AmilioShopBundle:Default:index.html.twig', array('name' => $url));
+        
+        $compositeRetriever = new CompositeRetriever();
+        $compositeRetriever->addRetriever(new AmazonRetriever($this->get("apaiio")));
+        
+        if ($compositeRetriever->canHandleUrl($productUrl)) {
+           $product = $compositeRetriever->retrieve($url);
+        } else {
+          $product = new Product();
+        }
+        
+        return $this->render('AmilioShopBundle:Default:index.html.twig', array(
+            'name' => $url
+        ));
     }
 }
