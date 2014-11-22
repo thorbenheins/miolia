@@ -1,4 +1,10 @@
+amilio_shop:
+    resource: "@AmilioShopBundle/Resources/config/routing.yml"
+    prefix:   /
+
 amilio_core:
     resource: "@AmilioCoreBundle/Resources/config/routing.yml"
     prefix:   /
 
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

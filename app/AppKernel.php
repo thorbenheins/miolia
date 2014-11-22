@@ -13,10 +13,12 @@ class AppKernel extends Kernel
             new Symfony\Bundle\TwigBundle\TwigBundle(),
             new Symfony\Bundle\MonologBundle\MonologBundle(),
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
-            new Symfony\Bundle\AsseticBundle\AsseticBundle(),
+            new Symfony\Bundle\AsseticBundle\AsseticBundle(), 
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Amilio\CoreBundle\AmilioCoreBundle(),
+            new FOS\UserBundle\FOSUserBundle()
+            new Amilio\ShopBundle\AmilioShopBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
