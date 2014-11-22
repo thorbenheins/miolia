@@ -1,0 +1,287 @@
+<?xml version="1.0"?>
+<itemlookupresponse xmlns="http://webservices.amazon.com/AWSECommerceService/2011-08-01">
+  <operationrequest>
+    <httpheaders>
+      <header name="UserAgent" value="ApaiIO [2.0.0-DEV]"/>
+    </httpheaders>
+    <requestid>cd97d4af-f5b1-48fb-952b-6d5469ae4e4f</requestid>
+    <arguments>
+      <argument name="ItemId" value="B00BIUFGRI"/>
+      <argument name="Operation" value="ItemLookup"/>
+      <argument name="Service" value="AWSECommerceService"/>
+      <argument name="AWSAccessKeyId" value="AKIAIFRXAG3QO5FTIQHA"/>
+      <argument name="Timestamp" value="2014-11-22T16:32:23Z"/>
+      <argument name="Signature" value="KDFA7UwHj59GaZJQ7kuCJ48QAGJjj7d0vaXieNa3IIc="/>
+      <argument name="ResponseGroup" value="Large,Small"/>
+      <argument name="AssociateTag" value="phphatesme"/>
+      <argument name="Version" value="2011-08-01"/>
+    </arguments>
+    <requestprocessingtime>0.1326770000000000</requestprocessingtime>
+  </operationrequest>
+  <items>
+    <request>
+      <isvalid>True</isvalid>
+      <itemlookuprequest>
+        <idtype>ASIN</idtype>
+        <itemid>B00BIUFGRI</itemid>
+        <responsegroup>Large</responsegroup>
+        <responsegroup>Small</responsegroup>
+        <variationpage>All</variationpage>
+      </itemlookuprequest>
+    </request>
+    <item>
+      <asin>B00BIUFGRI</asin>
+      <detailpageurl>http://www.amazon.de/Erfolgreiche-Softwareprojekte-Web-Gedanken-Webentwicklung-ebook/dp/B00BIUFGRI%3FSubscriptionId%3DAKIAIFRXAG3QO5FTIQHA%26tag%3Dphphatesme%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00BIUFGRI</detailpageurl>
+      <itemlinks>
+        <itemlink>
+          <description>Add To Wishlist</description>
+          <url>http://www.amazon.de/gp/registry/wishlist/add-item.html%3Fasin.0%3DB00BIUFGRI%26SubscriptionId%3DAKIAIFRXAG3QO5FTIQHA%26tag%3Dphphatesme%26linkCode%3Dxm2%26camp%3D2025%26creative%3D12738%26creativeASIN%3DB00BIUFGRI</url>
+        </itemlink>
+        <itemlink>
+          <description>Tell A Friend</description>
+          <url>http://www.amazon.de/gp/pdp/taf/B00BIUFGRI%3FSubscriptionId%3DAKIAIFRXAG3QO5FTIQHA%26tag%3Dphphatesme%26linkCode%3Dxm2%26camp%3D2025%26creative%3D12738%26creativeASIN%3DB00BIUFGRI</url>
+        </itemlink>
+        <itemlink>
+          <description>All Customer Reviews</description>
+          <url>http://www.amazon.de/review/product/B00BIUFGRI%3FSubscriptionId%3DAKIAIFRXAG3QO5FTIQHA%26tag%3Dphphatesme%26linkCode%3Dxm2%26camp%3D2025%26creative%3D12738%26creativeASIN%3DB00BIUFGRI</url>
+        </itemlink>
+        <itemlink>
+          <description>All Offers</description>
+          <url>http://www.amazon.de/gp/offer-listing/B00BIUFGRI%3FSubscriptionId%3DAKIAIFRXAG3QO5FTIQHA%26tag%3Dphphatesme%26linkCode%3Dxm2%26camp%3D2025%26creative%3D12738%26creativeASIN%3DB00BIUFGRI</url>
+        </itemlink>
+      </itemlinks>
+      <salesrank>70970</salesrank>
+      <smallimage>
+        <url>http://ecx.images-amazon.com/images/I/51eOiUkpcIL._SL75_.jpg</url>
+        <height units="pixels">75</height>
+        <width units="pixels">52</width>
+      </smallimage>
+      <mediumimage>
+        <url>http://ecx.images-amazon.com/images/I/51eOiUkpcIL._SL160_.jpg</url>
+        <height units="pixels">160</height>
+        <width units="pixels">112</width>
+      </mediumimage>
+      <largeimage>
+        <url>http://ecx.images-amazon.com/images/I/51eOiUkpcIL.jpg</url>
+        <height units="pixels">500</height>
+        <width units="pixels">349</width>
+      </largeimage>
+      <imagesets>
+        <imageset category="primary">
+          <swatchimage>
+            <url>http://ecx.images-amazon.com/images/I/51eOiUkpcIL._SL30_.jpg</url>
+            <height units="pixels">30</height>
+            <width units="pixels">21</width>
+          </swatchimage>
+          <smallimage>
+            <url>http://ecx.images-amazon.com/images/I/51eOiUkpcIL._SL75_.jpg</url>
+            <height units="pixels">75</height>
+            <width units="pixels">52</width>
+          </smallimage>
+          <thumbnailimage>
+            <url>http://ecx.images-amazon.com/images/I/51eOiUkpcIL._SL75_.jpg</url>
+            <height units="pixels">75</height>
+            <width units="pixels">52</width>
+          </thumbnailimage>
+          <tinyimage>
+            <url>http://ecx.images-amazon.com/images/I/51eOiUkpcIL._SL110_.jpg</url>
+            <height units="pixels">110</height>
+            <width units="pixels">77</width>
+          </tinyimage>
+          <mediumimage>
+            <url>http://ecx.images-amazon.com/images/I/51eOiUkpcIL._SL160_.jpg</url>
+            <height units="pixels">160</height>
+            <width units="pixels">112</width>
+          </mediumimage>
+          <largeimage>
+            <url>http://ecx.images-amazon.com/images/I/51eOiUkpcIL.jpg</url>
+            <height units="pixels">500</height>
+            <width units="pixels">349</width>
+          </largeimage>
+        </imageset>
+      </imagesets>
+      <itemattributes>
+        <author>Nils Langner</author>
+        <binding>Kindle Edition</binding>
+        <eisbn>9783868026207</eisbn>
+        <format>Kindle eBook</format>
+        <isadultproduct>0</isadultproduct>
+        <label>entwickler.press</label>
+        <languages>
+          <language>
+            <name>Deutsch</name>
+            <type>Published</type>
+          </language>
+        </languages>
+        <manufacturer>entwickler.press</manufacturer>
+        <numberofpages>245</numberofpages>
+        <productgroup>eBooks</productgroup>
+        <producttypename>ABIS_EBOOKS</producttypename>
+        <publicationdate>2013-02-20</publicationdate>
+        <publisher>entwickler.press</publisher>
+        <releasedate>2013-02-20</releasedate>
+        <studio>entwickler.press</studio>
+        <title>Erfolgreiche Softwareprojekte im Web - 100 Gedanken zur Webentwicklung</title>
+      </itemattributes>
+      <customerreviews>
+        <iframeurl>http://www.amazon.de/reviews/iframe?akid=AKIAIFRXAG3QO5FTIQHA&amp;alinkCode=xm2&amp;asin=B00BIUFGRI&amp;atag=phphatesme&amp;exp=2014-11-23T16%3A32%3A23Z&amp;v=2&amp;sig=mw%2BVVcnJTDpBPSqHko%2Bpo6vpVRjGqTSFaCUyw4Wc18s%3D</iframeurl>
+        <hasreviews>true</hasreviews>
+      </customerreviews>
+      <editorialreviews>
+        <editorialreview>
+          <source>Kurzbeschreibung</source>
+          <content>Was zeichnet gute Webentwickler aus? Dieser Frage geht Nils Langner in &#xE2;&#x20AC;&#x17E;Erfolgreiche Softwareprojekte im Web&#xE2;&#x20AC;&#x153; nach und stellt seine pers&#xC3;&#xB6;nlichen Erfahrungen und Erkenntnisse aus zehn Jahren Webentwicklung dar. Dabei schneidet er sowohl Themen aus der Softwareentwicklung als auch aus dem Qualit&#xC3;&#xA4;ts- und Projektmanagement an. Er zeigt, was wirklich wichtig ist, um Softwareprojekte erfolgreich abzuschlie&#xC3;&#x178;en.&lt;br /&gt;Der Leser wird in 100 kurzen Kapiteln zu ganz spezifischen Themen und Problemen durch den gesamten Softwareentwicklungsprozess begleitet und an den Punkt gebracht, an dem er selbstst&#xC3;&#xA4;ndig weiterdenken und -arbeiten kann. Zahlreiche Gastbeitr&#xC3;&#xA4;ge anderer Webdesigner und -entwickler erzeugen ein buntes Mosaik ganz pers&#xC3;&#xB6;nlicher Arbeitserfahrungen. Das macht aus dem Buch eine Inspirationsquelle f&#xC3;&#xBC;r alle Beteiligten von Softwareprojekten - und eine abwechslungsreichen Reise durch die Welt des Web-Development.</content>
+          <islinksuppressed>0</islinksuppressed>
+        </editorialreview>
+      </editorialreviews>
+      <similarproducts>
+        <similarproduct>
+          <asin>B00HXURPHG</asin>
+          <title>Daily Git: Wie ein kompetenter Kollege Ihnen Git erkl&#xC3;&#xA4;ren w&#xC3;&#xBC;rde</title>
+        </similarproduct>
+        <similarproduct>
+          <asin>B00H9OY1PK</asin>
+          <title>Weniger schlecht programmieren</title>
+        </similarproduct>
+        <similarproduct>
+          <asin>B00HSO6YD8</asin>
+          <title>Node.js the Right Way: Practical, Server-Side JavaScript That Scales</title>
+        </similarproduct>
+        <similarproduct>
+          <asin>B008LL5AA0</asin>
+          <title>Webentwicklung mit Zend Framework 2</title>
+        </similarproduct>
+        <similarproduct>
+          <asin>B007IXEROW</asin>
+          <title>E-Commerce f&#xC3;&#xBC;r Fortgeschrittene</title>
+        </similarproduct>
+      </similarproducts>
+      <browsenodes>
+        <browsenode>
+          <browsenodeid>124</browsenodeid>
+          <name>Computer &amp; Internet</name>
+          <children>
+            <browsenode>
+              <browsenodeid>165930031</browsenodeid>
+              <name>Datenbanken</name>
+            </browsenode>
+            <browsenode>
+              <browsenodeid>165948031</browsenodeid>
+              <name>Grafik &amp; Multimedia</name>
+            </browsenode>
+            <browsenode>
+              <browsenodeid>165968031</browsenodeid>
+              <name>Hardware &amp; Technik</name>
+            </browsenode>
+            <browsenode>
+              <browsenodeid>166008031</browsenodeid>
+              <name>IT-Ausbildung &amp; -Berufe</name>
+            </browsenode>
+            <browsenode>
+              <browsenodeid>403626</browsenodeid>
+              <name>L&#xC3;&#xB6;sungsb&#xC3;&#xBC;cher f&#xC3;&#xBC;r PC- &amp; Videospiele</name>
+            </browsenode>
+            <browsenode>
+              <browsenodeid>165988031</browsenodeid>
+              <name>Mac</name>
+            </browsenode>
+            <browsenode>
+              <browsenodeid>165976031</browsenodeid>
+              <name>Microsoft</name>
+            </browsenode>
+            <browsenode>
+              <browsenodeid>166022031</browsenodeid>
+              <name>Programmierung &amp; Webdesign</name>
+            </browsenode>
+            <browsenode>
+              <browsenodeid>165942031</browsenodeid>
+              <name>Sicherheit</name>
+            </browsenode>
+            <browsenode>
+              <browsenodeid>165997031</browsenodeid>
+              <name>Unix &amp; Linux</name>
+            </browsenode>
+          </children>
+          <ancestors>
+            <browsenode>
+              <browsenodeid>541686</browsenodeid>
+              <name>Kategorien</name>
+              <iscategoryroot>1</iscategoryroot>
+              <ancestors>
+                <browsenode>
+                  <browsenodeid>186606</browsenodeid>
+                  <name>B&#xC3;&#xBC;cher</name>
+                </browsenode>
+              </ancestors>
+            </browsenode>
+          </ancestors>
+        </browsenode>
+        <browsenode>
+          <browsenodeid>567116031</browsenodeid>
+          <name>Computer &amp; Internet</name>
+          <children>
+            <browsenode>
+              <browsenodeid>611247031</browsenodeid>
+              <name>Datenbanken</name>
+            </browsenode>
+            <browsenode>
+              <browsenodeid>611257031</browsenodeid>
+              <name>Grafik &amp; Multimedia</name>
+            </browsenode>
+            <browsenode>
+              <browsenodeid>611274031</browsenodeid>
+              <name>Hardware &amp; Technik</name>
+            </browsenode>
+            <browsenode>
+              <browsenodeid>611275031</browsenodeid>
+              <name>IT-Ausbildung &amp; -Berufe</name>
+            </browsenode>
+            <browsenode>
+              <browsenodeid>611282031</browsenodeid>
+              <name>L&#xC3;&#xB6;sungsb&#xC3;&#xBC;cher f&#xC3;&#xBC;r PC- &amp; Videospiele</name>
+            </browsenode>
+            <browsenode>
+              <browsenodeid>611283031</browsenodeid>
+              <name>Mac</name>
+            </browsenode>
+            <browsenode>
+              <browsenodeid>611291031</browsenodeid>
+              <name>Microsoft</name>
+            </browsenode>
+            <browsenode>
+              <browsenodeid>611302031</browsenodeid>
+              <name>Programmierung &amp; Webdesign</name>
+            </browsenode>
+            <browsenode>
+              <browsenodeid>611333031</browsenodeid>
+              <name>Sicherheit</name>
+            </browsenode>
+            <browsenode>
+              <browsenodeid>611338031</browsenodeid>
+              <name>Unix &amp; Linux</name>
+            </browsenode>
+          </children>
+          <ancestors>
+            <browsenode>
+              <browsenodeid>530886031</browsenodeid>
+              <name>Kindle eBooks</name>
+              <ancestors>
+                <browsenode>
+                  <browsenodeid>530485031</browsenodeid>
+                  <name>Kategorien</name>
+                  <iscategoryroot>1</iscategoryroot>
+                  <ancestors>
+                    <browsenode>
+                      <browsenodeid>530484031</browsenodeid>
+                      <name>Kindle-Shop</name>
+                    </browsenode>
+                  </ancestors>
+                </browsenode>
+              </ancestors>
+            </browsenode>
+          </ancestors>
+        </browsenode>
+      </browsenodes>
+    </item>
+  </items>
+</itemlookupresponse>
