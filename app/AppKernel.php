@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Amilio\CoreBundle\AmilioCoreBundle(),
             new FOS\UserBundle\FOSUserBundle()
+            new Amilio\ShopBundle\AmilioShopBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
