@@ -75,4 +75,11 @@ swiftmailer:
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
-    user_class: Amilio\CoreBundle\Entity\User
+    user_class: "Amilio\CoreBundle\Entity\User"
+
+## Amazon API Wrapper
+exeu_apai_io:
+    accesskey: "AKIAIFRXAG3QO5FTIQHA"
+    secretkey: "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"
+    associatetag: "phhamebuthsok-21"
+    country: "de"
