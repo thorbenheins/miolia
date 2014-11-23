@@ -17,6 +17,11 @@ class Product implements \JsonSerializable
     /**
      * @var string
      */
+    private $foreignId;
+
+    /**
+     * @var string
+     */
     private $url;
 
     /**
@@ -53,6 +58,29 @@ class Product implements \JsonSerializable
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set foreignId
+     *
+     * @param string $foreignId
+     * @return Product
+     */
+    public function setForeignId($foreignId)
+    {
+        $this->foreignId = $foreignId;
+
+        return $this;
+    }
+
+    /**
+     * Get foreignId
+     *
+     * @return string
+     */
+    public function getForeignId()
+    {
+        return $this->foreignId;
     }
 
     /**

@@ -61,6 +61,10 @@ class AmazonRetriever implements ProductRetriever
         /** @var Product $product */
         $product = new Product();
 
+        $query = "//a:Item/a:ASIN";
+        $nodes = $xpath->query($query);
+        $product->setForeignId($nodes->item(0)->nodeValue);
+
         $query = "//a:ItemAttributes/a:Title";
         $nodes = $xpath->query($query);
         $product->setName($nodes->item(0)->nodeValue);
@@ -72,6 +76,9 @@ class AmazonRetriever implements ProductRetriever
         $query = "//a:ImageSet[@Category='primary']/a:LargeImage/a:URL";
         $nodes = $xpath->query($query);
         $product->setImage($nodes->item(0)->nodeValue);
+
+        //TODO: The image dimensions might be interesting too for css styles etc.
+        //
 
         $query = "//a:ItemAttributes/a:Manufacturer";
         $nodes = $xpath->query($query);

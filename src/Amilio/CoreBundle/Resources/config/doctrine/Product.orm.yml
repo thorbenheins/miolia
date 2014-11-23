@@ -12,6 +12,9 @@ Amilio\CoreBundle\Entity\Product:
         url:
             type: string
             length: '1000'
+        foreignId:
+            type: string
+            length: '255'
         name:
             type: string
             length: '255'
