@@ -4,7 +4,6 @@
  * User: thorben
  * Date: 22/11/14
  * Time: 15:01
-<<<<<<< Updated upstream
  */
 namespace Amilio\ShopBundle\ProductRetriever;
 
@@ -37,7 +36,7 @@ class AmazonRetriever implements ProductRetriever
         
         $pattern = '^/dp/(.*)/^';
         
-        echo preg_match($pattern, $url, $matches);
+        preg_match($pattern, $url, $matches);
         
         // If the url did not match our requirements we dont want to do anything
         if (empty($matches[1])) {
@@ -50,18 +49,42 @@ class AmazonRetriever implements ProductRetriever
         $lookup->setResponseGroup(array('Large', 'Small'));
         $formattedResponse = $this->apaiIO->runOperation($lookup);
 
-        //Add some information from the product here
+        $doc = new \DOMDocument("1.0", "UTF-8");
+        $doc->loadXML($formattedResponse);
+
+        /** @var \DOMXPath $xpath */
+        $xpath = new \DOMXPath($doc);
+        $xpath->registerNamespace("a", "http://webservices.amazon.com/AWSECommerceService/2011-08-01");
+
+        //Gather information from the product here
+
         /** @var Product $product */
         $product = new Product();
 
-        $dummy = "";
+        $query = "//a:ItemAttributes/a:Title";
+        $nodes = $xpath->query($query);
+        $product->setName($nodes->item(0)->nodeValue);
 
-        $product->setName($dummy);
-        $product->setDescription($dummy);
-        $product->setImage($dummy);
-        $product->setManufacturer($dummy);
-        $product->setPrice(0);
-        $product->setUrl($dummy);
+        $query = "//a:EditorialReview/a:Content";
+        $nodes = $xpath->query($query);
+        $product->setDescription($nodes->item(0)->nodeValue);
+
+        $query = "//a:ImageSet[@Category='primary']/a:LargeImage/a:URL";
+        $nodes = $xpath->query($query);
+        $product->setImage($nodes->item(0)->nodeValue);
+
+        $query = "//a:ItemAttributes/a:Manufacturer";
+        $nodes = $xpath->query($query);
+        $product->setManufacturer($nodes->item(0)->nodeValue);
+
+        //hmmm price is not in the response...
+        $product->setPrice(null);
+
+        $query = "//a:DetailPageURL";
+        $nodes = $xpath->query($query);
+        $product->setUrl($nodes->item(0)->nodeValue);
+
+        //TODO: This attribute might be of interest: IsAdultProduct
 
         return $product;
     }
