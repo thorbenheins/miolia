@@ -4,9 +4,11 @@
  * User: thorben
  * Date: 22/11/14
  * Time: 15:01
+<<<<<<< Updated upstream
  */
 namespace Amilio\ShopBundle\ProductRetriever;
 
+use Amilio\CoreBundle\Entity\Product;
 use ApaiIO\ApaiIO;
 use ApaiIO\Operations\Lookup;
 
@@ -41,16 +43,26 @@ class AmazonRetriever implements ProductRetriever
         if (empty($matches[1])) {
             return null;
         }
-        
+
         $lookup = new Lookup();
-        
+
         $lookup->setItemId($matches[1]);
-        $lookup->setResponseGroup(array(
-            'Large',
-            'Small'
-        ));
+        $lookup->setResponseGroup(array('Large', 'Small'));
         $formattedResponse = $this->apaiIO->runOperation($lookup);
-        
-        // TODO DOM stuff
+
+        //Add some information from the product here
+        /** @var Product $product */
+        $product = new Product();
+
+        $dummy = "";
+
+        $product->setName($dummy);
+        $product->setDescription($dummy);
+        $product->setImage($dummy);
+        $product->setManufacturer($dummy);
+        $product->setPrice(0);
+        $product->setUrl($dummy);
+
+        return $product;
     }
 }

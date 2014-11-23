@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Product
  */
-class Product
+class Product implements \JsonSerializable
 {
     /**
      * @var integer
@@ -191,5 +191,13 @@ class Product
     public function getManufacturer()
     {
         return $this->manufacturer;
+    }
+
+    /**
+     * @return $this as array()
+     * */
+    public function jsonSerialize() {
+        //For now we expose the whole object, there are no secrets here, right?
+        return get_object_vars($this);//$result;
     }
 }
