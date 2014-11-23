@@ -9,6 +9,8 @@ use Amilio\ShopBundle\ProductRetriever\ProductRetriever;
 use ApaiIO\ApaiIO;
 use ApaiIO\Operations\Lookup;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
@@ -22,15 +24,19 @@ class DefaultController extends Controller
         if ($compositeRetriever->canHandleUrl($url)) {
             //get the info from the site
             $product = $compositeRetriever->retrieve($url);
+        //    $em = $this->getDoctrine()->getManager();
+        //    $em->persist($product);
+        //    $em->flush();
         } else {
             $product = new Product();
         }
 
-        return $this->render(
-            'AmilioShopBundle:JSON:productInfo.json.twig',
-            array(
-                'data' => $product->jsonSerialize()
-            )
-        );
+        /** @var JsonResponse $response */
+        $response = new JsonResponse();
+
+        $response->setData($product->jsonSerialize());
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response;
     }
 }
