@@ -32,6 +32,8 @@ class ChannelController extends Controller
         if ($form->isValid()) {
             $channel = $form->getData();
             
+            $channel->setType(Channel::TYPE_STANDARD);
+            
             $user = $this->getUser();
             $user->addChannel($channel);
             

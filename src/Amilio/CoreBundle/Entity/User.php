@@ -43,6 +43,7 @@ class User extends BaseUser
     public function addChannel(Channel $channel)
     {
         $this->channels[] = $channel;
+        return $this;
     }
     
     public function getChannels()

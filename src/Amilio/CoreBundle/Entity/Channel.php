@@ -12,6 +12,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Channel
 {
+    const TYPE_STANDARD = "u";
+    const TYPE_PREMIUM = "p";
+    
     /**
      * @var integer
      *
@@ -42,6 +45,12 @@ class Channel
      */
     private $image;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=1)
+     */
+    private $type;
 
     /**
      * @ORM\ManyToMany(targetEntity="User", mappedBy="channels")
