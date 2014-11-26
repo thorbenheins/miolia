@@ -6,30 +6,48 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Channel
+ *
+ * @ORM\Table()
+ * @ORM\Entity
  */
 class Channel
 {
     /**
      * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="description", type="text")
+     */
+    private $description;
+ 
+    /** 
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="image", type="string", length=255)
      */
-    private $description;
+    private $image;
+
 
     /**
-     * @var string
-     */
-    private $img;
-
-
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="channels")
+     **/    
+    private $users;
+    
     /**
      * Get id
      *
@@ -38,29 +56,6 @@ class Channel
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return Channel
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName()
-    {
-        return $this->name;
     }
 
     /**
@@ -87,25 +82,48 @@ class Channel
     }
 
     /**
-     * Set img
+     * Set name
      *
-     * @param string $img
+     * @param string $name
      * @return Channel
      */
-    public function setImg($img)
+    public function setName($name)
     {
-        $this->img = $img;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get img
+     * Get name
      *
      * @return string 
      */
-    public function getImg()
+    public function getName()
     {
-        return $this->img;
+        return $this->name;
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     * @return Channel
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string 
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }

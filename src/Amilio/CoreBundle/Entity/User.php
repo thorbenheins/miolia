@@ -1,27 +1,52 @@
 <?php
-// src/Acme/UserBundle/Entity/User.php
 
 namespace Amilio\CoreBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * User
+ *
+ * @ORM\Table()
  * @ORM\Entity
- * @ORM\Table(name="fos_user")
  */
 class User extends BaseUser
 {
-    /**
+    /** 
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
 
-    public function __construct()
+    /**
+     * @ORM\ManyToMany(targetEntity="Channel", inversedBy="users")
+     * @ORM\JoinTable(name="users_channels")
+     **/
+    private $channels;  
+    
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
     {
-        parent::__construct();
-        // your own logic
+        return $this->id;
+    }
+
+    public function addChannel(Channel $channel)
+    {
+        $this->channels[] = $channel;
+    }
+    
+    public function getChannels()
+    {
+        return $this->channels;
     }
 }

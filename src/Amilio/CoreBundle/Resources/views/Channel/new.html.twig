@@ -1,7 +1,9 @@
 <h1>Neuen Kanal anlegen</h1>
 
+{# src/Acme/TaskBundle/Resources/views/Default/new.html.twig #}
 {{ form_start(form) }}
     {{ form_errors(form) }}
 
-    {{ form(form) }}
+    {{ form_row(form.task) }}
+    {{ form_row(form.dueDate) }}
 {{ form_end(form) }}

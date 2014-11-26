@@ -3,10 +3,21 @@ amilio_core_homepage:
     defaults: { _controller: AmilioCoreBundle:Default:index }
 
 amilio_core_channel_new:
-    path:     /channel/new
+    path:     /user/channel/new
     defaults: { _controller: AmilioCoreBundle:Channel:new }
     
 amilio_core_channel_store:
-    path:     /channel/store
+    path:     /user/channel/store
     defaults: { _controller: AmilioCoreBundle:Channel:store }
     
+amilio_core_channel_list:
+    path:     /user/channel/list
+    defaults: { _controller: AmilioCoreBundle:Channel:list }    
+    
+amilio_core_channel_show:
+    path:     /u/{channelname}
+    defaults: { _controller: AmilioCoreBundle:Channel:show }
+    
+amilio_core_channel_show_premium:
+    path:     /p/{channelname}
+    defaults: { _controller: AmilioCoreBundle:Channel:showPremium } 
