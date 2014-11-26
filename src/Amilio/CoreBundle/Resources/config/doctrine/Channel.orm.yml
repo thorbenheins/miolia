@@ -1,0 +1,21 @@
+Amilio\CoreBundle\Entity\Channel:
+    type: entity
+    table: null
+    repositoryClass: Amilio\CoreBundle\Entity\ChannelRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+            column: Name
+        description:
+            type: text
+        img:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

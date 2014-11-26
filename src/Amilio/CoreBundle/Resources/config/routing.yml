@@ -1,3 +1,12 @@
 amilio_core_homepage:
-    path:     /hello/{name}
+    path:     /
     defaults: { _controller: AmilioCoreBundle:Default:index }
+
+amilio_core_channel_new:
+    path:     /channel/new
+    defaults: { _controller: AmilioCoreBundle:Channel:new }
+    
+amilio_core_channel_store:
+    path:     /channel/store
+    defaults: { _controller: AmilioCoreBundle:Channel:store }
+    
