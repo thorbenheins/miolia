@@ -1,6 +1,8 @@
 <?php
 namespace Amilio\CoreBundle\Controller;
 
+use Amilio\CoreBundle\Entity\ChannelRepository;
+
 use Amilio\CoreBundle\Form\Type\ChannelType;
 use Amilio\CoreBundle\Entity\Channel;
 use Symfony\Component\HttpFoundation\Request;
@@ -32,9 +34,11 @@ class ChannelController extends Controller
         if ($form->isValid()) {
             $channel = $form->getData();
             
-            $channel->setType(Channel::TYPE_STANDARD);
-            
             $user = $this->getUser();
+            
+            $channel->setType(Channel::TYPE_STANDARD);
+            $channel->setOwner($user); 
+            
             $user->addChannel($channel);
             
             $em->persist($channel);
@@ -42,7 +46,7 @@ class ChannelController extends Controller
             
             $em->flush();
             
-            return $this->redirect("/");
+            return $this->redirect($this->generateUrl('amilio_core_channel_list'));
         }
         
         return $this->render('AmilioCoreBundle:Channel:new.html.twig', array(
@@ -57,6 +61,27 @@ class ChannelController extends Controller
         
         return $this->render('AmilioCoreBundle:Channel:list.html.twig', array(
             'channels' => $channels
+        ));
+    }
+
+    public function showAction($userName, $channelName)
+    {
+        $channelOwners = $this->getDoctrine()->getRepository('AmilioCoreBundle:User')->findBy(array('usernameCanonical' => $userName));       
+        if(count($channelOwners) === 0) {
+            throw $this->createNotFoundException('Der angebegebene Benutzer existiert nicht.');
+        }
+        $channelOwner = $channelOwners[0];
+        
+        $channelRepo = $this->getDoctrine()->getRepository('AmilioCoreBundle:Channel');        
+        $channel = $channelRepo->findOneBy(array("owner" => $channelOwner, "name" => $channelName));
+        
+        if(is_null($channel)) {
+            throw $this->createNotFoundException('Der angebegebene Kanal existiert nicht.');
+        }        
+        
+        return $this->render('AmilioCoreBundle:Channel:show.html.twig', array(
+            'owner' => $channelOwner,  
+            'channel' => $channel
         ));
     }
 }

@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8" />
+        <title>{% block title %}amilio.de{% endblock title %}</title>
     </head>
     <body>
         <div>
@@ -23,9 +24,16 @@
             {% endfor %}
         {% endfor %}
 
+		<div>
+			 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+			 	<a href="{{ path('amilio_core_channel_new') }}">Neuen Kanal anlegen</a> | 
+			 	<a href="{{ path('amilio_core_channel_list') }}">Meine Kan&auml;le</a>
+			 {% endif %}
+		</div>
+
         <div>
-            {% block fos_user_content %}
-            {% endblock fos_user_content %}
+            {% block body %}
+            {% endblock body %}
         </div>
     </body>
 </html>

@@ -1,9 +1,9 @@
-<h1>Neuen Kanal anlegen</h1>
+{% extends 'base.html.twig' %}
 
-{# src/Acme/TaskBundle/Resources/views/Default/new.html.twig #}
+{% block body %}
+<h1>Neuen Kanal anlegen</h1>
 {{ form_start(form) }}
     {{ form_errors(form) }}
-
-    {{ form_row(form.task) }}
-    {{ form_row(form.dueDate) }}
+    {{ form(form) }}
 {{ form_end(form) }}
+{% endblock body %}

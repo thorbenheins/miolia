@@ -1,8 +1,10 @@
+{% extends 'base.html.twig' %}
 
-
+{% block body %}
 <h1>Kan&auml;le</h1>
 <ul>
     {% for channel in channels %}
-        <li>{{ channel.name }} | {{ channel.description }}</li>
+        <li><a href="{{ path('amilio_core_channel_show', {'userName': channel.owner, 'channelName': channel.name}) }}">{{ channel.name }}</a></li>
     {% endfor %}
 </ul>
+{% endblock %}

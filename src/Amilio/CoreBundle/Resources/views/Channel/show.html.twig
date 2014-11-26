@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ channel.name }}{% endblock %}
+
+{% block body %}
+    <h1>Kanal {{ channel.name }} von {{ owner.username }} </h1>
+    Beschreibung: {{ channel.description }}
+    <h2>Produkte</h2>
+{% endblock %}
