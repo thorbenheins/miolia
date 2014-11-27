@@ -29,3 +29,7 @@ amilio_core_product_new:
 amilio_core_product_store:
     path:     /user/product/{channelId}/store
     defaults: { _controller: AmilioCoreBundle:Product:store }
+    
+amilio_core_product_show:
+    path:     /product/{productId}/
+    defaults: { _controller: AmilioCoreBundle:Product:show }
