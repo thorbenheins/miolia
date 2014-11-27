@@ -52,10 +52,9 @@ class Product
     /**
      * @var integer
      *
-     * @ORM\Column(name="price", type="integer")
+     * @ORM\Column(name="price", type="float")
      */
     private $price;
-
 
     /**
      * @ORM\ManyToMany(targetEntity="Channel", inversedBy="products")

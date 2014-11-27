@@ -15,9 +15,17 @@ amilio_core_channel_list:
     defaults: { _controller: AmilioCoreBundle:Channel:list }    
     
 amilio_core_channel_show:
-    path:     /{userName}/{channelName}/
+    path:     /u/{userName}/{channelName}/
     defaults: { _controller: AmilioCoreBundle:Channel:show }
     
 amilio_core_channel_show_premium:
     path:     /p/{channelname}
     defaults: { _controller: AmilioCoreBundle:Channel:showPremium } 
+    
+amilio_core_product_new:
+    path:     /user/product/{channelId}/new
+    defaults: { _controller: AmilioCoreBundle:Product:new }
+    
+amilio_core_product_store:
+    path:     /user/product/{channelId}/store
+    defaults: { _controller: AmilioCoreBundle:Product:store }

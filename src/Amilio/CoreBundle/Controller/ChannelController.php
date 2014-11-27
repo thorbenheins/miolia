@@ -73,7 +73,7 @@ class ChannelController extends Controller
         $channelOwner = $channelOwners[0];
         
         $channelRepo = $this->getDoctrine()->getRepository('AmilioCoreBundle:Channel');        
-        $channel = $channelRepo->findOneBy(array("owner" => $channelOwner, "name" => $channelName));
+        $channel = $channelRepo->findOneBy(array("owner" => $channelOwner, "canonical_name" => $channelName));
         
         if(is_null($channel)) {
             throw $this->createNotFoundException('Der angebegebene Kanal existiert nicht.');
@@ -81,7 +81,8 @@ class ChannelController extends Controller
         
         return $this->render('AmilioCoreBundle:Channel:show.html.twig', array(
             'owner' => $channelOwner,  
-            'channel' => $channel
+            'channel' => $channel,
+            'products' => $channel->getProducts(),
         ));
     }
 }

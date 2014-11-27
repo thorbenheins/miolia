@@ -1,6 +1,10 @@
 <?php
 namespace Amilio\CoreBundle\Entity;
 
+use Amilio\CoreBundle\Util\Url;
+
+use FOS\UserBundle\Util\Canonicalizer;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -67,6 +71,11 @@ class Channel
     private $products;
 
     /**
+     * @var string @ORM\Column(name="canonical_name", type="string", length=255)
+     */
+    private $canonical_name;
+    
+    /**
      * Get id
      *
      * @return integer
@@ -109,6 +118,8 @@ class Channel
     {
         $this->name = $name;
         
+        $this->canonical_name = Url::sluggify($name);
+        
         return $this;
     }
 
@@ -122,6 +133,17 @@ class Channel
         return $this->name;
     }
 
+    /**
+     * Get canonical name
+     *
+     * @return string
+     */
+    public function getCanonicalName()
+    {
+        return $this->canonical_name;
+    }
+    
+    
     /**
      * Set image
      *

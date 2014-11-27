@@ -5,5 +5,13 @@
 {% block body %}
     <h1>Kanal {{ channel.name }} von {{ owner.username }} </h1>
     Beschreibung: {{ channel.description }}
+    
+    <a href="{{ path("amilio_core_product_new", {'channelId': channel.id }) }}">Produkt hibnzuf&uuml;gen</a>
+    
+    
     <h2>Produkte</h2>
+    
+    {% for product in products %}
+      {{ product.name }} | {{  product.url }} <br />
+    {% endfor %}
 {% endblock %}
