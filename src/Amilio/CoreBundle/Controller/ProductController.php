@@ -30,7 +30,7 @@ class ProductController extends Controller
 
         if ($form->isValid()) {
 
-            $channel = $this->getDoctrine()->getEntityManager()->find('AmilioCoreBundle:Channel', $channelId);
+            $channel = $this->getDoctrine()->getManager()->find('AmilioCoreBundle:Channel', $channelId);
 
             $product = $form->getData();
 
@@ -52,7 +52,7 @@ class ProductController extends Controller
 
     public function showAction($productId)
     {
-        $product = $this->getDoctrine()->getEntityManager()->find('AmilioCoreBundle:Product', $productId);
+        $product = $this->getDoctrine()->getManager()->find('AmilioCoreBundle:Product', $productId);
         return $this->render('AmilioCoreBundle:Product:show.html.twig', array('product' => $product, 'channels' => $product->getChannels()));
     }
 }
