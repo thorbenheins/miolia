@@ -1,0 +1,321 @@
+<?xml version="1.0"?>
+<ItemLookupResponse xmlns="http://webservices.amazon.com/AWSECommerceService/2011-08-01">
+  <OperationRequest>
+    <HTTPHeaders>
+      <Header Name="UserAgent" Value="ApaiIO [2.0.0-DEV]"/>
+    </HTTPHeaders>
+    <RequestId>c35ed7f3-d8e1-4546-9c62-794274d08412</RequestId>
+    <Arguments>
+      <Argument Name="Operation" Value="ItemLookup"/>
+      <Argument Name="Service" Value="AWSECommerceService"/>
+      <Argument Name="AssociateTag" Value="phhamebuthsok-21"/>
+      <Argument Name="Version" Value="2011-08-01"/>
+      <Argument Name="Signature" Value="GRL+r8fxAS5NA9fAJ3CsOsrK5tMpyIp29kktBNEhVaI="/>
+      <Argument Name="ItemId" Value="3868020888"/>
+      <Argument Name="AWSAccessKeyId" Value="AKIAIFRXAG3QO5FTIQHA"/>
+      <Argument Name="Timestamp" Value="2014-11-29T11:56:57Z"/>
+      <Argument Name="ResponseGroup" Value="Large"/>
+    </Arguments>
+    <RequestProcessingTime>0.0344810000000000</RequestProcessingTime>
+  </OperationRequest>
+  <Items>
+    <Request>
+      <IsValid>True</IsValid>
+      <ItemLookupRequest>
+        <IdType>ASIN</IdType>
+        <ItemId>3868020888</ItemId>
+        <ResponseGroup>Large</ResponseGroup>
+        <VariationPage>All</VariationPage>
+      </ItemLookupRequest>
+    </Request>
+    <Item>
+      <ASIN>3868020888</ASIN>
+      <DetailPageURL>http://www.amazon.de/Erfolgreiche-Softwareprojekte-Web-Gedanken-Webentwicklung/dp/3868020888%3FSubscriptionId%3DAKIAIFRXAG3QO5FTIQHA%26tag%3Dphhamebuthsok-21%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D3868020888</DetailPageURL>
+      <ItemLinks>
+        <ItemLink>
+          <Description>Add To Wishlist</Description>
+          <URL>http://www.amazon.de/gp/registry/wishlist/add-item.html%3Fasin.0%3D3868020888%26SubscriptionId%3DAKIAIFRXAG3QO5FTIQHA%26tag%3Dphhamebuthsok-21%26linkCode%3Dxm2%26camp%3D2025%26creative%3D12738%26creativeASIN%3D3868020888</URL>
+        </ItemLink>
+        <ItemLink>
+          <Description>Tell A Friend</Description>
+          <URL>http://www.amazon.de/gp/pdp/taf/3868020888%3FSubscriptionId%3DAKIAIFRXAG3QO5FTIQHA%26tag%3Dphhamebuthsok-21%26linkCode%3Dxm2%26camp%3D2025%26creative%3D12738%26creativeASIN%3D3868020888</URL>
+        </ItemLink>
+        <ItemLink>
+          <Description>All Customer Reviews</Description>
+          <URL>http://www.amazon.de/review/product/3868020888%3FSubscriptionId%3DAKIAIFRXAG3QO5FTIQHA%26tag%3Dphhamebuthsok-21%26linkCode%3Dxm2%26camp%3D2025%26creative%3D12738%26creativeASIN%3D3868020888</URL>
+        </ItemLink>
+        <ItemLink>
+          <Description>All Offers</Description>
+          <URL>http://www.amazon.de/gp/offer-listing/3868020888%3FSubscriptionId%3DAKIAIFRXAG3QO5FTIQHA%26tag%3Dphhamebuthsok-21%26linkCode%3Dxm2%26camp%3D2025%26creative%3D12738%26creativeASIN%3D3868020888</URL>
+        </ItemLink>
+      </ItemLinks>
+      <SalesRank>219416</SalesRank>
+      <SmallImage>
+        <URL>http://ecx.images-amazon.com/images/I/51eOiUkpcIL._SL75_.jpg</URL>
+        <Height Units="pixels">75</Height>
+        <Width Units="pixels">52</Width>
+      </SmallImage>
+      <MediumImage>
+        <URL>http://ecx.images-amazon.com/images/I/51eOiUkpcIL._SL160_.jpg</URL>
+        <Height Units="pixels">160</Height>
+        <Width Units="pixels">112</Width>
+      </MediumImage>
+      <LargeImage>
+        <URL>http://ecx.images-amazon.com/images/I/51eOiUkpcIL.jpg</URL>
+        <Height Units="pixels">500</Height>
+        <Width Units="pixels">349</Width>
+      </LargeImage>
+      <ImageSets>
+        <ImageSet Category="primary">
+          <SwatchImage>
+            <URL>http://ecx.images-amazon.com/images/I/51eOiUkpcIL._SL30_.jpg</URL>
+            <Height Units="pixels">30</Height>
+            <Width Units="pixels">21</Width>
+          </SwatchImage>
+          <SmallImage>
+            <URL>http://ecx.images-amazon.com/images/I/51eOiUkpcIL._SL75_.jpg</URL>
+            <Height Units="pixels">75</Height>
+            <Width Units="pixels">52</Width>
+          </SmallImage>
+          <ThumbnailImage>
+            <URL>http://ecx.images-amazon.com/images/I/51eOiUkpcIL._SL75_.jpg</URL>
+            <Height Units="pixels">75</Height>
+            <Width Units="pixels">52</Width>
+          </ThumbnailImage>
+          <TinyImage>
+            <URL>http://ecx.images-amazon.com/images/I/51eOiUkpcIL._SL110_.jpg</URL>
+            <Height Units="pixels">110</Height>
+            <Width Units="pixels">77</Width>
+          </TinyImage>
+          <MediumImage>
+            <URL>http://ecx.images-amazon.com/images/I/51eOiUkpcIL._SL160_.jpg</URL>
+            <Height Units="pixels">160</Height>
+            <Width Units="pixels">112</Width>
+          </MediumImage>
+          <LargeImage>
+            <URL>http://ecx.images-amazon.com/images/I/51eOiUkpcIL.jpg</URL>
+            <Height Units="pixels">500</Height>
+            <Width Units="pixels">349</Width>
+          </LargeImage>
+        </ImageSet>
+      </ImageSets>
+      <ItemAttributes>
+        <Author>Nils Langner</Author>
+        <Binding>Broschiert</Binding>
+        <EAN>9783868020885</EAN>
+        <EANList>
+          <EANListElement>9783868020885</EANListElement>
+        </EANList>
+        <ISBN>3868020888</ISBN>
+        <IsEligibleForTradeIn>1</IsEligibleForTradeIn>
+        <Label>Entwickler.Press</Label>
+        <Languages>
+          <Language>
+            <Name>Deutsch</Name>
+            <Type>Unbekannt</Type>
+          </Language>
+          <Language>
+            <Name>Deutsch</Name>
+            <Type>Original</Type>
+          </Language>
+          <Language>
+            <Name>Deutsch</Name>
+            <Type>Published</Type>
+          </Language>
+        </Languages>
+        <ListPrice>
+          <Amount>2490</Amount>
+          <CurrencyCode>EUR</CurrencyCode>
+          <FormattedPrice>EUR 24,90</FormattedPrice>
+        </ListPrice>
+        <Manufacturer>Entwickler.Press</Manufacturer>
+        <NumberOfPages>250</NumberOfPages>
+        <PackageDimensions>
+          <Height Units="hundredths-inches">71</Height>
+          <Length Units="hundredths-inches">945</Length>
+          <Weight Units="hundredths-pounds">106</Weight>
+          <Width Units="hundredths-inches">646</Width>
+        </PackageDimensions>
+        <ProductGroup>Book</ProductGroup>
+        <ProductTypeName>ABIS_BOOK</ProductTypeName>
+        <PublicationDate>2013-02-20</PublicationDate>
+        <Publisher>Entwickler.Press</Publisher>
+        <Studio>Entwickler.Press</Studio>
+        <Title>Erfolgreiche Softwareprojekte im Web: 100 Gedanken zur Webentwicklung</Title>
+        <TradeInValue>
+          <Amount>155</Amount>
+          <CurrencyCode>EUR</CurrencyCode>
+          <FormattedPrice>EUR 1,55</FormattedPrice>
+        </TradeInValue>
+      </ItemAttributes>
+      <OfferSummary>
+        <LowestNewPrice>
+          <Amount>2490</Amount>
+          <CurrencyCode>EUR</CurrencyCode>
+          <FormattedPrice>EUR 24,90</FormattedPrice>
+        </LowestNewPrice>
+        <LowestUsedPrice>
+          <Amount>276</Amount>
+          <CurrencyCode>EUR</CurrencyCode>
+          <FormattedPrice>EUR 2,76</FormattedPrice>
+        </LowestUsedPrice>
+        <LowestCollectiblePrice>
+          <Amount>700</Amount>
+          <CurrencyCode>EUR</CurrencyCode>
+          <FormattedPrice>EUR 7,00</FormattedPrice>
+        </LowestCollectiblePrice>
+        <TotalNew>57</TotalNew>
+        <TotalUsed>8</TotalUsed>
+        <TotalCollectible>1</TotalCollectible>
+        <TotalRefurbished>0</TotalRefurbished>
+      </OfferSummary>
+      <Offers>
+        <TotalOffers>1</TotalOffers>
+        <TotalOfferPages>1</TotalOfferPages>
+        <MoreOffersUrl>http://www.amazon.de/gp/offer-listing/3868020888%3FSubscriptionId%3DAKIAIFRXAG3QO5FTIQHA%26tag%3Dphhamebuthsok-21%26linkCode%3Dxm2%26camp%3D2025%26creative%3D12738%26creativeASIN%3D3868020888</MoreOffersUrl>
+        <Offer>
+          <OfferAttributes>
+            <Condition>New</Condition>
+          </OfferAttributes>
+          <OfferListing>
+            <OfferListingId>sFkvhEf4uHaxOFS4uRORjkZQvca5YoeuSeR%2FOHTR7%2FozSyhrZ9zgHcXGsYF0szuuampndbjnAeoA%2FkKrBF6ccvUCl8%2Fu1WRrjYSiTtHxASY%3D</OfferListingId>
+            <Price>
+              <Amount>2490</Amount>
+              <CurrencyCode>EUR</CurrencyCode>
+              <FormattedPrice>EUR 24,90</FormattedPrice>
+            </Price>
+            <Availability>Gew&#xF6;hnlich versandfertig in 24 Stunden</Availability>
+            <AvailabilityAttributes>
+              <AvailabilityType>now</AvailabilityType>
+              <MinimumHours>0</MinimumHours>
+              <MaximumHours>0</MaximumHours>
+            </AvailabilityAttributes>
+            <IsEligibleForSuperSaverShipping>1</IsEligibleForSuperSaverShipping>
+          </OfferListing>
+        </Offer>
+      </Offers>
+      <CustomerReviews>
+        <IFrameURL>http://www.amazon.de/reviews/iframe?akid=AKIAIFRXAG3QO5FTIQHA&amp;alinkCode=xm2&amp;asin=3868020888&amp;atag=phhamebuthsok-21&amp;exp=2014-11-30T11%3A56%3A58Z&amp;v=2&amp;sig=q9ZCNj%2Bex3tAvtMra7I8ESXmTJ84tYRtjrZmduYkL1k%3D</IFrameURL>
+        <HasReviews>true</HasReviews>
+      </CustomerReviews>
+      <SimilarProducts>
+        <SimilarProduct>
+          <ASIN>3864901162</ASIN>
+          <Title>Moderne Webentwicklung: Ger&#xE4;teunabh&#xE4;ngige Entwicklung - Techniken und Trends in HTML5, CSS3 und JavaScript</Title>
+        </SimilarProduct>
+        <SimilarProduct>
+          <ASIN>3864901278</ASIN>
+          <Title>JavaScript effektiv: 68 Dinge, die ein guter JavaScript-Entwickler wissen sollte (Mit einem Geleitwort von JavaScript-Erfinder Brendan Eich)</Title>
+        </SimilarProduct>
+        <SimilarProduct>
+          <ASIN>3868020802</ASIN>
+          <Title>Knigge f&#xFC;r Softwarearchitekten</Title>
+        </SimilarProduct>
+        <SimilarProduct>
+          <ASIN>3826655486</ASIN>
+          <Title>Clean Code - Refactoring, Patterns, Testen und Techniken f&#xFC;r sauberen Code: Deutsche Ausgabe</Title>
+        </SimilarProduct>
+        <SimilarProduct>
+          <ASIN>3898647862</ASIN>
+          <Title>jQuery lernen und einsetzen: Bessere Webanwendungen mit einfachen JavaScript-Techniken entwickeln</Title>
+        </SimilarProduct>
+      </SimilarProducts>
+      <BrowseNodes>
+        <BrowseNode>
+          <BrowseNodeId>124</BrowseNodeId>
+          <Name>Computer &amp; Internet</Name>
+          <Children>
+            <BrowseNode>
+              <BrowseNodeId>165930031</BrowseNodeId>
+              <Name>Datenbanken</Name>
+            </BrowseNode>
+            <BrowseNode>
+              <BrowseNodeId>165948031</BrowseNodeId>
+              <Name>Grafik &amp; Multimedia</Name>
+            </BrowseNode>
+            <BrowseNode>
+              <BrowseNodeId>165968031</BrowseNodeId>
+              <Name>Hardware &amp; Technik</Name>
+            </BrowseNode>
+            <BrowseNode>
+              <BrowseNodeId>166008031</BrowseNodeId>
+              <Name>IT-Ausbildung &amp; -Berufe</Name>
+            </BrowseNode>
+            <BrowseNode>
+              <BrowseNodeId>403626</BrowseNodeId>
+              <Name>L&#xF6;sungsb&#xFC;cher f&#xFC;r PC- &amp; Videospiele</Name>
+            </BrowseNode>
+            <BrowseNode>
+              <BrowseNodeId>165988031</BrowseNodeId>
+              <Name>Mac</Name>
+            </BrowseNode>
+            <BrowseNode>
+              <BrowseNodeId>165976031</BrowseNodeId>
+              <Name>Microsoft</Name>
+            </BrowseNode>
+            <BrowseNode>
+              <BrowseNodeId>166022031</BrowseNodeId>
+              <Name>Programmierung &amp; Webdesign</Name>
+            </BrowseNode>
+            <BrowseNode>
+              <BrowseNodeId>165942031</BrowseNodeId>
+              <Name>Sicherheit</Name>
+            </BrowseNode>
+            <BrowseNode>
+              <BrowseNodeId>165997031</BrowseNodeId>
+              <Name>Unix &amp; Linux</Name>
+            </BrowseNode>
+          </Children>
+          <Ancestors>
+            <BrowseNode>
+              <BrowseNodeId>541686</BrowseNodeId>
+              <Name>Kategorien</Name>
+              <IsCategoryRoot>1</IsCategoryRoot>
+              <Ancestors>
+                <BrowseNode>
+                  <BrowseNodeId>186606</BrowseNodeId>
+                  <Name>B&#xFC;cher</Name>
+                </BrowseNode>
+              </Ancestors>
+            </BrowseNode>
+          </Ancestors>
+        </BrowseNode>
+        <BrowseNode>
+          <BrowseNodeId>655742</BrowseNodeId>
+          <Name>Software-Entwicklung</Name>
+          <Ancestors>
+            <BrowseNode>
+              <BrowseNodeId>655722</BrowseNodeId>
+              <Name>Praktische Informatik</Name>
+              <Ancestors>
+                <BrowseNode>
+                  <BrowseNodeId>655708</BrowseNodeId>
+                  <Name>Informatik</Name>
+                  <Ancestors>
+                    <BrowseNode>
+                      <BrowseNodeId>288100</BrowseNodeId>
+                      <Name>Fachb&#xFC;cher</Name>
+                      <Ancestors>
+                        <BrowseNode>
+                          <BrowseNodeId>541686</BrowseNodeId>
+                          <Name>Kategorien</Name>
+                          <IsCategoryRoot>1</IsCategoryRoot>
+                          <Ancestors>
+                            <BrowseNode>
+                              <BrowseNodeId>186606</BrowseNodeId>
+                              <Name>B&#xFC;cher</Name>
+                            </BrowseNode>
+                          </Ancestors>
+                        </BrowseNode>
+                      </Ancestors>
+                    </BrowseNode>
+                  </Ancestors>
+                </BrowseNode>
+              </Ancestors>
+            </BrowseNode>
+          </Ancestors>
+        </BrowseNode>
+      </BrowseNodes>
+    </Item>
+  </Items>
+</ItemLookupResponse>
