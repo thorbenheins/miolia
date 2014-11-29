@@ -36,6 +36,7 @@ header a {
 }
 
 header a:HOVER {
+	color: white;
 	border-bottom: 1px solid #FFF;
 	padding-bottom: 2px;		
 }
