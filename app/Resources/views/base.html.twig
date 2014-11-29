@@ -45,7 +45,7 @@
                             </li>
                             <li>
                                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                                    {{ app.user.username }}
+                                    <img src="/images/dropdown.png" /> {{ app.user.username }}</p>
                                     <ul> 
                                         <li><a href="{{ path('amilio_core_channel_list') }}">Meine Kan&auml;le</a></li>
                                         <li><a href="{{ path('fos_user_security_logout') }}">Abmelden</a></li>
@@ -71,7 +71,7 @@
             {% endfor %}
         {% endfor %}
 
-        <div>
+        <div class="content">
             {% block body %}
             {% endblock body %}
         </div>

@@ -68,6 +68,10 @@ header .menu .sf-menu ul {
 	color: #3a4046;
 }
 
+.sf-menu ul img {
+	margin-top: 2px;
+}
+
 .sf-menu ul a:HOVER {
 	border-bottom: 1px solid #3a4046;
 	padding-bottom: 2px;		
