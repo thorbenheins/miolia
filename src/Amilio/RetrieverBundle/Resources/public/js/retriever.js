@@ -2,26 +2,21 @@
  * Created by thorben on 29/11/14.
  */
 
-//Do the ajax request for the url
-
 (function ($) {
     //Here jQuery is $
-    //var Book = $(document.body).text();
     $(document).ready(function(){
         $('#product_url').on('change', function(){
+            $("#product_url").after("<div id='spinner_product_url' class='spinner'><img src='/images/spinner.gif'/></div>")
             $.post("/app_dev.php/api/v1/productInfo", {url: this.value}, function(data){
+                $("#spinner_product_url").remove();
+
                 $("#product_name").val(data.name);
                 $("#product_description").val(data.description);
                 $("#product_price").val(data.price);
                 //$("product_name").text(data.name);
 
-                console.debug(data)
+                //console.debug(data)
             });
         });
     });
-
-  //  var _myProduct = null;
-
 })(jQuery);
-//Amilio.getUrl('product_info')
-//()();
