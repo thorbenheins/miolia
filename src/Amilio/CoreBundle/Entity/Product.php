@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity
  */
-class Product 
+class Product implements \JsonSerializable
 {
     /**
      * @var integer
@@ -147,6 +147,22 @@ class Product
     }
 
     /**
+     * @return string
+     */
+    public function getManufacturer()
+    {
+        return $this->manufacturer;
+    }
+
+    /**
+     * @param string $manufacturer
+     */
+    public function setManufacturer($manufacturer)
+    {
+        $this->manufacturer = $manufacturer;
+    }
+
+    /**
      * Set url
      *
      * @param string $url
@@ -247,5 +263,17 @@ class Product
     public function getChannels()
     {
         return $this->channels;
+    }
+
+    /**
+     * (PHP 5 &gt;= 5.4.0)<br/>
+     * Specify data which should be serialized to JSON
+     * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
+     * @return mixed data which can be serialized by <b>json_encode</b>,
+     * which is a value of any type other than a resource.
+     */
+    function jsonSerialize() {
+        //For now we expose the whole object, there are no secrets here, right?
+        return get_object_vars($this);
     }
 }
