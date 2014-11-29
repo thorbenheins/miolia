@@ -8,15 +8,20 @@
         $('#product_url').on('change', function(){
             $("#product_url").after("<div id='spinner_product_url' class='spinner'><img src='/images/spinner.gif'/></div>")
             $.post("/app_dev.php/api/v1/productInfo", {url: this.value}, function(data){
-                $("#spinner_product_url").remove();
 
                 $("#product_name").val(data.name);
                 $("#product_description").val(data.description);
                 $("#product_price").val(data.price);
-                //$("product_name").text(data.name);
+                $("#product_image_url").val(data.image);
+                $("#radio_url").attr('checked', 'checked');
+
+                $("#product_image_url").after('<img src="'+data.image+'">');
+
 
                 //console.debug(data)
-            });
+            }).always(function() {
+                $("#spinner_product_url").remove();
+            });;
         });
     });
 })(jQuery);
