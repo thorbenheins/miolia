@@ -21,12 +21,19 @@ class Product
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id; 
+    private $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     */
+    private $foreignId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="foreignId", type="string", length=255)
      */
     private $name;
 
@@ -70,6 +77,13 @@ class Product
      * @ORM\Column(name="canonical_name", type="string", length=255)
      */
     private $canonicalName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="manufacturer", type="string", length=255)
+     */
+    private $manufacturer;
     
     /**
      * Get id
@@ -199,6 +213,29 @@ class Product
     public function getPrice()
     {
         return $this->price;
+    }
+
+    /**
+     * Set foreignId
+     *
+     * @param string $foreignId
+     * @return Product
+     */
+    public function setForeignId($foreignId)
+    {
+        $this->foreignId = $foreignId;
+
+        return $this;
+    }
+
+    /**
+     * Get foreignId
+     *
+     * @return string
+     */
+    public function getForeignId()
+    {
+        return $this->foreignId;
     }
 
     public function addChannel(Channel $channel)
