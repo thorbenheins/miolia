@@ -32,20 +32,19 @@ class AmazonRetriever implements ProductRetriever
 
     public function retrieve($url)
     {
-        $url = "http://www.amazon.de/Erfolgreiche-Softwareprojekte-Web-Gedanken-Webentwicklung-ebook/dp/B00BIUFGRI/ref=sr_1_10%05ie=UTF8&qid=1416670722&sr=8-10&keywords=langner!";
-        $url = "http://www.amazon.de/Erfolgreiche-Softwareprojekte-Web-Gedanken-Webentwicklung/dp/3868020888/ref=sr_1_1?ie=UTF8&qid=1417262130&sr=8-1&keywords=nils+langner";
-
+        //$url = "http://www.amazon.de/Erfolgreiche-Softwareprojekte-Web-Gedanken-Webentwicklung-ebook/dp/B00BIUFGRI/ref=sr_1_10%05ie=UTF8&qid=1416670722&sr=8-10&keywords=langner!";
+        //$url = "http://www.amazon.de/Erfolgreiche-Softwareprojekte-Web-Gedanken-Webentwicklung/dp/3868020888/ref=sr_1_1?ie=UTF8&qid=1417262130&sr=8-1&keywords=nils+langner";
         //$url = "http://www.amazon.de/gp/product/B00F3B4B8S/ref=s9_psimh_gw_p21_d21_i4?pf_rd_m=A3JWKAKR8XB7XF&pf_rd_s=center-2&pf_rd_r=11EACAJB1RXQF5WVCTC7&pf_rd_t=101&pf_rd_p=455353687&pf_rd_i=301128";
 
         $pattern = '^/dp/(.*)/^';
         
         preg_match($pattern, $url, $matches);
+
         // If the url did not match our requirements we dont want to do anything
         if (empty($matches[1])) {
             $pattern = '^/product/(.*)/^';
 
             preg_match($pattern, $url, $matches);
-
             if (empty($matches[1])) {
                 return null;
             }
@@ -128,6 +127,7 @@ class AmazonRetriever implements ProductRetriever
         }
 
         //TODO: This attribute might be of interest: IsAdultProduct
+
 
         return $product;
     }
