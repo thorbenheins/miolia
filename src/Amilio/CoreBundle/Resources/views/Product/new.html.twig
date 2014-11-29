@@ -14,5 +14,18 @@
 {{ form_start(form) }}
     {{ form_errors(form) }}
     {{ form(form) }}
+    
+    <input type="radio" name="image_type" value="url"> Url
+    
+        <input type="file" name="upload" /> Hochladen
+    
+        <input type="radio" name="image_type" value="file"> File
+
+        <input type="text" name="url">
+        
+        <br /><br />
+        
+        <input type="submit" value="Produkt anlegen" />
+    
 {{ form_end(form) }}
 {% endblock body %}

@@ -52,7 +52,6 @@ class ProductController extends Controller
         return $this->render('AmilioCoreBundle:Product:share.html.twig', array('product' => $product, 'channels' => $this->getUser()->getChannels()));
     }
     
-    
     public function shareStoreAction(Request $request)
     {
         $em =  $this->getDoctrine()->getManager();

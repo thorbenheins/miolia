@@ -15,9 +15,8 @@ class ProductType extends AbstractType
             ->add('description', "textarea")
             ->add('price', "money")
             //->add('image', "file")
-            ->add('save', 'submit', array(
-            'label' => 'Produkt erstellen'            
-        ));          
+            // ->add('save', 'submit', array(       'label' => 'Produkt erstellen' ))            
+        ;          
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
