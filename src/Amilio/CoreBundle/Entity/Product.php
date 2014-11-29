@@ -26,14 +26,14 @@ class Product implements \JsonSerializable
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="foreignId", type="string", length=255, nullable=true)
      */
     private $foreignId;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="foreignId", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
 
@@ -81,7 +81,7 @@ class Product implements \JsonSerializable
     /**
      * @var string
      *
-     * @ORM\Column(name="manufacturer", type="string", length=255)
+     * @ORM\Column(name="manufacturer", type="string", length=255, nullable=true)
      */
     private $manufacturer;
     
