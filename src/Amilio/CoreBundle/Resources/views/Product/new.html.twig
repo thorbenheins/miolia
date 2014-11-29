@@ -14,18 +14,5 @@
 {{ form_start(form) }}
     {{ form_errors(form) }}
     {{ form(form) }}
-    
-        <input type="radio" name="image_type" value="url" id="radio_url"> Url
-
-        <input type="text" name="url" id="product_image_url"> Hochladen
-    
-        <input type="radio" name="image_type" value="file" id="radio_file"> File
-
-        <input type="file" name="upload" id="product_image_file"/>
-        
-        <br /><br />
-        
-        <input type="submit" value="Produkt anlegen" />
-    
 {{ form_end(form) }}
 {% endblock body %}

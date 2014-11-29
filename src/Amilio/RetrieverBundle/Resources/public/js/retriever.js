@@ -12,11 +12,13 @@
                 $("#product_name").val(data.name);
                 $("#product_description").val(data.description);
                 $("#product_price").val(data.price);
-                $("#product_image_url").val(data.image);
-                $("#radio_url").attr('checked', 'checked');
+                $("#product_image").val(data.image);
+                $("#product_imageThumbnail").val(data.imageThumbnail);
 
-                $("#product_image_url").after('<img src="'+data.image+'">');
+                if ()
 
+                $("#product_image").after('<img height="200px" src="'+data.image+'">');
+                $("#product_imageThumbnail").after('<img src="'+data.imageThumbnail+'">');
 
                 //console.debug(data)
             }).always(function() {

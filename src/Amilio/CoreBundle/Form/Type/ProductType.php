@@ -14,8 +14,10 @@ class ProductType extends AbstractType
             ->add("name", "text")
             ->add('description', "textarea")
             ->add('price', "money")
-            //->add('image', "file")
-            // ->add('save', 'submit', array(       'label' => 'Produkt erstellen' ))            
+            ->add('image', "url")
+            ->add('imageThumbnail', "url")
+
+            ->add('save', 'submit', array(       'label' => 'Produkt erstellen' ))
         ;          
     }
 

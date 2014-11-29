@@ -93,6 +93,12 @@ class AmazonRetriever implements ProductRetriever
             $product->setImage($nodes->item(0)->nodeValue);
         }
 
+        $query = "//a:ImageSet[@Category='primary']/a:ThumbnailImage/a:URL";
+        $nodes = $xpath->query($query);
+        if ($nodes->length > 0) {
+            $product->setImageThumbnail($nodes->item(0)->nodeValue);
+        }
+
         //TODO: The image dimensions might be interesting too for css styles etc.
         //
 
