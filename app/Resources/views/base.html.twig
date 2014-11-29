@@ -6,7 +6,7 @@
         {% block css %}
             <link href='/css/amilio.css' rel='stylesheet' type='text/css'>
             <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>      
-            <link href="/includes/superfish/css/superfish.css" rel="stylesheet" media="screen">   
+            <link href='/css/menu.css' rel="stylesheet" media="screen">   
         {% endblock %}
         
         {% block javascripts %}
@@ -46,11 +46,10 @@
                             <li>
                                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                                     {{ app.user.username }}
-                                    </a>
-                                        <ul>
-                                            <li><a href="{{ path('fos_user_security_logout') }}">Abmelden</a></li>
-                                            <li><a href="{{ path('amilio_core_channel_list') }}">Meine Kan&auml;le</a></li>
-                                        </ul>
+                                    <ul> 
+                                        <li><a href="{{ path('amilio_core_channel_list') }}">Meine Kan&auml;le</a></li>
+                                        <li><a href="{{ path('fos_user_security_logout') }}">Abmelden</a></li>
+                                    </ul>
                                 {% else %}
                                     <a href="{{ path('fos_user_security_login') }}">anmelden</a>
                                 {% endif %}
