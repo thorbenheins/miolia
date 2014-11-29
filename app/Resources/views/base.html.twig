@@ -2,14 +2,18 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        
-        <link href='/css/amilio.css' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
 
+        {% block css %}
+            <link href='/css/amilio.css' rel='stylesheet' type='text/css'>
+            <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>      
+            <link href="/includes/superfish/css/superfish.css" rel="stylesheet" media="screen">   
+        {% endblock %}
+        
         {% block javascripts %}
             {% javascripts '@AmilioCoreBundle/Resources/public/js/*' %}
             <script type="text/javascript" src="{{ asset_url }}"></script>
             {% endjavascripts %}
+            <script src="/includes/superfish/js/superfish.js"></script> 
         {% endblock %}
 
         <title>{% block title %}amilio.de{% endblock title %}</title>
@@ -35,16 +39,18 @@
                         </ul>
                     </div>
                     <div id="menu_user">
-                        <ul>
+                        <ul class="sf-menu">
                             <li>
                                 <a href="{{ path('amilio_core_channel_new') }}">Starte einen Kanal</a>              
                             </li>
                             <li>
                                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                                    {{ app.user.username }} |
-                                    <a href="{{ path('fos_user_security_logout') }}">
-                                        abmelden
+                                    {{ app.user.username }}
                                     </a>
+                                        <ul>
+                                            <li><a href="{{ path('fos_user_security_logout') }}">Abmelden</a></li>
+                                            <li><a href="{{ path('amilio_core_channel_list') }}">Meine Kan&auml;le</a></li>
+                                        </ul>
                                 {% else %}
                                     <a href="{{ path('fos_user_security_login') }}">anmelden</a>
                                 {% endif %}
@@ -66,16 +72,15 @@
             {% endfor %}
         {% endfor %}
 
-		<div>
-			 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-
-			 	<a href="{{ path('amilio_core_channel_list') }}">Meine Kan&auml;le</a>
-			 {% endif %}
-		</div>
-
         <div>
             {% block body %}
             {% endblock body %}
         </div>
+        <script>
+        	jQuery(document).ready(function() {
+        		jQuery('ul.sf-menu').superfish();
+        	});
+        </script>
     </body>
+    
 </html>
