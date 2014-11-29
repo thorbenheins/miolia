@@ -15,8 +15,6 @@
                 $("#product_image").val(data.image);
                 $("#product_imageThumbnail").val(data.imageThumbnail);
 
-                if ()
-
                 $("#product_image").after('<img height="200px" src="'+data.image+'">');
                 $("#product_imageThumbnail").after('<img src="'+data.imageThumbnail+'">');
 

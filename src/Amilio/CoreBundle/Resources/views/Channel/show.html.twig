@@ -10,7 +10,13 @@
     
     <h2>Produkte</h2>
     
-    <a href="{{ path("amilio_core_product_new", {'channelId': channel.id }) }}">Produkt hinzuf&uuml;gen</a>
+    <div id="product_add">
+        <a href="{{ path("amilio_core_product_new", {'channelId': channel.id }) }}">
+            <img src="/images/add.png" /><br />
+            Produkt <br />hinzuf&uuml;gen
+        </a>
+    </div>
+    
 
     <br /><br />
     
