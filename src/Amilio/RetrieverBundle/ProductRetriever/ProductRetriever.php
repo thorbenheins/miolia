@@ -6,7 +6,7 @@
  * Time: 14:50
  */
 
-namespace Amilio\ShopBundle\ProductRetriever;
+namespace Amilio\RetrieverBundle\ProductRetriever;
 
 use Amilio\CoreBundle\Entity\Product;
 

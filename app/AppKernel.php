@@ -18,7 +18,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Amilio\CoreBundle\AmilioCoreBundle(),
-            new Amilio\ShopBundle\AmilioShopBundle(),
+            new Amilio\RetrieverBundle\AmilioRetrieverBundle(),
             new Exeu\ApaiIOBundle\ExeuApaiIOBundle(),
         );
 

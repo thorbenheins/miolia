@@ -1,5 +1,5 @@
 amilio_shop:
-    resource: "@AmilioShopBundle/Resources/config/routing.yml"
+    resource: "@AmilioRetrieverBundle/Resources/config/routing.yml"
     prefix:   /
 
 amilio_core:
