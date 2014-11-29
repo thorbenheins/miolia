@@ -33,9 +33,7 @@ class ProductController extends Controller
             $em->persist($product);
             $em->flush();
 
-            return $this
-                    ->redirect(
-                            $this->generateUrl('amilio_core_channel_show', array("channelName" => $channel->getCanonicalName(), "userName" => $channel->getOwner()->getUsername())));
+            return $this->redirect($this->generateUrl('amilio_core_channel_show', array("channelName" => $channel->getCanonicalName(), "userName" => $channel->getOwner()->getUsername())));
         }
 
         return $this->render('AmilioCoreBundle:Product:new.html.twig', array('form' => $form->createView()));
@@ -48,4 +46,25 @@ class ProductController extends Controller
         }
         return $this->render('AmilioCoreBundle:Product:show.html.twig', array('product' => $product, 'channels' => $product->getChannels()));
     }
+
+    public function shareAction(Product $product)
+    {
+        return $this->render('AmilioCoreBundle:Product:share.html.twig', array('product' => $product, 'channels' => $this->getUser()->getChannels()));
+    }
+    
+    
+    public function shareStoreAction(Request $request)
+    {
+        $em =  $this->getDoctrine()->getManager();
+
+        $product = $em->find('AmilioCoreBundle:Product', $request->get('productId'));
+        $channel = $em->find('AmilioCoreBundle:Channel', $request->get('channelId'));
+        
+        $product->addChannel($channel);
+        
+        $em->persist($product);
+        $em->flush();
+        
+        return $this->redirect($this->generateUrl('amilio_core_channel_show', array('channelName' => $channel->getCanonicalName(), 'userName' => $channel->getOwner()->getUsername() )));
+    }    
 }
