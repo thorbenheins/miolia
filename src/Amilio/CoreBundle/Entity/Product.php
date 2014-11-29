@@ -59,6 +59,13 @@ class Product implements \JsonSerializable
     private $image;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="imageThumbnail", type="string", length=255)
+     */
+    private $imageThumbnail;
+
+    /**
      * @var float
      *
      * @ORM\Column(name="price", type="float")
@@ -289,6 +296,22 @@ class Product implements \JsonSerializable
     public function setCurrency($currency)
     {
         $this->currency = $currency;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImageThumbnail()
+    {
+        return $this->imageThumbnail;
+    }
+
+    /**
+     * @param string $imageThumbnail
+     */
+    public function setImageThumbnail($imageThumbnail)
+    {
+        $this->imageThumbnail = $imageThumbnail;
     }
 
     /**
