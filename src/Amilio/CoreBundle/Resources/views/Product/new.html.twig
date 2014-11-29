@@ -1,5 +1,14 @@
 {% extends 'base.html.twig' %}
 
+{% block javascripts%}
+    {{ parent() }}
+
+    {% javascripts '@AmilioRetrieverBundle/Resources/public/js/*' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+{% endblock  javascripts%}
+
 {% block body %}
 <h1>Neues Produkt hinzuf&uuml;gen</h1>
 {{ form_start(form) }}

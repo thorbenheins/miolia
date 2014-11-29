@@ -1,6 +1,6 @@
 <?php
 
-namespace Amilio\ShopBundle\Tests\Controller;
+namespace Amilio\RetrieverBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
