@@ -50,9 +50,11 @@ class ProductController extends Controller
         return $this->render('AmilioCoreBundle:Product:new.html.twig', array('form' => $form->createView()));
     }
 
-    public function showAction($productId)
+    public function showAction(Product $product, $canonicalName)
     {
-        $product = $this->getDoctrine()->getManager()->find('AmilioCoreBundle:Product', $productId);
+        if ( $product->getCanonicalName() != $canonicalName ) {
+            return $this->redirect($this->generateUrl('amilio_core_product_show', array('product' => $product->getId(), 'canonicalName' => $product->getCanonicalName())), 302);
+        }
         return $this->render('AmilioCoreBundle:Product:show.html.twig', array('product' => $product, 'channels' => $product->getChannels()));
     }
 }

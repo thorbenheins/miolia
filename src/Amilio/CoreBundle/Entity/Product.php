@@ -2,6 +2,8 @@
 
 namespace Amilio\CoreBundle\Entity;
 
+use Amilio\CoreBundle\Util\Url;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -63,6 +65,13 @@ class Product
     private $channels;    
     
     /**
+     * @var string
+     *
+     * @ORM\Column(name="canonical_name", type="string", length=255)
+     */
+    private $canonicalName;
+    
+    /**
      * Get id
      *
      * @return integer 
@@ -81,7 +90,7 @@ class Product
     public function setName($name)
     {
         $this->name = $name;
-
+        $this->canonicalName = Url::sluggify($name);
         return $this;
     }
 
@@ -95,6 +104,11 @@ class Product
         return $this->name;
     }
 
+    public function getCanonicalName()
+    {
+        return $this->canonicalName;
+    }
+    
     /**
      * Set description
      *

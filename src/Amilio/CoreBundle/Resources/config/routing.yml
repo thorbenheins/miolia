@@ -19,7 +19,7 @@ amilio_core_channel_show:
     defaults: { _controller: AmilioCoreBundle:Channel:show }
     
 amilio_core_channel_show_premium:
-    path:     /p/{channelname}
+    path:     /p/{channelname}/
     defaults: { _controller: AmilioCoreBundle:Channel:showPremium } 
     
 amilio_core_product_new:
@@ -31,5 +31,5 @@ amilio_core_product_store:
     defaults: { _controller: AmilioCoreBundle:Product:store }
     
 amilio_core_product_show:
-    path:     /product/{productId}/
+    path:     /product/{product}/{canonicalName}.html
     defaults: { _controller: AmilioCoreBundle:Product:show }
