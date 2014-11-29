@@ -12,7 +12,11 @@
                 $("#product_name").val(data.name);
                 $("#product_description").val(data.description);
                 $("#product_price").val(data.price);
-                //$("product_name").text(data.name);
+                $("#product_image_url").val(data.image);
+                $("#radio_url").attr('checked', 'checked');
+
+                $("#product_image_url").after('<img src="'+data.image+'">');
+
 
                 //console.debug(data)
             }).always(function() {
