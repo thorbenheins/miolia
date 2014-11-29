@@ -5,7 +5,13 @@
         
         <link href='/css/amilio.css' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
-        
+
+        {% block javascripts %}
+            {% javascripts '@AmilioCoreBundle/Resources/public/js/*' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% endblock %}
+
         <title>{% block title %}amilio.de{% endblock title %}</title>
     </head>
     <body>
