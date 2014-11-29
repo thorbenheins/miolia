@@ -1,0 +1,52 @@
+@CHARSET "UTF-8";
+
+body {
+	padding: 0;
+	margin: 0;
+}
+
+.content {
+	width: 1200px;
+	margin: 0 auto;
+	padding: 0;
+} 
+
+header {
+	text-align: center;
+	width: 100%;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 14px;
+}
+
+header a {
+	color: white;
+	text-decoration: none;
+}
+
+header a:HOVER {
+	border-bottom: 1px solid #FFF;
+	padding-bottom: 2px;		
+}
+
+header .menu {
+	background-color: #3a4046;
+	color: white;
+	height: 30px;
+	padding-top: 10px;
+	text-transform:uppercase;
+}
+
+header .menu ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+header .menu li {
+	float: left;
+	padding-right: 20px;
+}
+
+#menu_user {
+	float: right;
+}

@@ -2,20 +2,56 @@
 <html>
     <head>
         <meta charset="UTF-8" />
+        
+        <link href='/css/amilio.css' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+        
         <title>{% block title %}amilio.de{% endblock title %}</title>
     </head>
     <body>
-        <div>
-            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-                <a href="{{ path('fos_user_security_logout') }}">
-                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                </a>
-            {% else %}
-                <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-            {% endif %}
-        </div>
-
+        <header>
+            <div class="menu">
+                <div class="content">
+                    <div id="menu_navigation">
+                        <ul>
+                            <li>
+                                &Uuml;ber uns
+                            </li>
+                            <li>
+                                Blog
+                            </li>
+                            <li>
+                                Premiumkan&auml;le
+                            </li>
+                            <li>
+                                Nutzerkan&auml;le
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="menu_user">
+                        <ul>
+                            <li>
+                                <a href="{{ path('amilio_core_channel_new') }}">Starte einen Kanal</a>              
+                            </li>
+                            <li>
+                                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                    {{ app.user.username }} |
+                                    <a href="{{ path('fos_user_security_logout') }}">
+                                        abmelden
+                                    </a>
+                                {% else %}
+                                    <a href="{{ path('fos_user_security_login') }}">anmelden</a>
+                                {% endif %}
+                            </li>
+                        </ul>
+                    </div>       
+                </div>
+            </div>
+            
+        </header>
+        
+        <div style="clear: both"></div>
+        
         {% for type, messages in app.session.flashBag.all %}
             {% for message in messages %}
                 <div class="{{ type }}">
@@ -26,7 +62,7 @@
 
 		<div>
 			 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-			 	<a href="{{ path('amilio_core_channel_new') }}">Neuen Kanal anlegen</a> | 
+
 			 	<a href="{{ path('amilio_core_channel_list') }}">Meine Kan&auml;le</a>
 			 {% endif %}
 		</div>
