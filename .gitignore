@@ -42,3 +42,5 @@
 /composer.phar
 
 /composer.lock
+
+/web/php_errors.log
