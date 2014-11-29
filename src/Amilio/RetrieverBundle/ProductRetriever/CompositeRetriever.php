@@ -1,5 +1,5 @@
 <?php
-namespace Amilio\ShopBundle\ProductRetriever;
+namespace Amilio\RetrieverBundle\ProductRetriever;
 
 class CompositeRetriever implements ProductRetriever
 {

@@ -1,11 +1,11 @@
 <?php
-namespace Amilio\ShopBundle\Controller;
+namespace Amilio\RetrieverBundle\Controller;
 
 use Amilio\CoreBundle\Entity\Product;
 
-use Amilio\ShopBundle\ProductRetriever\CompositeRetriever;
-use Amilio\ShopBundle\ProductRetriever\AmazonRetriever;
-use Amilio\ShopBundle\ProductRetriever\ProductRetriever;
+use Amilio\RetrieverBundle\ProductRetriever\CompositeRetriever;
+use Amilio\RetrieverBundle\ProductRetriever\AmazonRetriever;
+use Amilio\RetrieverBundle\ProductRetriever\ProductRetriever;
 use ApaiIO\ApaiIO;
 use ApaiIO\Operations\Lookup;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;

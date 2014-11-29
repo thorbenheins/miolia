@@ -5,7 +5,7 @@
  * Date: 22/11/14
  * Time: 15:01
  */
-namespace Amilio\ShopBundle\ProductRetriever;
+namespace Amilio\RetrieverBundle\ProductRetriever;
 
 use Amilio\CoreBundle\Entity\Product;
 use ApaiIO\ApaiIO;
