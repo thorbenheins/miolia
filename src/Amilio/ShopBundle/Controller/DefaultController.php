@@ -30,7 +30,6 @@ class DefaultController extends Controller
         } else {
             $product = new Product();
         }
-
         /** @var JsonResponse $response */
         $response = new JsonResponse();
 

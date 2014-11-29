@@ -59,11 +59,21 @@ class Product implements \JsonSerializable
     private $image;
 
     /**
-     * @var integer
+     * @var float
      *
      * @ORM\Column(name="price", type="float")
      */
     private $price;
+
+    const CURRENCY_EUR = 'EUR';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="currency", type="string", length=3)
+     */
+    private $currency = self::CURRENCY_EUR;
+
 
     /**
      * @ORM\ManyToMany(targetEntity="Channel", inversedBy="products")
@@ -263,6 +273,22 @@ class Product implements \JsonSerializable
     public function getChannels()
     {
         return $this->channels;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCurrency()
+    {
+        return $this->currency;
+    }
+
+    /**
+     * @param string $currency
+     */
+    public function setCurrency($currency)
+    {
+        $this->currency = $currency;
     }
 
     /**
