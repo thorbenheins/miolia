@@ -58,3 +58,8 @@ header .menu li {
 	position: absolute;
 	left: calc( 50% - 640px);
 }
+
+.spinner {
+    display: inline;
+    padding-left: 4px;
+}
