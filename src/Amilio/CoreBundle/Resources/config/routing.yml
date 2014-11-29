@@ -33,3 +33,11 @@ amilio_core_product_store:
 amilio_core_product_show:
     path:     /product/{product}/{canonicalName}.html
     defaults: { _controller: AmilioCoreBundle:Product:show }
+    
+amilio_core_product_share:
+    path:     /user/share/product/{product}.html
+    defaults: { _controller: AmilioCoreBundle:Product:share }
+    
+amilio_core_product_share_store:
+    path:     /user/share/store/product/
+    defaults: { _controller: AmilioCoreBundle:Product:shareStore }

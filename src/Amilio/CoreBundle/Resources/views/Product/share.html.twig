@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produkt teilen {{ product.name }}{% endblock %}
+
+{% block body %}
+    <h1>Produkt in Kanal &uuml;bernehmen "{{ product.name }}" </h1>
+    
+    <h2>Kan&auml;le</h2>
+    
+    <ul>
+        <form action="{{ path('amilio_core_product_share_store') }}" method="POST">
+            <input type="hidden" name="productId" value="{{ product.id }}">
+            <select name="channelId">
+                {% for channel in channels %}
+                    <option value="{{ channel.id }}">{{ channel.name }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Teilen">
+        </form>
+    </ul>
+    
+{% endblock %}
