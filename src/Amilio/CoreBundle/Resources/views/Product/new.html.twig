@@ -10,22 +10,23 @@
 {% endblock  javascripts%}
 
 {% block body %}
-<h1>Neues Produkt hinzuf&uuml;gen</h1>
-{{ form_start(form) }}
-    {{ form_errors(form) }}
-    {{ form(form) }}
-    
-    <input type="radio" name="image_type" value="url"> Url
-    
-        <input type="file" name="upload" /> Hochladen
-    
-        <input type="radio" name="image_type" value="file"> File
-
-        <input type="text" name="url">
+    <h1>Neues Produkt hinzuf&uuml;gen</h1>
+    {{ form_start(form) }}
+        {{ form_errors(form) }}
         
-        <br /><br />
+        {{ form(form) }}
         
-        <input type="submit" value="Produkt anlegen" />
+        <input type="radio" name="image_type" value="url"> Url
+        
+            <input type="file" name="upload" /> Hochladen
+        
+            <input type="radio" name="image_type" value="file"> File
     
-{{ form_end(form) }}
+            <input type="text" name="url">
+            
+            <br /><br />
+            
+            <input type="submit" value="Produkt anlegen" />
+        
+    {{ form_end(form) }}
 {% endblock body %}
