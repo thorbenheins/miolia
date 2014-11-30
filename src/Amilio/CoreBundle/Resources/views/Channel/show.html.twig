@@ -43,6 +43,10 @@
     <br /><br />
     
     {% for product in products %}
+    
+      <img src="{{ product.imageThumbnail }}">
+    
       <a href="{{ path("amilio_core_product_show", {'product': product.id, 'canonicalName': product.canonicalName })  }}">{{ product.name }}</a> <br />
+   
     {% endfor %}
 {% endblock %}
