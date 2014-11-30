@@ -2,7 +2,7 @@
 
 {% block body %}
 <h1>{{ product.name }}</h1>
-  {{ product.url }} <br />
+  <a href="{{ product.url }}" target="_blank">--> zum Shop</a> <br /> <br />
   {{ product.description }}
 
  <h2>In eigenen Kanal &uuml;bernehmen</h2>
@@ -29,7 +29,5 @@
         })();
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    
-
 
 {% endblock body %}
