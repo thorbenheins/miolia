@@ -12,6 +12,7 @@
 {{ form_start(form) }}
     {{ form_errors(form) }}
     {{ form(form) }}
+    <button style="float: right; position: relative; top: -20px" onclick="$.modal.close();">Abbrechen</button>
 {{ form_end(form) }}
 
 {% endblock body %} 
