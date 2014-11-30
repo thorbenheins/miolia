@@ -1,19 +1,17 @@
-{% extends 'base.html.twig' %}
-
-{% block javascripts%}
-    {{ parent() }}
-
-    {% javascripts '@AmilioRetrieverBundle/Resources/public/js/*' %}
-    <script src="{{ asset_url }}"></script>
-    {% endjavascripts %}
-
-{% endblock  javascripts%}
-
 {% block body %}
-<h1>Neues Produkt hinzuf&uuml;gen</h1>
+
+{% javascripts '@AmilioRetrieverBundle/Resources/public/js/*' %}
+    <script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+<div style="width: 100%; text-align: center">
+<img src="/images/add.png" /><br />
+Produkt <br />hinzuf&uuml;gen
+</div>
+
 {{ form_start(form) }}
     {{ form_errors(form) }}
     {{ form(form) }}
 {{ form_end(form) }}
 
-{% endblock body %}
+{% endblock body %} 

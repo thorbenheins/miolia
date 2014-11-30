@@ -2,6 +2,14 @@
 
 {% block title %}{{ channel.name }}{% endblock %}
 
+{% block javascripts%}
+    {{ parent() }}
+
+    <script src="/includes/simplemodal/jquery.simplemodal.1.4.4.min.js"></script>
+
+{% endblock  javascripts%}
+
+
 {% block body %}
     <h1>Kanal {{ channel.name }} von {{ owner.username }} </h1>
     Beschreibung: {{ channel.description }}
@@ -15,8 +23,26 @@
             <img src="/images/add.png" /><br />
             Produkt <br />hinzuf&uuml;gen
         </a>
+        
+        <br><br>
+        
+        <a onclick='showNewProductModal()'>Neues Produkt</a>
+        
+        <div id="basicModalContent" style="display: none; background-color: white; width: 500px; border: 1px solid #000; padding: 30px; position: relative; top: -300px">
+        
+        </div>
     </div>
     
+    <script>
+      function showNewProductModal()
+      {
+    	  $.get( "{{ path("amilio_core_product_new", {'channelId': channel.id }) }}", function( data ) {
+    		  $("#basicModalContent").modal();
+    		  $("#basicModalContent").html( data );
+    		});
+    	 
+      }
+    </script>
 
     <br /><br />
     
