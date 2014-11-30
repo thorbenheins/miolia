@@ -33,7 +33,7 @@
       function showNewProductModal()
       {
     	  $.get( "{{ path("amilio_core_product_new", {'channelId': channel.id }) }}", function( data ) {
-    		  $("#basicModalContent").modal();
+    		  $("#basicModalContent").modal({ opacity:80, overlayCss: {backgroundColor:"#000"}});
     		  $("#basicModalContent").html( data );
     		});
     	 
