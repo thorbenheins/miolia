@@ -53,6 +53,19 @@
                                     </ul>
                                 {% else %}
                                     <a href="{{ path('fos_user_security_login') }}">anmelden</a>
+                                    <ul> 
+                                        <li style="width: 300px">
+                                            <form action="{{ path("fos_user_security_check") }}" method="post">
+                                              <label>Email</label>
+                                              <input type="text" name="_username" required="required" />
+                                              <br />  
+                                              <label>Password</label>
+                                              <input type="password" name="_password" required="required" />
+                                              <br />
+                                               <input type="hidden" name="_csrf_token" value="{{ fos_csrf_provider.generateCsrfToken('authenticate') }}" />
+                                              <button type="submit">Submit</button>
+                                            </form></li>
+                                    </ul>
                                 {% endif %}
                             </li>
                         </ul>
