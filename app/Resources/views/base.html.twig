@@ -44,15 +44,15 @@
                             <li>
                                 <a href="{{ path('amilio_core_channel_new') }}">Starte einen Kanal</a>              
                             </li>
-                            <li>
+                            <li class="top_level_menu">
                                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                                    <img src="/images/dropdown.png" /> {{ app.user.username }}</p>
+			    	    <a href="#">{{ app.user.username }}</a>
                                     <ul> 
                                         <li><a href="{{ path('amilio_core_channel_list') }}">Meine Kan&auml;le</a></li>
                                         <li><a href="{{ path('fos_user_security_logout') }}">Abmelden</a></li>
                                     </ul>
                                 {% else %}
-                                    Anmelden
+                                    <a class="simple_link" href="#">Anmelden</a>
                                     <ul id="menu_login"> 
                                         <li>
                                             <form action="{{ path("fos_user_security_check") }}" method="post">
