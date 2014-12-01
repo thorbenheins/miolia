@@ -77,7 +77,7 @@ header .menu li {
 
 .spinner {
 	display: inline;
-	padding-left: 4px;
+	padding-left: 4px; 
 }
 
 #product_add {
@@ -91,18 +91,47 @@ header .menu li {
 	border-bottom-width: 0px;
 }
 
-#product input {
+.modal_form input {
 	width: 100%;
 	margin-bottom: 10px;
 }
 
-#product textarea {
+.modal_form textarea {
 	width: 100%;
 	margin-bottom: 10px;
 }
 
-#product button {
+.modal_form button {
 	margin-top: 30px;
+}
+
+.modal_form .info {
+	font-size: 12px;
+	padding-bottom: 30px;
+}
+
+.step_2 {
+	display: none;
+}
+
+.head {
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.head h1 {
+	width: 100%;
+	text-align: center;
+	font-weight: normal;
+	
+}
+
+.head p {
+	width: 80%;
+}
+
+.head .logo {
+	padding-bottom: 20px;
 }
 
 #menu_login input {
@@ -120,4 +149,10 @@ header .menu li {
 	width: 200px;
 	height: 160px;
 	color: black
+}
+
+.center {
+	text-align: center;
+	width: 100%;
+	margin: 0 auto;
 }

@@ -1,6 +1,8 @@
 <?php
 namespace Amilio\CoreBundle\Controller;
 
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 use Amilio\CoreBundle\Entity\ChannelRepository;
 
 use Amilio\CoreBundle\Form\Type\ChannelType;
@@ -22,6 +24,26 @@ class ChannelController extends Controller
         ));
     }
 
+    /**
+     * This function moves the uploaded file to the given upload dir and renames it.
+     * 
+     * @param UploadedFile $file
+     * @return string the new filename
+     */
+    private function handleFileUpload(UploadedFile $file) {
+        // @todo check for image extension
+        // @todo use a config file for the path
+        $extension = $file->guessExtension();
+        
+        $filename = md5($this->getUser()->getUsername() . time() ) . '.' . $extension;
+        
+        $newFile = __DIR__ . "/../../../../web/upload/".$filename;
+        
+        rename($file->getPath() . DIRECTORY_SEPARATOR . $file->getFilename(), $newFile);
+        
+        return '/upload/'.$filename;        
+    }
+    
     public function storeAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
@@ -38,7 +60,9 @@ class ChannelController extends Controller
             
             $channel->setType(Channel::TYPE_STANDARD);
             $channel->setOwner($user); 
-            
+                       
+            $channel->setImage($this->handleFileUpload($form['image']->getData()));
+
             $user->addChannel($channel);
             
             $em->persist($channel);

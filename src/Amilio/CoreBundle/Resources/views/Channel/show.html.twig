@@ -11,12 +11,20 @@
 
 
 {% block body %}
-    <h1>Kanal {{ channel.name }} von {{ owner.username }} </h1>
-    Beschreibung: {{ channel.description }}
-    
-    
-    
-    <h2>Produkte</h2>
+
+    <div class="head">
+        <img src="/images/logo.png" class="logo">  <br />     
+        
+        <div class="center">
+            <img src="{{ channel.image }}">
+        </div>
+         
+        <h1>{{ channel.name }}</h1>
+        
+        <div class="center">
+                {{ channel.description }}
+        </div>
+    </div>
     
     <div id="product_add">
         <a onclick='showNewProductModal()'">

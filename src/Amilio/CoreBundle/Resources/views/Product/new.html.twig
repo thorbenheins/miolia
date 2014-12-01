@@ -10,9 +10,20 @@
 </div>
 
 {{ form_start(form) }}
+    <div class="modal_form">
     {{ form_errors(form) }}
-    {{ form(form) }}
+    {{ form_row(form.url) }}
+        <div class="info">
+            Im ersten Schritt musst du die URL eingeben des Produktes, welches du bei uns teilen m&ouml;chtest. Da bei uns alles 
+            automatisiert passiert k&ouml;nnen wir nicht alle Shops unterst&uuml;tzen. Derzeit unterst&uuml;tzen wir lediglich Produkte,
+            die es bei Amazon zu kaufen gibt.
+        </div>
+    <div class="step_2">
+        {{ form(form) }}
+    </div>
+    </div>
     <button style="float: right; position: relative; top: -20px" onclick="$.modal.close();">Abbrechen</button>
 {{ form_end(form) }}
 
 {% endblock body %} 
+ 

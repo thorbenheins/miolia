@@ -20,6 +20,8 @@
                 $("#product_image").after('<img height="200px" src="'+data.image+'">');
                 $("#product_imageThumbnail").after('<img src="'+data.imageThumbnail+'">');
 
+                $(".step_2").show();
+                
                 //console.debug(data)
             }).always(function() {
                 $("#spinner_product_url").remove();
