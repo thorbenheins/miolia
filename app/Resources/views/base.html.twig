@@ -53,20 +53,18 @@
                                     </ul>
                                 {% else %}
                                     Anmelden
-                                    <ul> 
-                                        <li style="width: 200px; height: 150px; color: black">
+                                    <ul id="menu_login"> 
+                                        <li>
                                             <form action="{{ path("fos_user_security_check") }}" method="post">
-                                              <label>Email</label><br />
-                                              <input type="text" name="_username" required="required" style="width: 180px; margin-top: 5px; margin-bottom: 15px" />
+                                              <label>Username</label><br />
+                                              <input type="text" name="_username" required="required" />
                                               <br />  
-                                              <label>Password</label><br>
-                                              <input type="password" name="_password" required="required" style="width: 180px; margin-top: 5px; margin-bottom: 15px" />
+                                              <label>Passwort</label><br>
+                                              <input type="password" name="_password" required="required" />
                                               <br />
                                                <input type="hidden" name="_csrf_token" value="{{ fos_csrf_provider.generateCsrfToken('authenticate') }}" />
                                               <button type="submit">Anmelden</button>
                                             </form>
-                                            
-                                            
                                         </li>
                                         <li>
                                             <a href="{{ path("fos_user_registration_register") }}">Registrieren.</a>

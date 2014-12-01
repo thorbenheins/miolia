@@ -14,19 +14,18 @@ a {
 a:hover {
 	color: black;
 	border-bottom: 1px solid #000;
-	padding-bottom: 2px;	
+	padding-bottom: 2px;
 }
 
 .content {
 	width: 1200px;
 	margin: 0 auto;
 	padding: 0;
-} 
+}
 
 header {
 	text-align: center;
 	width: 100%;
-	
 	font-size: 14px;
 }
 
@@ -38,7 +37,7 @@ header a {
 header a:HOVER {
 	color: white;
 	border-bottom: 1px solid #FFF;
-	padding-bottom: 2px;		
+	padding-bottom: 2px;
 }
 
 header .menu {
@@ -46,7 +45,7 @@ header .menu {
 	color: white;
 	height: 30px;
 	padding-top: 10px;
-	text-transform:uppercase;
+	text-transform: uppercase;
 }
 
 header .menu ul {
@@ -68,12 +67,12 @@ header .menu li {
 	float: left;
 	padding-right: 20px;
 	position: absolute;
-	left: calc( 50% - 640px);
+	left: calc(50% -     640px);
 }
 
 .spinner {
-    display: inline;
-    padding-left: 4px;
+	display: inline;
+	padding-left: 4px;
 }
 
 #product_add {
@@ -99,4 +98,16 @@ header .menu li {
 
 #product button {
 	margin-top: 30px;
+}
+
+#menu_login input {
+	width: 180px;
+	margin-top: 5px;
+	margin-bottom: 15px
+}
+
+#menu_login li:FIRST-CHILD {
+	width: 200px;
+	height: 150px;
+	color: black
 }
