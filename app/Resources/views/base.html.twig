@@ -52,19 +52,25 @@
                                         <li><a href="{{ path('fos_user_security_logout') }}">Abmelden</a></li>
                                     </ul>
                                 {% else %}
-                                    <a href="{{ path('fos_user_security_login') }}">anmelden</a>
+                                    Anmelden
                                     <ul> 
-                                        <li style="width: 300px">
+                                        <li style="width: 200px; height: 150px; color: black">
                                             <form action="{{ path("fos_user_security_check") }}" method="post">
-                                              <label>Email</label>
-                                              <input type="text" name="_username" required="required" />
+                                              <label>Email</label><br />
+                                              <input type="text" name="_username" required="required" style="width: 180px; margin-top: 5px; margin-bottom: 15px" />
                                               <br />  
-                                              <label>Password</label>
-                                              <input type="password" name="_password" required="required" />
+                                              <label>Password</label><br>
+                                              <input type="password" name="_password" required="required" style="width: 180px; margin-top: 5px; margin-bottom: 15px" />
                                               <br />
                                                <input type="hidden" name="_csrf_token" value="{{ fos_csrf_provider.generateCsrfToken('authenticate') }}" />
-                                              <button type="submit">Submit</button>
-                                            </form></li>
+                                              <button type="submit">Anmelden</button>
+                                            </form>
+                                            
+                                            
+                                        </li>
+                                        <li>
+                                            <a href="{{ path("fos_user_registration_register") }}">Registrieren.</a>
+                                        </li>
                                     </ul>
                                 {% endif %}
                             </li>
