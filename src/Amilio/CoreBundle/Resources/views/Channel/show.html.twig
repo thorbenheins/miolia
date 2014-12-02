@@ -6,6 +6,7 @@
     {{ parent() }}
 
     <script src="/includes/simplemodal/jquery.simplemodal.1.4.4.min.js"></script>
+    <script src="/includes/isotope/isotope.pkgd.min.js"></script>
 
 {% endblock  javascripts%}
 
@@ -13,20 +14,24 @@
 {% block body %}
 
     <div class="head">
-        <img src="/images/logo.png" class="logo">  <br />     
-        
-        <div class="center">
-            <img src="{{ channel.image }}">
+    
+        <div style="width: 100%; background-color: #3d728c; height: 400px; text-align: center">
+            <img src="/images/logo.png" class="logo">
         </div>
-         
-        <h1>{{ channel.name }}</h1>
-        
-        <div class="center">
-                {{ channel.description }}
+        <div style="width: 100%; color: #3a4046">
+             <h1>{{ channel.name }}</h1>
         </div>
+
     </div>
     
-    <div id="product_add">
+    <div>
+            <div class="center" style="width: 1200px; padding-bottom: 50px; background-color: #f9f9f9;font-family: 'Roboto', sans-serif; line-height: 24px; font-size: 12px;">
+                    <p style="padding: 30px">{{ channel.description }}</p>
+            </div>
+        </div>
+    <div>
+    
+        <div id="product_add" style="position: relative;top: -30px;">
         <a onclick='showNewProductModal()'">
             <img src="/images/add.png" /><br />
             Produkt <br />hinzuf&uuml;gen
@@ -36,7 +41,6 @@
         
         </div>
     </div>
-    
     <script>
       function showNewProductModal()
       {
@@ -48,13 +52,35 @@
       }
     </script>
 
-    <br /><br />
-    
-    {% for product in products %}
-    
-      <img src="{{ product.imageThumbnail }}">
-    
-      <a href="{{ path("amilio_core_product_show", {'product': product.id, 'canonicalName': product.canonicalName })  }}">{{ product.name }}</a> <br />
-   
-    {% endfor %}
+    <div style="background-color: white">
+        <div class="content">
+        
+            <div id="productlist">
+                        
+            {% for product in products %}
+                <div class="item">
+                  <div class="image">
+                      <img src="{{ product.image }}">
+                  </div>    
+                  <div class="title">
+                      <a href="{{ path("amilio_core_product_show", {'product': product.id, 'canonicalName': product.canonicalName })  }}">{{ product.name }}</a> <br />
+                  </div>
+                  <!-- div class="desc">{{ product.description }}</div -->
+                </div>
+            {% endfor %}
+            
+            <script type="text/javascript">
+                var $container = $('#productlist');
+                // init
+                $container.isotope({
+                  // options
+                  itemSelector: '.item',
+                  layoutMode: 'masonry'
+                });
+        
+            </script>
+            
+            </div>
+        </div>
+    </div>
 {% endblock %}
