@@ -170,6 +170,7 @@ header .menu li {
 	height: 250px;
 	vertical-align: middle;
 	display: table-cell;
+	width: 188px;
 }
 
 #productlist {
