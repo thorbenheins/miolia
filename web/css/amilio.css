@@ -178,6 +178,10 @@ header .menu li {
 	padding-top: 100px;
 }
 
+#productlist a:hover {
+	border-color: white;
+}
+
 #productlist .item {
 	width: 188px;
 	margin-left: 15px;
