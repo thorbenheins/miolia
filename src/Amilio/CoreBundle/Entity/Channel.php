@@ -67,6 +67,7 @@ class Channel
 
     /**
      * @ORM\ManyToMany(targetEntity="Product", mappedBy="channels")
+     * @ORM\OrderBy({"id" = "DESC"})
      */
     private $products;
 
