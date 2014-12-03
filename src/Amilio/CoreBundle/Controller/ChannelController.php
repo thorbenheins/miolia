@@ -90,23 +90,13 @@ class ChannelController extends Controller
         ));
     }
 
-    public function showAction($userName, $channelName)
+    public function showAction(Channel $channel, $canonicalName)
     {
-        $channelOwners = $this->getDoctrine()->getRepository('AmilioCoreBundle:User')->findBy(array('usernameCanonical' => $userName));       
-        if(count($channelOwners) === 0) {
-            throw $this->createNotFoundException('Der angebegebene Benutzer existiert nicht.');
+        if ($channel->getCanonicalName() != $canonicalName) {
+            return $this->redirect($this->generateUrl('amilio_core_channel_show', array('channel' => $channel->getId(), 'canonicalName' => $channel->getCanonicalName())), 302);
         }
-        $channelOwner = $channelOwners[0];
-        
-        $channelRepo = $this->getDoctrine()->getRepository('AmilioCoreBundle:Channel');        
-        $channel = $channelRepo->findOneBy(array("owner" => $channelOwner, "canonical_name" => $channelName));
-        
-        if(is_null($channel)) {
-            throw $this->createNotFoundException('Der angebegebene Kanal existiert nicht.');
-        }        
         
         return $this->render('AmilioCoreBundle:Channel:show.html.twig', array(
-            'owner' => $channelOwner,  
             'channel' => $channel,
             'products' => $channel->getProducts(),
         ));
