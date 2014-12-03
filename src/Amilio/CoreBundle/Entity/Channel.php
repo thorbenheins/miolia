@@ -44,7 +44,7 @@ class Channel
 
     /**
      *
-     * @var string @ORM\Column(name="image", type="string", length=255)
+     * @var string @ORM\Column(name="image", type="string", length=255, nullable=true)
      */
     private $image;
 

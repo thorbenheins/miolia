@@ -1,9 +1,12 @@
-{% extends 'base.html.twig' %}
-
-{% block body %}
-<h1>Neuen Kanal anlegen</h1>
-{{ form_start(form) }}
-    {{ form_errors(form) }}
-    {{ form(form) }}
-{{ form_end(form) }}
-{% endblock body %}
+<div class="modal_form">
+    <h1>Neuen Kanal anlegen</h1>
+    <div class="info">
+        Du hast dich also dazu entschieden einen neuen Kanal anzulegen. Wunderbar. 
+    </div>
+    
+    {{ form_start(form) }}
+        {{ form_errors(form) }}
+        {{ form(form) }}
+    {{ form_end(form) }}
+    <button style="float: right; position: relative; top: -50px" onclick="$.modal.close();">Abbrechen</button>
+</div>

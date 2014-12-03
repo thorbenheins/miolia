@@ -5,17 +5,15 @@
 {% block javascripts%}
     {{ parent() }}
 
-    <script src="/includes/simplemodal/jquery.simplemodal.1.4.4.min.js"></script>
     <script src="/includes/isotope/isotope.pkgd.min.js"></script>
 
 {% endblock  javascripts%}
-
 
 {% block body %}
 
     <div class="head">
     
-        <div style="width: 100%; background-color: #3d728c; height: 400px; text-align: center">
+        <div style="width: 100%; background-color: #3d728c; height: 400px;">
             <img src="/images/logo.png" class="logo">
         </div>
         <div style="width: 100%; color: #3a4046">
@@ -37,16 +35,15 @@
             Produkt <br />hinzuf&uuml;gen
         </a>
                 
-        <div id="basicModalContent" style="display: none; background-color: white; width: 500px; border: 1px solid #000; padding: 30px; position: relative; top: -300px">
-        
+        <div id="newProductModal" style="display: none; background-color: white; width: 500px; border: 1px solid #000; padding: 30px; position: relative; top: -300px">
         </div>
     </div>
     <script>
       function showNewProductModal()
       {
     	  $.get( "{{ path("amilio_core_product_new", {'channelId': channel.id }) }}", function( data ) {
-    		  $("#basicModalContent").modal({ opacity:80, overlayCss: {backgroundColor:"#000"}});
-    		  $("#basicModalContent").html( data );
+    		  $("#newProductModal").modal({ opacity:80, overlayCss: {backgroundColor:"#000"}});
+    		  $("#newProductModal").html( data );
     	  });    	 
       }
     </script>

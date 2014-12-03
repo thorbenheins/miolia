@@ -16,6 +16,7 @@
             <script type="text/javascript" src="{{ asset_url }}"></script>
             {% endjavascripts %}
             <script src="/includes/superfish/js/superfish.js"></script> 
+            <script src="/includes/simplemodal/jquery.simplemodal.1.4.4.min.js"></script>
         {% endblock %}
 
         <title>{% block title %}amilio.de{% endblock title %}</title>
@@ -44,7 +45,7 @@
                     <div id="menu_user">
                         <ul class="sf-menu">
                             <li>
-                                <a href="{{ path('amilio_core_channel_new') }}">Starte einen Kanal</a>              
+                                <a onclick="showNewChannelModal()" href="#">Starte einen Kanal</a>              
                             </li>
                             <li class="top_level_menu">
                                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
@@ -82,6 +83,19 @@
         </header>
         
         <div style="clear: both"></div>
+        
+        <div id="newChannelModal" style="display: none; background-color: white; width: 500px; border: 1px solid #000; padding: 30px; position: relative; top: -300px"></div>
+        
+        <script>
+          function showNewChannelModal()
+          {
+        	  $.get( "{{ path('amilio_core_channel_new') }}", function( data ) {
+        		  $("#newChannelModal").modal({ opacity:80, overlayCss: {backgroundColor:"#000"}});
+        		  $("#newChannelModal").html( data );
+        	  });    	 
+          }
+        </script>
+        
         
         {% for type, messages in app.session.flashBag.all %}
             {% for message in messages %}
