@@ -12,7 +12,7 @@ class ChannelType extends AbstractType
     {
         $builder->add("name", "text")
             ->add('description', "textarea")
-            ->add('image', "file")
+            ->add('image', "file", array('required' => false))
             ->add('save', 'submit', array(
             'label' => 'Kanal erstellen'            
         ));          

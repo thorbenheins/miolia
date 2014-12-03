@@ -61,7 +61,9 @@ class ChannelController extends Controller
             $channel->setType(Channel::TYPE_STANDARD);
             $channel->setOwner($user); 
                        
-            $channel->setImage($this->handleFileUpload($form['image']->getData()));
+            if(array_key_exists('image', $form)) {                
+                $channel->setImage($this->handleFileUpload($form['image']->getData()));
+            }
 
             $user->addChannel($channel);
             
