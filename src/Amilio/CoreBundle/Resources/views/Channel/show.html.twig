@@ -56,8 +56,9 @@
                         
                 {% for product in products %}
                     <div class="item" onmouseover="$('#product_{{ product.id }}').show()" onmouseout="$('#product_{{ product.id }}').hide()">
-                        <div style="position: relative; height: 0; top: 100px; display: none" id="product_{{ product.id }}">
-                            <!-- div style="width: 80%; text-align: center; background-color: #f69a2f; padding: 5px; margin: 10px"><a href="{{ path("amilio_core_product_show", {'product': product.id, 'canonicalName': product.canonicalName })  }}">mehr</a></div--> 
+                        <div style="position: relative; height: 0; top: 80px; display: none" id="product_{{ product.id }}">
+                            <div style="width: 145px; text-align: center; background-color: #f69a2f; padding: 10px; margin-right: 10px; margin-left: 10px; font-size: 14px; color: white;"><a href="{{ path("amilio_core_product_show", {'product': product.id, 'canonicalName': product.canonicalName })  }}" style="color: white">zur Produktseite</a></div> 
+                            <div style="height: 10px;"></div>
                             <div style="width: 145px; text-align: center; background-color: #ea691b; padding: 10px; margin-left: 10px; margin-right: 10px; font-size: 12px; color: white;"><a href="{{ product.url }}" target="_blank" style="color: white">direkt zum Shop</a></div>
                         </div>
                         <div class="image">
