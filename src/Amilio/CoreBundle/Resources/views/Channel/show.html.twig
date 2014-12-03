@@ -30,16 +30,28 @@
         </div>
     <div>
     
-        <div id="product_add" style="position: relative;top: -30px;">
-        <a onclick='showNewProductModal()'">
-            <img src="/images/add.png" /><br />
-            Produkt <br />hinzuf&uuml;gen
-        </a>
-                
+        <div id="product_add" style="position: relative; top: -30px; width: 196px;" class="center">       
+            <div style="float: left; padding-right: 60px; height: 120px;">
+                <a onclick='editChannelModal()'>
+                    <img src="/images/edit.png" /><br />
+                    Kanal <br />editieren
+                </a>
+            </div>            
+            <div>
+                <a onclick='showNewProductModal()'>
+                    <img src="/images/add.png" /><br />
+                    Produkt <br />hinzuf&uuml;gen
+                </a>
+            </div>
+        </div>
+               
         <div id="newProductModal" style="display: none; background-color: white; width: 500px; border: 1px solid #000; padding: 30px; position: relative; top: -300px">
         </div>
         
         <div id="showProductModal" style="display: none; background-color: white; width: 700px; border: 1px solid #000; padding: 30px; position: relative; top: -600px">
+        </div>
+        
+        <div id="editChannelModal" style="display: none; background-color: white; width: 700px; border: 1px solid #000; padding: 30px; position: relative; top: -600px">
         </div>
     </div>
     <script>
@@ -49,7 +61,15 @@
     		  $("#newProductModal").modal({ opacity:80, overlayCss: {backgroundColor:"#000"}});
     		  $("#newProductModal").html( data );
     	  });    	 
-      }
+      } 
+
+      function editChannelModal()
+      {
+    	  $.get( "{{ path("amilio_core_channel_edit", {'channel': channel.id }) }}", function( data ) {
+    		  $("#newProductModal").modal({ opacity:80, overlayCss: {backgroundColor:"#000"}});
+    		  $("#newProductModal").html( data );
+    	  });    	 
+      } 
 
       function showProductModal(id, name)
       {

@@ -6,9 +6,13 @@ amilio_core_channel_new:
     path:     /user/channel/new
     defaults: { _controller: AmilioCoreBundle:Channel:new }
     
+amilio_core_channel_edit:
+    path:     /user/channel/edit/{channel}/
+    defaults: { _controller: AmilioCoreBundle:Channel:edit }
+    
 amilio_core_channel_store:
-    path:     /user/channel/store
-    defaults: { _controller: AmilioCoreBundle:Channel:store }
+    path:     /user/channel/store/{channelId}
+    defaults: { _controller: AmilioCoreBundle:Channel:store, channelId: -1}
     
 amilio_core_channel_list:
     path:     /user/channel/list

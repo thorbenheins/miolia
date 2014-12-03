@@ -1,0 +1,17 @@
+<div class="modal_form">
+    <h1>Kanal bearbeiten</h1>
+    <div class="info">
+        Du hast dich also dazu entschieden einen neuen Kanal anzulegen. Wunderbar. 
+    </div>
+    
+    {{ form_start(form) }}
+        {{ form_errors(form) }}
+        
+        {% if channel.id %}
+            <input type="hidden" name="id" value="{{ channel.id }}">
+        {% endif %}
+        
+        {{ form(form) }}
+    {{ form_end(form) }}
+    <button style="float: right; position: relative; top: -50px" onclick="$.modal.close();">Abbrechen</button>
+</div>

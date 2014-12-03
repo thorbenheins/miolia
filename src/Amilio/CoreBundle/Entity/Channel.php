@@ -1,6 +1,8 @@
 <?php
 namespace Amilio\CoreBundle\Entity;
 
+use Symfony\Component\HttpFoundation\File\File;
+
 use Amilio\CoreBundle\Util\Url;
 
 use FOS\UserBundle\Util\Canonicalizer;
@@ -166,6 +168,8 @@ class Channel
     public function getImage()
     {
         return $this->image;
+        $image = new File( __DIR__ . "/../../../../web/" . $this->image);
+        return $image;
     }
 
     /**

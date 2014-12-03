@@ -33,7 +33,7 @@ class ProductController extends Controller
             $em->persist($product);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('amilio_core_channel_show', array("channelName" => $channel->getCanonicalName(), "userName" => $channel->getOwner()->getUsername())));
+            return $this->redirect($this->generateUrl('amilio_core_channel_show', array("channel" => $channel->getId(),  "canonicalName" => $channel->getCanonicalName())));
         }
 
         return $this->render('AmilioCoreBundle:Product:new.html.twig', array('form' => $form->createView()));

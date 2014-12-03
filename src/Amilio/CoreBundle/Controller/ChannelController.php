@@ -15,14 +15,26 @@ class ChannelController extends Controller
 
     public function newAction()
     {
-        $form = $this->createForm(new ChannelType(), new Channel(), array(
+        $channel = new Channel();
+        $form = $this->createForm(new ChannelType(), $channel, array(
             'action' => $this->generateUrl('amilio_core_channel_store')
         ));
         
         return $this->render('AmilioCoreBundle:Channel:new.html.twig', array(
-            'form' => $form->createView()
+            'form' => $form->createView(), 'channel' => $channel
         ));
     }
+    
+    public function editAction(Channel $channel)
+    {
+        $form = $this->createForm(new ChannelType(), $channel, array(
+            'action' => $this->generateUrl('amilio_core_channel_store', array('channelId' => $channel->getId()))
+        ));
+    
+        return $this->render('AmilioCoreBundle:Channel:new.html.twig', array(
+            'form' => $form->createView(), 'channel' => $channel
+        ));
+    }      
 
     /**
      * This function moves the uploaded file to the given upload dir and renames it.
@@ -44,11 +56,17 @@ class ChannelController extends Controller
         return '/upload/'.$filename;        
     }
     
-    public function storeAction(Request $request)
+    public function storeAction(Request $request, $channelId)
     {
+        if ($channelId == -1) {
+            $channel = new Channel();
+        }else{
+            $channel = $this->getDoctrine()->getRepository('AmilioCoreBundle:Channel')->find($channelId);
+        }     
+               
         $em = $this->getDoctrine()->getManager();
-        $form = $this->createForm(new ChannelType(), new Channel(), array(
-            'action' => $this->generateUrl('amilio_core_channel_store')
+        $form = $this->createForm(new ChannelType(), $channel, array(
+            'action' => $this->generateUrl('amilio_core_channel_store', array('channelId' => $channelId))
         ));
         
         $form->handleRequest($request);
@@ -65,14 +83,16 @@ class ChannelController extends Controller
                 $channel->setImage($this->handleFileUpload($form['image']->getData()));
             }
 
-            $user->addChannel($channel);
+            if ($channelId == -1) {
+                $user->addChannel($channel);
+                $em->persist($user);
+            }
             
             $em->persist($channel);
-            $em->persist($user);
             
             $em->flush();
             
-            return $this->redirect($this->generateUrl('amilio_core_channel_list'));
+            return $this->redirect($this->generateUrl('amilio_core_channel_show', array('channel' => $channel->getId(), 'canonicalName' => $channel->getCanonicalName())));
         }
         
         return $this->render('AmilioCoreBundle:Channel:new.html.twig', array(

@@ -11,10 +11,11 @@ class ChannelType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add("name", "text")
+//             ->add('id', "hidden")
             ->add('description', "textarea")
-            ->add('image', "file", array('required' => false))
+//             ->add('image', "file", array('required' => false))
             ->add('save', 'submit', array(
-            'label' => 'Kanal erstellen'            
+            'label' => 'Kanal speichern'            
         ));          
     }
 
