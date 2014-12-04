@@ -1,6 +1,8 @@
 <?php
 namespace Amilio\CoreBundle\Controller;
 
+use Amilio\CoreBundle\Entity\Product;
+
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 use Amilio\CoreBundle\Entity\ChannelRepository;

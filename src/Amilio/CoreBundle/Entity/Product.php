@@ -282,6 +282,12 @@ class Product implements \JsonSerializable
         return $this->channels;
     }
 
+    public function removeChannel(Channel $channel)
+    {
+        $this->channels->removeElement($channel);
+        return $this;
+    }
+    
     /**
      * @return string
      */

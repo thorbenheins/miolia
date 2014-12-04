@@ -77,7 +77,7 @@ class Channel
      * @var string @ORM\Column(name="canonical_name", type="string", length=255)
      */
     private $canonical_name;
-    
+
     /**
      * Get id
      *
@@ -97,7 +97,7 @@ class Channel
     public function setDescription($description)
     {
         $this->description = $description;
-        
+
         return $this;
     }
 
@@ -120,9 +120,9 @@ class Channel
     public function setName($name)
     {
         $this->name = $name;
-        
+
         $this->canonical_name = Url::sluggify($name);
-        
+
         return $this;
     }
 
@@ -145,8 +145,7 @@ class Channel
     {
         return $this->canonical_name;
     }
-    
-    
+
     /**
      * Set image
      *
@@ -156,7 +155,7 @@ class Channel
     public function setImage($image)
     {
         $this->image = $image;
-        
+
         return $this;
     }
 
@@ -168,7 +167,7 @@ class Channel
     public function getImage()
     {
         return $this->image;
-        $image = new File( __DIR__ . "/../../../../web/" . $this->image);
+        $image = new File(__DIR__ . "/../../../../web/" . $this->image);
         return $image;
     }
 
@@ -181,7 +180,7 @@ class Channel
     public function setType($type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
 
@@ -194,8 +193,7 @@ class Channel
     {
         return $this->type;
     }
-    
-    
+
     /**
      * Set Owner
      *
@@ -204,10 +202,10 @@ class Channel
      */
     public function setOwner(User $owner)
     {
-        $this->owner = $owner;    
+        $this->owner = $owner;
         return $this;
     }
-    
+
     /**
      * Get owner
      *
@@ -216,11 +214,18 @@ class Channel
     public function getOwner()
     {
         return $this->owner;
-    }    
+    }
 
     public function addProduct(Product $product)
     {
         $this->products[] = $product;
+        return $this;
+    }
+
+    public function removeProduct(Product $product)
+    {
+        $this->products->removeElement($product);
+        $product->removeChannel($this);
         return $this;
     }
 

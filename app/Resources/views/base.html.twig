@@ -22,6 +22,9 @@
         <title>{% block title %}amilio.de{% endblock title %}</title>
     </head>
     <body>
+        <script>
+           var userId = {{ app.user.username }};
+        </script>
         <header>
             <div class="menu">
                 <div class="content">
@@ -49,7 +52,7 @@
                             </li>
                             <li class="top_level_menu">
                                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-			    	    <a href="#">{{ app.user.username }}</a>
+			    	            <a href="#">{{ app.user.username }}</a>
                                     <ul> 
                                         <li><a href="{{ path('amilio_core_channel_list') }}">Meine Kan&auml;le</a></li>
                                         <li><a href="{{ path('fos_user_security_logout') }}">Abmelden</a></li>

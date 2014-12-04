@@ -38,6 +38,10 @@ amilio_core_product_show:
     path:     /product/{product}/{canonicalName}.html
     defaults: { _controller: AmilioCoreBundle:Product:show }
     
+amilio_core_product_remove:
+    path:     /channel/remove/{channel}/{product}
+    defaults: { _controller: AmilioCoreBundle:Product:remove }
+    
 amilio_core_product_share:
     path:     /user/share/product/{product}.html
     defaults: { _controller: AmilioCoreBundle:Product:share }

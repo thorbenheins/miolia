@@ -1,6 +1,10 @@
 <?php
 
 namespace Amilio\CoreBundle\Controller;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+
+use Amilio\CoreBundle\Entity\Channel;
+
 use Amilio\CoreBundle\Form\Type\ProductType;
 
 use Amilio\CoreBundle\Entity\Product;
@@ -64,6 +68,21 @@ class ProductController extends Controller
         $em->persist($product);
         $em->flush();
         
-        return $this->redirect($this->generateUrl('amilio_core_channel_show', array('channelName' => $channel->getCanonicalName(), 'userName' => $channel->getOwner()->getUsername() )));
-    }    
+        return $this->redirect($this->generateUrl('amilio_core_channel_show', array('canonicalName' => $channel->getCanonicalName(), 'channel' => $channel->getId() )));
+    }  
+
+    public function removeAction(Channel $channel, Product $product) 
+    {
+        if( $this->getUser()->getId() != $channel->getOwner()->getId() ) {
+            throw new AccessDeniedHttpException();
+        }
+        
+        $channel->removeProduct($product);
+        $em =  $this->getDoctrine()->getManager();
+        
+        $em->persist($channel);
+        $em->flush();  
+        
+        return $this->redirect($this->generateUrl('amilio_core_channel_show', array('canonicalName' => $channel->getCanonicalName(), 'channel' => $channel->getId() )));
+    }  
 }
