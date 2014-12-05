@@ -6,28 +6,14 @@ use Doctrine\ORM\EntityRepository;
 class ChannelRepository extends EntityRepository
 {
 
-    public function findOneByOwner(User $owner, $channelName)
+    public function findByNot($field, $value)
     {
-        return $this->findOneBy(array(
-            "owner" => $owner,
-            "name" => $channelName
-        ));
-        
-        // $qb = $this->getEntityManager()->createQueryBuilder('channel');
-        
-        // $qb->from( 'AmilioCoreBundle:Channel a' )
-        // ->leftJoin( 'A.AB ab' )
-        // ->where( 'ab.id IS NULL' )
-        // ->fetchArray()
-        
-        // $qb->select(array(
-        // 'p'
-        // ))
-        // ->from('AmilioCoreBundle:Channel', 'p')
-        // ->where('p.name = ' . $channelname)
-        // ->join('p.users', 'c', 'WITH', $qb->expr()
-        // ->in('c.id', $user->getId));
-        // $result = $qb->getQuery()->execute();
-        // return $result;
+        $qb = $this->createQueryBuilder('a');
+        $qb->where($qb->expr()->not($qb->expr()->eq('a.'.$field, '?1')));
+        $qb->setParameter(1, $value);
+    
+        return $qb->getQuery()
+        ->getResult();
     }
+
 }
