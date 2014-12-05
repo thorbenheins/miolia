@@ -8,13 +8,22 @@
             <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>      
             <link href='http://fonts.googleapis.com/css?family=Abel:400,700' rel='stylesheet' type='text/css'>      
             <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>  
-            <link href='/css/menu.css' rel="stylesheet" media="screen">   
+            <link href='/css/menu.css' rel="stylesheet" media="screen">  
+            
+            {% stylesheets  '@AmilioUserBundle/Resources/public/css/*' %}
+                <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets  %}      
         {% endblock %}
         
         {% block javascripts %}
             {% javascripts 'js/*' %}
             <script type="text/javascript" src="{{ asset_url }}"></script>
             {% endjavascripts %}
+                        
+            {% javascripts '@AmilioUserBundle/Resources/public/js/*' %}
+                <script type="text/javascript" src="{{ asset_url }}"></script>
+            {% endjavascripts %}                        
+                        
             <script src="/includes/superfish/js/superfish.js"></script> 
             <script src="/includes/simplemodal/jquery.simplemodal.1.4.4.min.js"></script>
         {% endblock %}
@@ -22,44 +31,6 @@
         <title>{% block title %}amilio.de{% endblock title %}</title>
     </head>
     <body>
-        <script>
-           function getCookie(name) {
-        	   var value = "; " + document.cookie;
-        	   var parts = value.split("; " + name + "=");
-        	   if (parts.length == 2) return parts.pop().split(";").shift();
-           }
-
-           function isUser(userId) {
-       	      return userId == currentUserId;
-           }
-
-           function isLoggedIn( )
-           {
-             return currentUserId > 0;
-           }          
-
-           var currentUserId = getCookie("userId");
-
-           $("#user-" + currentUserId).show();
-
-	   $( document ).ready(function() {
-             if( isLoggedIn() ) {
-                $(".user").show();
-             }else{
-                $(".anonymous").show();
-             }
-           });
-        </script>
-  
-        <style>
-          .user {
-            display: none;
-	  }
-          .anonymous {
-            display: none;
-         }
-        </style>
-
         <header>
             <div class="menu">
                 <div class="content">
@@ -69,7 +40,7 @@
                             <li>
                                 &Uuml;ber uns
                             </li>
-                            <li>
+                            <li>  
                                 Blog
                             </li>
                             <li>
@@ -86,7 +57,7 @@
                                 <a onclick="showNewChannelModal()" href="#">Starte einen Kanal</a>              
                             </li>
                             <li class="top_level_menu user">
-  		 	              <a href="#">app.user.username</a>
+  		 	              <a href="#"><span class="username"></span></a>
                                       <ul> 
                                           <li><a href="{{ path('amilio_core_channel_list') }}">Meine Kan&auml;le</a></li>
                                           <li><a href="{{ path('fos_user_security_logout') }}">Abmelden</a></li>

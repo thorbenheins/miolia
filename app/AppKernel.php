@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new Amilio\CoreBundle\AmilioCoreBundle(),
             new Amilio\RetrieverBundle\AmilioRetrieverBundle(),
             new Exeu\ApaiIOBundle\ExeuApaiIOBundle(),
+            new Amilio\UserBundle\AmilioUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

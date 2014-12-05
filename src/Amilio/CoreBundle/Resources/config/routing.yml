@@ -51,15 +51,7 @@ amilio_core_product_share_store:
     defaults: { _controller: AmilioCoreBundle:Product:shareStore }
     
 # User Routes    
-    
-amilio_core_user_post_login:
-    path:     /user/postLogin/
-    defaults: { _controller: AmilioCoreBundle:User:postLogin }      
-    
-amilio_core_user_post_logout:
-    path:     /user/postLogout/
-    defaults: { _controller: AmilioCoreBundle:User:postLogout }        
-        
+
 amilio_core_user_index:
     path:     /user/
     defaults: { _controller: AmilioCoreBundle:User:index }

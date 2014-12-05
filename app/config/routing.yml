@@ -1,3 +1,7 @@
+amilio_user:
+    resource: "@AmilioUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
 amilio_shop:
     resource: "@AmilioRetrieverBundle/Resources/config/routing.yml"
     prefix:   /
