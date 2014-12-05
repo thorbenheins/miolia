@@ -23,7 +23,17 @@
     </head>
     <body>
         <script>
-           var userId = "";
+           function getCookie(name) {
+        	   var value = "; " + document.cookie;
+        	   var parts = value.split("; " + name + "=");
+        	   if (parts.length == 2) return parts.pop().split(";").shift();
+           }
+
+           function isUser(userId) {
+       	      return userId == currentUserId;
+           }           
+
+           var currentUserId = getCookie("userId");
         </script>
         <header>
             <div class="menu">
