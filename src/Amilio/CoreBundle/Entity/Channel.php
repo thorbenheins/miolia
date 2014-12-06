@@ -16,6 +16,8 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table()
  * @ORM\Entity
+ * 
+ * @ORM\Entity(repositoryClass="Amilio\CoreBundle\Entity\ChannelRepository")
  */
 class Channel
 {
@@ -73,8 +75,13 @@ class Channel
      */
     private $products;
 
+     /** 
+     * @ORM\Column(name="channel_of_the_week", type="boolean")
+     */
+    private $channel_of_the_week;
+    
     /**
-     * @var string @ORM\Column(name="canonical_name", type="string", length=255)
+     * @ORM\Column(name="canonical_name", type="string", length=255)
      */
     private $canonical_name;
 

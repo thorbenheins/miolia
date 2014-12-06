@@ -127,9 +127,11 @@ class ChannelController extends Controller
     public function showHottestAction()
     {
         $newest = $this->getDoctrine()->getRepository('AmilioCoreBundle:Channel')->findBy(array(), array('id' => 'DESC'), 10, 0);
+        $channelsOfTheWeek = $this->getDoctrine()->getRepository('AmilioCoreBundle:Channel')->findChannelsOfTheWeek();
+        
         
         return $this->render('AmilioCoreBundle:Channel:hottest.html.twig', array(
-            'newest' => $newest
+            'newest' => $newest, 'channelsOfTheWeek' => $channelsOfTheWeek
         ));
     }
 }

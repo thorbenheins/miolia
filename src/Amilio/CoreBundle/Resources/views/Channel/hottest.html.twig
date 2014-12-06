@@ -1,12 +1,40 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
+<style>
+    .channel {
+	    padding-bottom: 40px;
+    }
+
+</style>
+
  <div class="content">
+    <div>Lorem Impsum</div>
+    
+    <h1>amilios der Woche</h1>
+    {% for channelOfTheWeek in channelsOfTheWeek %}
+        <div>{{ channelOfTheWeek.name }}</div>
+    {% endfor %}
+    
     <h1>Neuste Kan&auml;le</h1>
-    <ul>
-        {% for channel in newest %}
-            <li><a href="{{ path('amilio_core_channel_show', {'channel': channel.id, 'canonicalName': channel.canonicalname}) }}">{{ channel.name }}</a></li>
-        {% endfor %}
-    </ul>
+    {% for channel in newest %}
+        <div class="channel">
+            <div style="float: left;">
+                <a href="{{ path('amilio_core_channel_show', {'channel': channel.id, 'canonicalName': channel.canonicalname}) }}">{{ channel.name }}</a>
+            </div>
+            <div style="padding-left: 300px">
+                {{  channel.description }}
+            </div>
+            <div style="padding-left: 300px">
+                <h2>Neuste Produkte</h2>
+                <div id="productlist">
+                {% for product in channel.products|slice(0, 3) %}
+                    {% include "AmilioCoreBundle:Product:render_product.html.twig" with { "product": product } %}               
+                {% endfor %}
+                </div>
+            </div>
+       </div>
+    {% endfor %}
 </div>
 {% endblock %}
