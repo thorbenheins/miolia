@@ -14,10 +14,10 @@
     <button style="float: right; position: relative; top: -50px" onclick="$.modal.close();">Abbrechen</button>
     
     {%  if channel.id %}
-    <div style="padding-top: 20px">
+    <div style="margin-top: 20px">
         <form name="deleteChannel" action="{{ path("amilio_core_channel_delete") }}" method="post">
             <input type="hidden" value="{{ channel.id }}" name="channelId">
-            <a href="#" onclick="document.deleteChannel.submit()" style="padding-top: 50px; font-size:12px">Kanal l&ouml;schen</a>
+            <a href="#" onclick="document.deleteChannel.submit()" style="font-size:12px">Kanal l&ouml;schen</a>
         </form>
     </div>
     {% endif %}
