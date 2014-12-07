@@ -1,6 +1,8 @@
 <?php
 namespace Amilio\CoreBundle\Controller;
 
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+
 use Amilio\CoreBundle\Entity\Product;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -166,6 +168,6 @@ class ChannelController extends Controller
                 return $this->redirect($this->generateUrl("amilio_core_channel_list"));
             }
         }
-        die;            
+        throw new AccessDeniedHttpException();
     }
 }
