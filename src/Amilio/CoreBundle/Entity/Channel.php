@@ -78,7 +78,7 @@ class Channel
      /** 
      * @ORM\Column(name="channel_of_the_week", type="boolean")
      */
-    private $channel_of_the_week;
+    private $channel_of_the_week = false;
     
     /**
      * @ORM\Column(name="canonical_name", type="string", length=255)

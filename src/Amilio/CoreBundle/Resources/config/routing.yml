@@ -14,6 +14,10 @@ amilio_core_channel_store:
     path:     /user/channel/store/{channelId}
     defaults: { _controller: AmilioCoreBundle:Channel:store, channelId: -1}
     
+amilio_core_channel_delete:
+    path:     /user/channel/delete
+    defaults: { _controller: AmilioCoreBundle:Channel:delete}
+    
 amilio_core_channel_list:
     path:     /user/channel/list
     defaults: { _controller: AmilioCoreBundle:Channel:list }    
@@ -21,6 +25,10 @@ amilio_core_channel_list:
 amilio_core_channel_show:
     path:     /c/{channel}/{canonicalName}/
     defaults: { _controller: AmilioCoreBundle:Channel:show }
+    
+amilio_core_channel_store_header_image:
+    path:     /c/{channel}/
+    defaults: { _controller: AmilioCoreBundle:Channel:storeHeaderImage }    
     
 amilio_core_channel_show_premium:
     path:     /p/{channelname}/

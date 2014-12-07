@@ -29,6 +29,7 @@ class ChannelController extends Controller
     
     public function editAction(Channel $channel)
     {
+        $channel->setImage('');
         $form = $this->createForm(new ChannelType(), $channel, array(
             'action' => $this->generateUrl('amilio_core_channel_store', array('channelId' => $channel->getId()))
         ));
@@ -62,8 +63,11 @@ class ChannelController extends Controller
     {
         if ($channelId == -1) {
             $channel = new Channel();
+            $imageName = "";
         }else{
             $channel = $this->getDoctrine()->getRepository('AmilioCoreBundle:Channel')->find($channelId);
+            $imageName = $channel->getImage();
+            $channel->setImage("");
         }     
                
         $em = $this->getDoctrine()->getManager();
@@ -81,10 +85,14 @@ class ChannelController extends Controller
             $channel->setType(Channel::TYPE_STANDARD);
             $channel->setOwner($user); 
                        
-            if(array_key_exists('image', $form)) {                
+            var_dump( $form['image']->getData());
+            
+            if($form->has("image") && (!is_null($form->get("image")->getData()))) {
                 $channel->setImage($this->handleFileUpload($form['image']->getData()));
+            }else{
+                $channel->setImage($imageName);
             }
-
+            
             if ($channelId == -1) {
                 $user->addChannel($channel);
                 $em->persist($user);
@@ -133,5 +141,31 @@ class ChannelController extends Controller
         return $this->render('AmilioCoreBundle:Channel:hottest.html.twig', array(
             'newest' => $newest, 'channelsOfTheWeek' => $channelsOfTheWeek
         ));
+    }
+
+    public function storeHeaderImageAction(Request $request, Channel $channel) 
+    {
+        $image = $request->get('header_image');
+        var_dump( $image );
+        die;        
+        return $this->redirect($this->generateUrl('amilio_core_channel_show', array('channel' => $channel->getId(), 'canonicalName' => $channel->getCanonicalName())));
+    }
+    
+    public function deleteAction(Request $request) 
+    {
+        
+        if( $request->getMethod() == "POST" ) {
+            $channel = $this->getDoctrine()->getRepository('AmilioCoreBundle:Channel')->find($request->get("channelId"));
+            
+            $owner = $channel->getOwner();
+            
+            if( $owner->getId() == $this->getUser()->getId()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->remove($channel);
+                $em->flush();
+                return $this->redirect($this->generateUrl("amilio_core_channel_list"));
+            }
+        }
+        die;            
     }
 }

@@ -6,7 +6,7 @@
     {{ parent() }}
 
     <script src="/includes/isotope/isotope.pkgd.min.js"></script>
-    <script src="/includes/cropit/jquery.cropit.js"></script>
+    <script src="/includes/cropper/cropper.js"></script>
 
 {% endblock  javascripts%}
 
@@ -23,41 +23,8 @@
                  <h1>{{ channel.name }}</h1>
             </div>
     </div>
- <div class="center">
-    <!-- This wraps the whole cropper -->
-    <div id="image-cropper">
-      <!-- This is where the preview image is displayed -->
-      <div class="cropit-image-preview"></div>
-      
-      <!-- This range input controls zoom -->
-      <!-- You can add additional elements here, e.g. the image icons -->
-      <input type="range" class="cropit-image-zoom-input" />
-      
-      <!-- This is where user selects new image -->
-      <input type="file" class="cropit-image-input" />
-      
-      <!-- The cropit- classes above are needed
-           so cropit can identify these elements -->
-    </div>
     
-    <script>
-    $('#image-cropper').cropit();
-    </script>
-            
-            <style>
-    .cropit-image-preview {
-      /* You can specify preview size in CSS */
-      width: 1200px;
-      height: 400px;
-    }
-    
-    /*
-     * See http://www.htmllion.com/html5-range-input-with-css.html
-     * for styling range input
-     */  
-        </style>
-</div>        
-
+    {% include "AmilioCoreBundle:Channel:render_header.html.twig" with { "image": channel.image } %}
     
     <div>
             <div class="center" style="width: 1200px; padding-bottom: 50px; background-color: #f9f9f9;font-family: 'Roboto', sans-serif; line-height: 24px; font-size: 12px;">
