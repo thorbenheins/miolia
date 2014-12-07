@@ -7,18 +7,18 @@
     {{ form_start(form) }}
         {{ form_errors(form) }}
         
-        {% if channel.id %}
-            <input type="hidden" name="id" value="{{ channel.id }}">
-        {% endif %}
+        <input type="hidden" name="id" value="{{ channel.id }}">
         
         {{ form(form) }}
     {{ form_end(form) }}
     <button style="float: right; position: relative; top: -50px" onclick="$.modal.close();">Abbrechen</button>
     
+    {%  if channel.id %}
     <div style="padding-top: 20px">
         <form name="deleteChannel" action="{{ path("amilio_core_channel_delete") }}" method="post">
             <input type="hidden" value="{{ channel.id }}" name="channelId">
             <a href="#" onclick="document.deleteChannel.submit()" style="padding-top: 50px; font-size:12px">Kanal l&ouml;schen</a>
         </form>
     </div>
+    {% endif %}
 </div>
