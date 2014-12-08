@@ -1,6 +1,8 @@
 <?php
 
 namespace Amilio\CoreBundle\Controller;
+use Amilio\CoreBundle\Entity\ChannelElement;
+
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 use Amilio\CoreBundle\Entity\Channel;
@@ -33,10 +35,23 @@ class ProductController extends Controller
 
             $channel = $this->getDoctrine()->getManager()->find('AmilioCoreBundle:Channel', $channelId);
             $product = $form->getData();
-            $product->addChannel($channel);
+            // $product->addChannel($channel);
+            
+            $element = new ChannelElement();
+            
+            
             $em->persist($product);
             $em->flush();
+            
+            $element->setElement($product);
+            $element->setChannel($channel);
+            $em->persist($element);
 
+            $channel->addElement($element);
+            $em->persist($channel);
+            
+            $em->flush();
+            
             return $this->redirect($this->generateUrl('amilio_core_channel_show', array("channel" => $channel->getId(),  "canonicalName" => $channel->getCanonicalName())));
         }
 

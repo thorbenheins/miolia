@@ -59,7 +59,7 @@ class AmazonRetriever implements ProductRetriever
         $doc = new \DOMDocument("1.0", "UTF-8");
         $doc->loadXML($formattedResponse);
 
-        //file_put_contents("/tmp/amazon.xml", $doc->saveXML());
+        file_put_contents("/tmp/amazon.xml", $doc->saveXML());
 
         /** @var \DOMXPath $xpath */
         $xpath = new \DOMXPath($doc);
@@ -133,7 +133,6 @@ class AmazonRetriever implements ProductRetriever
         }
 
         //TODO: This attribute might be of interest: IsAdultProduct
-
 
         return $product;
     }

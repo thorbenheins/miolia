@@ -28,7 +28,7 @@ class Channel
 
     /**
      *
-     * @var integer @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="integer")
      *      @ORM\Id
      *      @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -42,19 +42,19 @@ class Channel
 
     /**
      *
-     * @var string @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
 
     /**
      *
-     * @var string @ORM\Column(name="image", type="string", length=255, nullable=true)
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
      */
     private $image;
 
     /**
      *  
-     * @var string @ORM\Column(name="type", type="string", length=1)
+     *  @ORM\Column(name="type", type="string", length=1)
      */
     private $type;
 
@@ -69,13 +69,7 @@ class Channel
      */
     private $owner;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="Product", mappedBy="channels")
-     * @ORM\OrderBy({"id" = "DESC"})
-     */
-    private $products;
-
-     /** 
+    /** 
      * @ORM\Column(name="channel_of_the_week", type="boolean")
      */
     private $channel_of_the_week = false;
@@ -84,6 +78,11 @@ class Channel
      * @ORM\Column(name="canonical_name", type="string", length=255)
      */
     private $canonical_name;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="ChannelElement", mappedBy="channel")
+     **/
+    private $elements;
 
     /**
      * Get id
@@ -239,5 +238,15 @@ class Channel
     public function getProducts()
     {
         return $this->products;
+    }
+
+    public function addElement(ChannelElement $element) 
+    {
+        $this->elements[] = $element;
+    } 
+    
+    public function getElements()
+    {
+        return $this->elements;
     }
 }

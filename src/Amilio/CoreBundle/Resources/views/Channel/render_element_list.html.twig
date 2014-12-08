@@ -1,0 +1,17 @@
+<div id="elementlist">
+            
+    {% for element in elements%}
+        {% render(controller("AmilioCoreBundle:Channel:showElement", { "element": element.id })) %}
+    {% endfor %}
+    
+</div>
+
+    <script type="text/javascript">
+        var $container = $('#elementlist');
+        // init
+        $container.isotope({
+          // options
+          itemSelector: '.item',
+          layoutMode: 'masonry'
+        });
+    </script>

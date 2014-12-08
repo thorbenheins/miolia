@@ -1,6 +1,8 @@
 <?php
 namespace Amilio\CoreBundle\Controller;
 
+use Amilio\CoreBundle\Entity\ChannelElement;
+
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 use Amilio\CoreBundle\Entity\Product;
@@ -130,7 +132,7 @@ class ChannelController extends Controller
         
         return $this->render('AmilioCoreBundle:Channel:show.html.twig', array(
             'channel' => $channel,
-            'products' => $channel->getProducts(),
+            'elements' => $channel->getElements(),
         ));
     }
 
@@ -169,5 +171,14 @@ class ChannelController extends Controller
             }
         }
         throw new AccessDeniedHttpException();
+    }
+
+    public function showElementAction(ChannelElement $element)
+    {
+        $item = $this->getDoctrine()->getRepository($element->getType())->find($element->getForeignId());
+        
+        $template = str_replace("\\", "_", get_class($item)) . ".html.twig";
+        
+        return $this->render('AmilioCoreBundle:Channel:' . $template, array("item" => $item, 'channel' => $element->getChannel() ));
     }
 }

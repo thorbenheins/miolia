@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity
  */
-class Product implements \JsonSerializable
+class Product implements \JsonSerializable, Addable
 {
     /**
      * @var integer
@@ -81,13 +81,7 @@ class Product implements \JsonSerializable
      */
     private $currency = self::CURRENCY_EUR;
 
-
-    /**
-     * @ORM\ManyToMany(targetEntity="Channel", inversedBy="products")
-     * @ORM\JoinTable(name="channels_products")
-     **/
-    private $channels;    
-    
+  
     /**
      * @var string
      *

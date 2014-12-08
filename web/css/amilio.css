@@ -157,7 +157,7 @@ header .menu li {
 	margin: 0 auto;
 }
 
-#productlist .item img {
+#elementlist .item img {
 	height: auto;
 	width: auto;
 	max-width: 180px;
@@ -165,7 +165,7 @@ header .menu li {
 	padding-bottom: 20px;
 }
 
-#productlist .item .image {
+#elementlist .item .image {
 	text-align: center;
 	height: 250px;
 	vertical-align: middle;
@@ -173,16 +173,16 @@ header .menu li {
 	width: 188px;
 }
 
-#productlist {
+#elementlist {
 	padding-bottom: 100px;
 	padding-top: 100px;
 }
 
-#productlist a:hover {
+#elementlist a:hover {
 	border-color: white;
 }
 
-#productlist .item {
+#elementlist .item {
 	width: 188px;
 	margin-left: 15px;
 	margin-right: 15px;
@@ -192,14 +192,14 @@ header .menu li {
 	padding-right: 15px;
 }
 
-#productlist .title {
+#elementlist .title {
 	padding-bottom: 15px;
 	font-size: 16px;
 	font-family: 'Abel', sans-serif;
 	height: 45px;
 }
 
-#productlist .desc {
+#elementlist .desc {
 	color: #666666;
 	font-size: 12px;
 	line-height: 28px;
