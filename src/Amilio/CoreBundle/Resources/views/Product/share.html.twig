@@ -1,15 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ channel.name }}{% endblock %}
+{% block title %}{{ product.name }}{% endblock %}
 
 {% block body %}
-    <h1>Produkt in Kanal &uuml;nehmen {{ product.name }} </h1>
+    <h1>Produkt in Kanal &uuml;bernehmen</h1>
     
-    <h2>Kanäle</h2>
+     {{ product.name }} 
+    
+    <h2>Kan&auml;le</h2>
     
     <ul>
         {% for channel in channels %}
-            <li><a href="{{ path('amilio_core_channel_show', {'userName': channel.owner, 'channelName': channel.canonicalname}) }}">{{ channel.name }}</a></li>
+            <li><a href="{{ path('amilio_core_product_share_store', {'userName': channel.owner, 'channelName': channel.canonicalname}) }}">{{ channel.name }}</a></li>
         {% endfor %}
     </ul>
     

@@ -38,8 +38,7 @@ class ProductController extends Controller
             // $product->addChannel($channel);
             
             $element = new ChannelElement();
-            
-            
+
             $em->persist($product);
             $em->flush();
             
@@ -83,25 +82,27 @@ class ProductController extends Controller
         $product = $em->find('AmilioCoreBundle:Product', $request->get('productId'));
         $channel = $em->find('AmilioCoreBundle:Channel', $request->get('channelId'));
         
-        $product->addChannel($channel);
+        $element = new ChannelElement();
+
+        $element->setElement($product);
+        $element->setChannel($channel);
         
-        $em->persist($product);
+        $em->persist($element);
         $em->flush();
         
         return $this->redirect($this->generateUrl('amilio_core_channel_show', array('canonicalName' => $channel->getCanonicalName(), 'channel' => $channel->getId() )));
     }  
 
-    public function removeAction(Channel $channel, ChannelElement $element) 
+    public function removeAction(ChannelElement $element) 
     {
-        if( $this->getUser()->getId() != $channel->getOwner()->getId() ) {
+        $channel = $element->getChannel();
+        if( $this->getUser()->getId() !=$channel->getOwner()->getId() ) {
             throw new AccessDeniedHttpException();
         }
         
         $em =  $this->getDoctrine()->getManager();
         
         $em->remove($element);
-        
-        $em->persist($channel);
         $em->flush();  
         
         return $this->redirect($this->generateUrl('amilio_core_channel_show', array('canonicalName' => $channel->getCanonicalName(), 'channel' => $channel->getId() )));

@@ -47,7 +47,7 @@ amilio_core_product_show:
     defaults: { _controller: AmilioCoreBundle:Product:show }
     
 amilio_core_product_remove:
-    path:     /channel/remove/{channel}/{channelElement}
+    path:     /channel/remove/{element}
     defaults: { _controller: AmilioCoreBundle:Product:remove }
     
 amilio_core_product_share:
