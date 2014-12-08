@@ -178,6 +178,6 @@ class ChannelController extends Controller
         
         $template = str_replace("\\", "_", get_class($item)) . ".html.twig";
         
-        return $this->render('AmilioCoreBundle:Channel:' . $template, array("item" => $item, 'channel' => $element->getChannel() ));
+        return $this->render('AmilioCoreBundle:Channel:' . $template, array("item" => $item, 'element' => $element, 'channel' => $element->getChannel() ));
     }
 }

@@ -77,8 +77,8 @@
 
       function showProductModal(id, name)
       {
-    	  var url = '{{ path("amilio_core_product_show", {'product': 'productid', 'canonicalName': 'canonicalname' })  }}'; 
-    	  url = url.replace("productid", id);
+    	  var url = '{{ path("amilio_core_product_show", {'element': 'elementid', 'canonicalName': 'canonicalname' })  }}'; 
+    	  url = url.replace("elementid", id);
     	  url = url.replace("canonicalname", name);
            
     	  showModal(url); 

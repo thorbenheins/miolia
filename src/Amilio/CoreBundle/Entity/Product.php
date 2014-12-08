@@ -2,6 +2,8 @@
 
 namespace Amilio\CoreBundle\Entity;
 
+use Doctrine\Bundle\DoctrineBundle\Registry;
+
 use Amilio\CoreBundle\Util\Url;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -264,24 +266,7 @@ class Product implements \JsonSerializable, Addable
     {
         return $this->foreignId;
     }
-
-    public function addChannel(Channel $channel)
-    {
-        $this->channels[] = $channel;
-        return $this;
-    }
-    
-    public function getChannels()
-    {
-        return $this->channels;
-    }
-
-    public function removeChannel(Channel $channel)
-    {
-        $this->channels->removeElement($channel);
-        return $this;
-    }
-    
+       
     /**
      * @return string
      */

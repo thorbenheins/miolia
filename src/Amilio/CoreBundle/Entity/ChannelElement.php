@@ -11,6 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table()
  * @ORM\Entity
+ * 
+ * @ORM\Entity(repositoryClass="Amilio\CoreBundle\Entity\ChannelElementRepository")
  */
 class ChannelElement
 {
@@ -104,16 +106,9 @@ class ChannelElement
     public function setElement(Addable $element)
     {
         $this->type = get_class($element);
-        var_dump($element->getId());
         $this->setForeignId($element->getId());
     }
-    
-    public function getElement()
-    {
-        $em = Registry::getEntityManager();
-        return $em->getRepository($this->type)->findOneBy(array('id' => $this->getForeignId()));
-    }
-    
+        
     /**
      * @return the $channel
      */

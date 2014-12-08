@@ -234,29 +234,11 @@ class Channel
         return $this->owner;
     }
 
-    public function addProduct(Product $product)
-    {
-        $this->products[] = $product;
-        return $this;
-    }
-
-    public function removeProduct(Product $product)
-    {
-        $this->products->removeElement($product);
-        $product->removeChannel($this);
-        return $this;
-    }
-
-    public function getProducts()
-    {
-        return $this->products;
-    }
-
     public function addElement(ChannelElement $element) 
     {
         $this->elements[] = $element;
     } 
-    
+       
     public function getElements()
     {
         return $this->elements;
