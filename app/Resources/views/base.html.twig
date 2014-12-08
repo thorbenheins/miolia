@@ -12,7 +12,6 @@
             
             <link href='/includes/cropper/cropper.css' rel="stylesheet" media="screen">
             
-            
             {% stylesheets  '@AmilioUserBundle/Resources/public/css/*' %}
                 <link rel="stylesheet" href="{{ asset_url }}" />
             {% endstylesheets  %}      
@@ -30,6 +29,9 @@
             <script src="/includes/superfish/js/superfish.js"></script> 
             <script src="/includes/simplemodal/jquery.simplemodal.1.4.4.min.js"></script>
         {% endblock %}
+
+	<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+	<script type="text/javascript">stLight.options({publisher: "0a8d16ba-5656-4348-8127-fc28018c5509", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
 
         <title>{% block title %}amilio.de{% endblock title %}</title>
     </head>
@@ -56,12 +58,12 @@
                     </div>
                     <div id="menu_user">
                         <ul class="sf-menu">
-                            <li style="padding-top: 2px">
+                            <li>
                                 <a href="http://www.facebook.com/amilio.de">
                                     <img src="/images/facebook.png">
                                 </a>
                             </li>
-                            <li style="padding-top: 2px">
+                            <li>
                                 <a href="http://www.twitter.com/amilio_de">
                                     <img src="/images/twitter.png">
                                 </a>                                                    
@@ -103,9 +105,6 @@
             </div>
             
         </header>
-        
-        <div style="clear: both"></div>
-        
         <div id="newChannelModal" style="display: none; background-color: white; width: 500px; border: 1px solid #000; padding: 30px; position: relative; top: -300px"></div>
         
         <script>
@@ -127,10 +126,11 @@
             {% endfor %}
         {% endfor %}
 
-
+	<div style="padding-top: 35px">
         {% block body %}
         {% endblock body %}
- 
+	</div> 
+
         <script>
         	jQuery(document).ready(function() {
         		jQuery('ul.sf-menu').superfish();

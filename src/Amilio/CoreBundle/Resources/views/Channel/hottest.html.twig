@@ -26,14 +26,6 @@
             <div style="padding-left: 300px">
                 {{  channel.description }}
             </div>
-            <div style="padding-left: 300px">
-                <h2>Neuste Produkte</h2>
-                <div id="productlist">
-                {% for product in channel.products|slice(0, 3) %}
-                    {% include "AmilioCoreBundle:Product:render_product.html.twig" with { "product": product } %}               
-                {% endfor %}
-                </div>
-            </div>
        </div>
     {% endfor %}
 </div>

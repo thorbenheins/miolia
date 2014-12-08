@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ channel.name }}{% endblock %}
+{% block title %}{{ channel.name }} auf amilio.de{% endblock %}
 
 {% block javascripts%}
     {{ parent() }}
@@ -12,9 +12,11 @@
 
 {% block body %}
 
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52933cc83cff4be0" async="async"></script>
+
     <div class="head">
         {% if channel.image %}
-            <div style="width: 100%; background-image: url({{ channel.image }}); background-repeat:no-repeat; background-position: center; height: 400px;">
+            <div style="width: 100%; background-color: #{{ channel.headerBackgroundColor }}; background-image: url({{ channel.image }}); background-repeat:no-repeat; background-position: center; height: 400px;">
         {% else %}
             <div style="width: 100%; background-color: #3d728c; height: 400px;">
         {% endif %}
@@ -40,14 +42,26 @@
                     Kanal <br />editieren
                 </a>
             </div>            
-            <div class="user-{{ channel.owner.id }}">
+            <div class="user-{{ channel.owner.id }}" style="width:200px">
                 <a onclick='showModal("{{ path("amilio_core_product_new", {'channelId': channel.id }) }}")'>
                     <img src="/images/add.png" /><br />
                     Produkt <br />hinzuf&uuml;gen
                 </a>
             </div>
         </div>
-               
+        
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+	<div style="clear:both"></div>
+	<div style="width:100%; text-align: center; padding-top: 30px">
+		<span class='st_facebook_hcount' displayText='Facebook'></span>
+		<span class='st_twitter_hcount' displayText='Tweet'></span>
+		<span class='st_pinterest_hcount' displayText='Pinterest'></span>
+	</div>
+
+	<!--div style="width: 100%; text-align: center">
+		<div class="addthis_native_toolbox"></div>
+	</div-->
+       
         <div id="modalDialog" style="display: none; background-color: white; width: 500px; border: 1px solid #000; padding: 30px; position: relative; top: -300px">
         </div>
         

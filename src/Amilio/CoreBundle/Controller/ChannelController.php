@@ -72,7 +72,7 @@ class ChannelController extends Controller
             $channel = $this->getDoctrine()->getRepository('AmilioCoreBundle:Channel')->find($channelId);
             $imageName = $channel->getImage();
             $channel->setImage("");
-        }     
+        }
                
         $em = $this->getDoctrine()->getManager();
         $form = $this->createForm(new ChannelType(), $channel, array(
@@ -86,7 +86,7 @@ class ChannelController extends Controller
             
             $user = $this->getUser();
             
-            $channel->setType(Channel::TYPE_STANDARD);
+            $channel->setType(Channel::TYPE_CHANNEL);
             $channel->setOwner($user); 
                        
             var_dump( $form['image']->getData());
@@ -138,9 +138,8 @@ class ChannelController extends Controller
 
     public function showHottestAction()
     {
-        $newest = $this->getDoctrine()->getRepository('AmilioCoreBundle:Channel')->findBy(array(), array('id' => 'DESC'), 10, 0);
+        $newest = $this->getDoctrine()->getRepository('AmilioCoreBundle:Channel')->findBy(array(), array('id' => 'DESC'), 20, 0);
         $channelsOfTheWeek = $this->getDoctrine()->getRepository('AmilioCoreBundle:Channel')->findChannelsOfTheWeek();
-        
         
         return $this->render('AmilioCoreBundle:Channel:hottest.html.twig', array(
             'newest' => $newest, 'channelsOfTheWeek' => $channelsOfTheWeek

@@ -23,7 +23,7 @@ amilio_core_channel_list:
     defaults: { _controller: AmilioCoreBundle:Channel:list }    
     
 amilio_core_channel_show:
-    path:     /c/{channel}/{canonicalName}/
+    path:     /c/{channel}/{canonicalName}.html
     defaults: { _controller: AmilioCoreBundle:Channel:show }
     
 amilio_core_channel_store_header_image:

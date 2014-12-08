@@ -21,10 +21,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Channel
 {
-
-    const TYPE_STANDARD = "u";
-
-    const TYPE_PREMIUM = "p";
+    const TYPE_CHANNEL = "0";
+    const TYPE_COLLECTION = "1";
 
     /**
      *
@@ -47,13 +45,21 @@ class Channel
     private $name;
 
     /**
-     *
      * @ORM\Column(name="image", type="string", length=255, nullable=true)
      */
     private $image;
 
     /**
-     *  
+     * @ORM\Column(name="list_image", type="string", length=255, nullable=true)
+     */
+    private $listImage;
+
+    /**
+     * @ORM\Column(name="header_background_color", type="string", length=6, nullable=true)
+     */
+    private $headerBackgroundColor = "FFFFFF";
+
+    /**
      *  @ORM\Column(name="type", type="string", length=1)
      */
     private $type;
@@ -81,8 +87,14 @@ class Channel
     
     /**
      * @ORM\OneToMany(targetEntity="ChannelElement", mappedBy="channel")
+     * @ORM\OrderBy({"id" = "DESC"})
      **/
     private $elements;
+
+    /**
+     *  @ORM\Column(name="isPremium", type="string", length=1)
+     */
+    private $isPremium = 0;
 
     /**
      * Get id
@@ -248,5 +260,10 @@ class Channel
     public function getElements()
     {
         return $this->elements;
+    }
+
+    public function getHeaderBackgroundColor()
+    {
+	return $this->headerBackgroundColor;
     }
 }
