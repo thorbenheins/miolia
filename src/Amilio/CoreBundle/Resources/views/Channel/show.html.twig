@@ -37,13 +37,13 @@
         
         <div id="product_add" style="position: relative; top: -30px; width: 196px;" class="center">       
             <div style="float: left; padding-right: 60px; height: 120px;" class="user-{{ channel.owner.id }}">
-                <a onclick='showModal("{{ path("amilio_core_channel_edit", {'channel': channel.id }) }}")'>
+                <a href='javascript: showModal("{{ path("amilio_core_channel_edit", {'channel': channel.id }) }}")'>
                     <img src="/images/edit.png" /><br />
                     Kanal <br />editieren
                 </a>
             </div>            
             <div class="user-{{ channel.owner.id }}" style="width:200px">
-                <a onclick='showModal("{{ path("amilio_core_product_new", {'channelId': channel.id }) }}")'>
+                <a href='javascript: showModal("{{ path("amilio_core_product_new", {'channelId': channel.id }) }}")'>
                     <img src="/images/add.png" /><br />
                     Produkt <br />hinzuf&uuml;gen
                 </a>
