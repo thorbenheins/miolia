@@ -15,10 +15,22 @@
     
     {%  if channel.id %}
     <div style="margin-top: 20px">
-        <form name="deleteChannel" action="{{ path("amilio_core_channel_delete") }}" method="post">
-            <input type="hidden" value="{{ channel.id }}" name="channelId">
-            <a href="#" onclick="document.deleteChannel.submit()" style="font-size:12px">Kanal l&ouml;schen</a>
-        </form>
+        <a href="#" onclick="$('#confirmChannelDelete').show();" style="font-size:12px">Kanal l&ouml;schen</a>
+        
+        <div id="confirmChannelDelete" style="display: none; padding-top: 20px">
+            <p>Wollen Sie diesen Kanal wirklich l&ouml;schen?</p>
+            <button style="margin-right: 10px;" onclick="removeChannel();">Ja</button><button onclick="$('#confirmChannelDelete').hide();">Nein</button> 
+        </div>
     </div>
+    
+    <script>
+        function removeChannel()
+        {
+        	$.post("{{ path("amilio_core_channel_delete", {"channel": channel.id }) }}", function( data ) {
+        		  location.href="{{ path("amilio_core_channel_list") }}";
+        	});
+        }
+        
+    </script>
     {% endif %}
 </div>

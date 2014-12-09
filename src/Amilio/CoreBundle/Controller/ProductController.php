@@ -96,7 +96,8 @@ class ProductController extends Controller
     public function removeAction(ChannelElement $element) 
     {
         $channel = $element->getChannel();
-        if( $this->getUser()->getId() !=$channel->getOwner()->getId() ) {
+        
+        if( $this->getUser()->getId() != $channel->getOwner()->getId() ) {
             throw new AccessDeniedHttpException();
         }
         

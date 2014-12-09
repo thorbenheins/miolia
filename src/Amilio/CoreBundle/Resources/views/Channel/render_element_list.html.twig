@@ -14,4 +14,19 @@
           itemSelector: '.item',
           layoutMode: 'masonry'
         });
+
+        var elementToRemove;
+        
+        function confirmElementRemove(id)
+        {
+            elementToRemove = id;
+            confirm(function(){
+                var url = "{{ path('amilio_core_product_remove', { "element": "elementId"} ) }}";
+                url = url.replace("elementId", elementToRemove);
+            	$.post(url, function( data ) {
+            		  location.reload();
+            	});
+            });
+        }
+        
     </script>

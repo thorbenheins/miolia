@@ -15,7 +15,7 @@ amilio_core_channel_store:
     defaults: { _controller: AmilioCoreBundle:Channel:store, channelId: -1}
     
 amilio_core_channel_delete:
-    path:     /user/channel/delete
+    path:     /user/channel/delete/{channel}/
     defaults: { _controller: AmilioCoreBundle:Channel:delete}
     
 amilio_core_channel_list:
@@ -47,7 +47,7 @@ amilio_core_product_show:
     defaults: { _controller: AmilioCoreBundle:Product:show }
     
 amilio_core_product_remove:
-    path:     /channel/remove/{element}
+    path:     /user/product/remove/{element}/
     defaults: { _controller: AmilioCoreBundle:Product:remove }
     
 amilio_core_product_share:

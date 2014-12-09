@@ -154,11 +154,10 @@ class ChannelController extends Controller
         return $this->redirect($this->generateUrl('amilio_core_channel_show', array('channel' => $channel->getId(), 'canonicalName' => $channel->getCanonicalName())));
     }
     
-    public function deleteAction(Request $request) 
+    public function deleteAction(Request $request, Channel $channel) 
     {
-        
         if( $request->getMethod() == "POST" ) {
-            $channel = $this->getDoctrine()->getRepository('AmilioCoreBundle:Channel')->find($request->get("channelId"));
+//             $channel = $this->getDoctrine()->getRepository('AmilioCoreBundle:Channel')->find($request->get("channelId"));
             
             $owner = $channel->getOwner();
             
