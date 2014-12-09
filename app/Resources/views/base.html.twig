@@ -10,14 +10,13 @@
             <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>  
             <link href='/css/menu.css' rel="stylesheet" media="screen">  
             
-            <link href='/includes/cropper/cropper.css' rel="stylesheet" media="screen">
-            
             {% stylesheets  '@AmilioUserBundle/Resources/public/css/*' %}
                 <link rel="stylesheet" href="{{ asset_url }}" />
             {% endstylesheets  %}      
         {% endblock %}
         
         {% block javascripts %}
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
             {% javascripts 'js/*' %}
             <script type="text/javascript" src="{{ asset_url }}"></script>
             {% endjavascripts %}
@@ -25,7 +24,7 @@
             {% javascripts '@AmilioUserBundle/Resources/public/js/*' %}
                 <script type="text/javascript" src="{{ asset_url }}"></script>
             {% endjavascripts %}                        
-                        
+            
             <script src="/includes/superfish/js/superfish.js"></script> 
             <script src="/includes/simplemodal/jquery.simplemodal.1.4.4.min.js"></script>
         {% endblock %}

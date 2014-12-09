@@ -28,6 +28,7 @@ header {
 	width: 100%;
 	font-size: 14px;
         position: fixed;
+	z-index: 2;
 }
 
 header a {

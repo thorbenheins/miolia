@@ -26,6 +26,7 @@ class User extends BaseUser
     /**
      * @ORM\ManyToMany(targetEntity="Channel", inversedBy="users")
      * @ORM\JoinTable(name="users_channels")
+     * @ORM\OrderBy({"name" = "ASC"})
      **/
     private $channels;  
     
