@@ -81,6 +81,11 @@ class Channel
     private $channel_of_the_week = false;
     
     /**
+     * @ORM\Column(name="preview_image", type="string", length=255, nullable=true)
+     */
+    private $previewImage;
+    
+    /**
      * @ORM\Column(name="canonical_name", type="string", length=255)
      */
     private $canonical_name;
@@ -248,4 +253,24 @@ class Channel
     {
 	return $this->headerBackgroundColor;
     }
+
+    /**
+     * @return the $previewImage
+     */
+    public function getPreviewImage()
+    {
+        return $this->previewImage;
+    }
+
+	/**
+     * @param field_type $previewImage
+     */
+    public function setPreviewImage($previewImage)
+    {
+        $this->previewImage = $previewImage;
+        return $this;
+    }
+
+
+
 }

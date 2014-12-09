@@ -1,5 +1,13 @@
 {% extends 'base.html.twig' %}
 
+{% block javascripts%}
+    {{ parent() }}
+
+    <script src="/includes/isotope/isotope.pkgd.min.js"></script>
+    <script src="/includes/cropper/cropper.js"></script>
+
+{% endblock  javascripts%}
+
 {% block body %}
 
 <style>
@@ -9,13 +17,16 @@
 
 </style>
 
- <div class="content">
-    <div>Lorem Impsum</div>
-    
-    <h1>amilios der Woche</h1>
+ <div class="content" style="padding-top: 50px">
+    <div id="channellist">
     {% for channelOfTheWeek in channelsOfTheWeek %}
-        <div>{{ channelOfTheWeek.name }}</div>
+        <div style="padding: 0; margin: 0" class="item">
+            <a href="{{ path('amilio_core_channel_show', {'channel': channelOfTheWeek.id, 'canonicalName': channelOfTheWeek.canonicalname}) }}"><img src="{{ channelOfTheWeek.previewImage }}" alt="{{ channelOfTheWeek.name }}"></a>
+        </div>    
     {% endfor %}
+    </div>
+    
+    <!-- div style="clear: both"></div>
     
     <h1>Neuste Kan&auml;le</h1>
     {% for channel in newest %}
@@ -28,5 +39,16 @@
             </div>
        </div>
     {% endfor %}
-</div>
+</div-->
+
+<script type="text/javascript">
+    var $container = $('#channellist');
+    // init
+    $container.isotope({
+      // options
+      itemSelector: '.item',
+      layoutMode: 'masonry'
+    });
+</script>
+
 {% endblock %}
