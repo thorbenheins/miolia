@@ -93,11 +93,11 @@ class ProductController extends Controller
         return $this->redirect($this->generateUrl('amilio_core_channel_show', array('canonicalName' => $channel->getCanonicalName(), 'channel' => $channel->getId() )));
     }  
 
-    public function removeAction(ChannelElement $element) 
+    public function removeAction(Request $request, ChannelElement $element) 
     {
         $channel = $element->getChannel();
         
-        if( $this->getUser()->getId() != $channel->getOwner()->getId() ) {
+        if( $this->getUser()->getId() != $channel->getOwner()->getId() || $request->getMethod() != "POST") {
             throw new AccessDeniedHttpException();
         }
         

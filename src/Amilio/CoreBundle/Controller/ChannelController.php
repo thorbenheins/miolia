@@ -157,7 +157,6 @@ class ChannelController extends Controller
     public function deleteAction(Request $request, Channel $channel) 
     {
         if( $request->getMethod() == "POST" ) {
-//             $channel = $this->getDoctrine()->getRepository('AmilioCoreBundle:Channel')->find($request->get("channelId"));
             
             $owner = $channel->getOwner();
             

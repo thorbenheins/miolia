@@ -86,7 +86,7 @@ class Channel
     private $canonical_name;
     
     /**
-     * @ORM\OneToMany(targetEntity="ChannelElement", mappedBy="channel")
+     * @ORM\OneToMany(targetEntity="ChannelElement", mappedBy="channel", cascade={"remove"})
      * @ORM\OrderBy({"id" = "DESC"})
      **/
     private $elements;
