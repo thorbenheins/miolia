@@ -59,7 +59,7 @@ amilio_core_product_share_store:
     defaults: { _controller: AmilioCoreBundle:Product:shareStore }
     
 amilio_core_channel_hottest:
-    path:     /channels/hottest/
+    path:     /channels/
     defaults: { _controller: AmilioCoreBundle:Channel:showHottest }
     
 # User Routes    
