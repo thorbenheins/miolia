@@ -8,6 +8,8 @@ DirectoryIndex app.php
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
+    #RewriteCond %{REQUEST_FILENAME} !-d
+
     #RewriteCond %{HTTP_HOST} !^www\.amilio\.de$ [NC]
     #RewriteRule ^(.*)$ http://www.amilio.de/$1 [L,R=301]
 
