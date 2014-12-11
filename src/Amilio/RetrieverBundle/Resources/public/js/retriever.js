@@ -7,7 +7,7 @@
     $(document).ready(function(){
         $('#product_url').on('change', function(){
             $("#product_url").after("<div id='spinner_product_url' class='spinner'><img src='/images/spinner.gif'/></div>")
-            $.post("/app_dev.php/api/v1/productInfo", {url: this.value}, function(data){
+            $.post(AMILIO.config.base_url+"/api/v1/productInfo", {url: this.value}, function(data){
 
                 //TODO do this a bit nicer. 
 

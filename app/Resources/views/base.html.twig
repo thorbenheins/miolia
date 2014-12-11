@@ -20,7 +20,11 @@
             {% javascripts 'js/*' %}
             <script type="text/javascript" src="{{ asset_url }}"></script>
             {% endjavascripts %}
-                        
+
+            {% javascripts '@AmilioCoreBundle/Resources/public/js/*' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+
             {% javascripts '@AmilioUserBundle/Resources/public/js/*' %}
                 <script type="text/javascript" src="{{ asset_url }}"></script>
             {% endjavascripts %}                        
@@ -75,6 +79,8 @@
             {% block body %}
             {% endblock body %}
     	</div> 
+
+        {% include 'javascript-init.html.twig' %}
 
     </body>
     
