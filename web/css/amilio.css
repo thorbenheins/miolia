@@ -42,6 +42,12 @@ header a:HOVER {
 	padding-bottom: 2px;
 }
 
+header a:HOVER.sf-with-ul{
+    color: white;
+    border: 0;
+    padding-bottom: 0px;
+}
+
 header .menu {
 	#background-color: #3a4046;
         background-color: black;
