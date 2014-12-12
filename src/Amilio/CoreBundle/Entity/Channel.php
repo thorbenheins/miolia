@@ -122,7 +122,7 @@ class Channel
             return $this->theme;
         }
         
-        return "deault";
+        return "default";
     }
     
     /**
