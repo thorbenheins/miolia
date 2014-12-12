@@ -102,6 +102,11 @@ class Channel
     private $isPremium = 0;
 
     /**
+     * @ORM\Column(name="theme", type="string", length=25, nullable=true)
+     */
+    private $theme = "default";
+    
+    /**
      * Get id
      *
      * @return integer
@@ -111,6 +116,15 @@ class Channel
         return $this->id;
     }
 
+    public function getTheme()
+    {
+        if( $this->theme != "" ) {
+            return $this->theme;
+        }
+        
+        return "deault";
+    }
+    
     /**
      * Set description
      *

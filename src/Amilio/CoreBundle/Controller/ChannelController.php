@@ -128,7 +128,9 @@ class ChannelController extends Controller
             return $this->redirect($this->generateUrl('amilio_core_channel_show', array('channel' => $channel->getId(), 'canonicalName' => $channel->getCanonicalName())), 302);
         }
         
-        return $this->render('AmilioCoreBundle:Channel:show.html.twig', array(
+        $template = 'AmilioCoreBundle:Channel:themes/' . $channel->getTheme() . '.html.twig';
+        
+        return $this->render($template, array(
             'channel' => $channel,
             'elements' => $channel->getElements(),
         ));
