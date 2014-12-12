@@ -60,6 +60,15 @@
         </div>
     </div>
 </div>
+
+<div class="center" style="padding-top: 50px">
+    <img src="/images/beliebt.png" />
+</div>
+    
+<div class="content" style="padding-top: 50px; position: relative; left: -15px; width: 1230px">    
+     {% include "AmilioCoreBundle:Channel:render_element_list.html.twig" with { "elements": newest } %}
+</div>
+
     
 <script type="text/javascript">
     var $container = $('#channellist');
