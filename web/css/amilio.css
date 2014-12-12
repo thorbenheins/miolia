@@ -18,7 +18,7 @@ a:hover {
 }
 
 .content {
-	width: 1400px;
+	width: 1360px;
 	margin: 0 auto;
 	padding: 0;
 }
@@ -27,7 +27,7 @@ header {
 	text-align: center;
 	width: 100%;
 	font-size: 14px;
-        position: fixed;
+    position: fixed;
 	z-index: 2;
 }
 
@@ -44,7 +44,7 @@ header a:HOVER {
 
 header .menu {
 	#background-color: #3a4046;
-        background-color: black;
+	background-color: black;
 	font-size: 12px;
 	color: white;
 	height: 25px;
