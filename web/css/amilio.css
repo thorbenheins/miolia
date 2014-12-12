@@ -77,6 +77,12 @@ footer {
 	background-color: #222222;
 }
 
+#footer_sub {
+	background-color: #111111;
+	padding: 20px;
+	color: white;
+}
+
 .simple_link a:hover {
 	border-bottom: none;
 }

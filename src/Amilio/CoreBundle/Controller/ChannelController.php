@@ -50,7 +50,6 @@ class ChannelController extends Controller
      * @return string the new filename
      */
     private function handleFileUpload(UploadedFile $file) {
-        // @todo check for image extension
         // @todo use a config file for the path
         $extension = $file->guessExtension();
         
