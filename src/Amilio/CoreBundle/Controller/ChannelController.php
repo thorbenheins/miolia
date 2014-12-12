@@ -54,13 +54,14 @@ class ChannelController extends Controller
         // @todo use a config file for the path
         $extension = $file->guessExtension();
         
-        $filename = md5($this->getUser()->getUsername() . time() ) . '.' . $extension;
-        
-        $newFile = __DIR__ . "/../../../../web/upload/".$filename;
-        
-        rename($file->getPath() . DIRECTORY_SEPARATOR . $file->getFilename(), $newFile);
-        
-        return '/upload/'.$filename;        
+        if(in_array( $file->getMimeType(), array("image/png", "image/jpg"))) {
+            $filename = md5($this->getUser()->getUsername() . time() ) . '.' . $extension;
+            $newFile = __DIR__ . "/../../../../web/upload/".$filename;
+            rename($file->getPath() . DIRECTORY_SEPARATOR . $file->getFilename(), $newFile);
+            return '/upload/'.$filename;        
+        }
+
+        return '';
     }
     
     public function storeAction(Request $request, $channelId)
@@ -89,8 +90,6 @@ class ChannelController extends Controller
             $channel->setType(Channel::TYPE_CHANNEL);
             $channel->setOwner($user); 
                        
-            var_dump( $form['image']->getData());
-            
             if($form->has("image") && (!is_null($form->get("image")->getData()))) {
                 $channel->setImage($this->handleFileUpload($form['image']->getData()));
             }else{
