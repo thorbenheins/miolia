@@ -4,8 +4,9 @@ body {
 	padding: 0;
 	margin: 0;
 	font-family: 'Source Sans Pro', sans-serif;
+	background-color: #f9f9f9;
 }
-
+ 
 a {
 	color: black;
 	text-decoration: none;
@@ -18,7 +19,7 @@ a:hover {
 }
 
 .content {
-	width: 1360px;
+	width: 1160px;
 	margin: 0 auto;
 	padding: 0;
 }
@@ -81,7 +82,7 @@ header .menu li {
 	float: left;
 	padding-right: 20px;
 	position: absolute;
-	left: calc(50% - 735px);
+	left: calc(50% - 610px);
 	top: 8px;
 }
 
