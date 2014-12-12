@@ -6,7 +6,7 @@ body {
 	font-family: 'Source Sans Pro', sans-serif;
 	background-color: #f9f9f9;
 }
- 
+
 a {
 	color: black;
 	text-decoration: none;
@@ -28,7 +28,7 @@ header {
 	text-align: center;
 	width: 100%;
 	font-size: 14px;
-    position: fixed;
+	position: fixed;
 	z-index: 2;
 }
 
@@ -43,14 +43,14 @@ header a:HOVER {
 	padding-bottom: 2px;
 }
 
-header a:HOVER.sf-with-ul{
-    color: white;
-    border: 0;
-    padding-bottom: 0px;
+header a:HOVER.sf-with-ul {
+	color: white;
+	border: 0;
+	padding-bottom: 0px;
 }
 
-header .menu {
-	#background-color: #3a4046;
+header .menu { #
+	background-color: #3a4046;
 	background-color: black;
 	font-size: 12px;
 	color: white;
@@ -82,7 +82,7 @@ header .menu li {
 	float: left;
 	padding-right: 20px;
 	position: absolute;
-	left: calc(50% - 635px);
+	left: calc(50% -   635px);
 	top: 8px;
 }
 
@@ -125,12 +125,7 @@ header .menu li {
 	display: none;
 }
 
-.head {
-	
-}
-
 .head h1 {
-	
 	text-align: center;
 	font-weight: normal;
 	margin: 0;
@@ -169,6 +164,12 @@ header .menu li {
 	margin: 0 auto;
 }
 
+.tilelist {
+	position: relative;
+	left: -15px;
+	width: 1230px;
+}
+
 #elementlist .item img {
 	height: auto;
 	width: auto;
@@ -186,7 +187,7 @@ header .menu li {
 }
 
 #elementlist {
-	padding-bottom: 100px;	
+	padding-bottom: 100px;
 }
 
 #elementlist a:hover {
@@ -194,9 +195,9 @@ header .menu li {
 }
 
 #elementlist .item {
-   	padding: 0; 
-   	margin: 0 15px 30px 15px;
-    height: 360px;
+	padding: 0;
+	margin: 0 15px 30px 15px;
+	height: 360px;
 	border: 1px solid #cdcdcd;
 	width: 213px;
 	background-color: white;
@@ -208,7 +209,7 @@ header .menu li {
 	font-family: 'Abel', sans-serif;
 	height: 45px;
 	text-align: center;
-    width: 213px;
+	width: 213px;
 	background-color: white;
 }
 
