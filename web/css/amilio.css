@@ -70,6 +70,13 @@ header .menu li {
 	padding-right: 20px;
 }
 
+footer {
+}
+
+#footer_main {
+	background-color: #222222;
+}
+
 .simple_link a:hover {
 	border-bottom: none;
 }
