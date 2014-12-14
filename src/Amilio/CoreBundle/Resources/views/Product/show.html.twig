@@ -1,28 +1,23 @@
-<h1>{{ product.name }}</h1>
-  <a href="{{ product.url }}" target="_blank">--> zum Shop</a> <br /> <br />
-  {{ product.description }}
+<div id="productshow" style="width: 800px">
+	<div style="float: left; padding-right: 30px">
+		<img src="{{ product.image }}" style="max-width: 300px; max-height: 300px" />
+	</div>
+	<div style="margin-left: 320px">
+		<h1>{{ product.name }}</h1>
+		<p style="font-size: 12px">{{ product.description }}</p>
+		<div style="padding-top: 50px">
+			<div style="padding: 10px; float: left; background-color: #ea691b; color: white;"><a style="color: white" href="{{ product.url }}" target="_blank">Zum Shop</div>
+			<div style="margin-left: 120px; width: 205px; background-color: #f69a2f; padding: 10px;"><a style="color: white" href="{{ path('amilio_core_product_share', {'product': product.id}) }}">In eigenen Kanal &uuml;bernehmen</a></div>
+		</div>
+	</div>
+</div>
+<div style="clear:both"></div>
+<div style="padding-top: 20px">
+  <h2 style="font-size: 14px">In folgenden Kan&auml;len vorhanden</h2> 
 
- <h2>In eigenen Kanal &uuml;bernehmen</h2>
- <a href="{{ path('amilio_core_product_share', {'product': product.id}) }}">add</a>  
-  
-<h2>In folgenden Kan&auml;len vorhanden</h2> 
-
-<ul>
+  <ul>
     {% for element in similarElements %}
         <li><a href="{{ path('amilio_core_channel_show', {'channel': element.channel.id, 'canonicalName': element.channel.canonicalname}) }}">{{ element.channel.name }}</a></li>
     {% endfor %}
-</ul>
-
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'amilio-de'; // required: replace example with your forum shortname
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </ul>
+</div>
