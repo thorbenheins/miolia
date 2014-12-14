@@ -24,6 +24,7 @@ class ChannelElementRepository extends EntityRepository
 
 	$qb = $this->createQueryBuilder('ce');
 	$qb->where($qb->expr()->in('ce.channel', $channelString));
+	$qb->orderBy('ce.id', 'DESC');
 	return $qb->getQuery()->getResult();
     }
 }
