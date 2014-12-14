@@ -191,8 +191,6 @@ class ChannelController extends Controller
     {
         $user = $this->getUser();
 
-var_dump( $channel->getId());
-
         $user->removeFavouriteChannel($channel);
 
 
