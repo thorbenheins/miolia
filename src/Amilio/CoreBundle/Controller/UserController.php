@@ -12,6 +12,8 @@ class UserController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('AmilioCoreBundle:User:index.html.twig');
+	$favs = $this->getDoctrine()->getRepository('AmilioCoreBundle:ChannelElement')->findFavouritesByUser($this->getUser());
+
+        return $this->render('AmilioCoreBundle:User:index.html.twig', array('favs' => $favs));
     }
 }

@@ -14,7 +14,7 @@
 			<a href="/blog/">Blog</a>
                     </li>
                     <li>
-                        <a href="{{ path('amilio_core_channel_hottest') }}">Nutzerkan&auml;le</a>
+                        <a href="{{ path('amilio_core_channel_hottest') }}">Kan&auml;le</a>
                     </li>
                 </ul>
             </div>
@@ -34,8 +34,9 @@
                         <a onclick="showNewChannelModal()" href="#">Starte einen Kanal</a>              
                     </li>
                     <li class="top_level_menu user">
- 	                  <a href="#"><span class="username"></span></a>
-                      <ul> 
+ 	                  <a href="{{ path('amilio_core_user_index') }}"><span class="username"></span></a>
+                      <ul>
+			  <li><a href="{{ path('amilio_core_user_index') }}">Mein Favoritenkanal</li> 
                           <li><a href="{{ path('amilio_core_channel_list') }}">Meine Kan&auml;le</a></li>
                           <li><a href="{{ path('fos_user_security_logout') }}">Abmelden</a></li>
                       </ul>

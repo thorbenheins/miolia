@@ -7,11 +7,9 @@
 
     <script src="/includes/isotope/isotope.pkgd.min.js"></script>
     <script src="/includes/cropper/cropper.js"></script>
-
 {% endblock  javascripts%}
 
 {% block body %}
-
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52933cc83cff4be0" async="async"></script>
     <div class="theme_homepage">
     <div class="content" style="padding-top: 50px; left: -15px; position: relative">
@@ -24,6 +22,9 @@
         		<span class='st_twitter_hcount' displayText='Tweet'></span>
         		<span class='st_pinterest_hcount' displayText='Pinterest'></span>
         	</div>
+
+		<div id="addFav"><a href="{{ path('amilio_core_channel_add_favourite', {'channel': channel.id}) }}">Als Favorit hinzuf&uuml;gen</a></div>
+		<div id="removeFav"><a href="{{ path('amilio_core_channel_remove_favourite', {'channel': channel.id}) }}">Als Favorit entfernen</a></div>
 	</div>
 	<div>
             <img src="{{ channel.image }}">
@@ -45,14 +46,25 @@
                 </a>
             </div>
         </div>
-     </div>   
-<!-- Go to www.addthis.com/dashboard to customize your tools -->
-	<div style="clear:both"></div>
-        <div id="modalDialog" style="display: none; background-color: white; width: 500px; border: 1px solid #000; padding: 30px; position: relative; top: -300px">
-        </div>
+    </div>   
+ 
+    <div style="clear:both"></div>
+    
+    <div id="modalDialog" style="display: none; background-color: white; width: 500px; border: 1px solid #000; padding: 30px; position: relative; top: -300px">
+    </div>
         
     </div>
     <script>
+      function isFavourite()
+      {
+	  var currentChannelId = "{{ channel.id }}";
+	  var favorites = getCookie("favs");
+          if(favorites) {
+          	return favorites.indexOf(currentChannelId) > 0;
+      	  }
+	  return false;
+      }
+      
       function showModal(url, width)
       {
 	  if (width) {
@@ -71,6 +83,14 @@
     	  url = url.replace("canonicalname", name);
            
     	  showModal(url, "800px"); 
+      }
+
+      if ( isFavourite() ) {
+	$("#addFav").hide();
+        $("#removeFav").show();
+      } else {
+	$("#addFav").show();
+	$("#removeFav").hide();
       }
     </script>
 

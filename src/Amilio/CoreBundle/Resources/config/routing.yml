@@ -25,7 +25,15 @@ amilio_core_channel_list:
 amilio_core_channel_show:
     path:     /c/{channel}/{canonicalName}.html
     defaults: { _controller: AmilioCoreBundle:Channel:show }
-    
+ 
+amilio_core_channel_add_favourite:
+    path:     /user/channel/addFavourite/{channel}/
+    defaults:  { _controller: AmilioCoreBundle:Channel:addFavourite }
+
+amilio_core_channel_remove_favourite:
+    path:     /user/channel/removeFavourite/{channel}/
+    defaults:  { _controller: AmilioCoreBundle:Channel:removeFavourite }
+
 amilio_core_channel_store_header_image:
     path:     /c/{channel}/
     defaults: { _controller: AmilioCoreBundle:Channel:storeHeaderImage }    

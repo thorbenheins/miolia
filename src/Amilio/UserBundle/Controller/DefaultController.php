@@ -13,7 +13,18 @@ class DefaultController extends Controller
         $response = new Response();
         $response->headers->setCookie(new Cookie("userId", $this->getUser()->getId(), 0, '/', null, false, false));
         $response->headers->setCookie(new Cookie("userName", $this->getUser()->getUsername(), 0, '/', null, false, false));
-        $response->send();
+
+	$user = $this->getUser();
+	$channels = $user->getFavouriteChannels();
+
+        $channelString = "-0-";
+	foreach( $channels as $channel ) {
+		$channelString .= $channel->getId() . "-"; 
+	}
+
+	$response->headers->setCookie(new Cookie("favs", $channelString, 0, '/', null, false, false));	
+
+	$response->send();
 
         // @todo this route should be configured
         return $this->redirect($this->generateUrl('amilio_core_user_index'));
@@ -24,7 +35,8 @@ class DefaultController extends Controller
         $response = new Response();
         $response->headers->setCookie(new Cookie("userId", '', 0, '/', null, false, false));
         $response->headers->setCookie(new Cookie("userName", '', 0, '/', null, false, false));
-        $response->send();
+        $response->headers->setCookie(new Cookie("favs", '', 0, '/', null, false, false));
+	$response->send();
     
         // @todo this route should be configured
         return $this->redirect($this->generateUrl('amilio_core_homepage'));

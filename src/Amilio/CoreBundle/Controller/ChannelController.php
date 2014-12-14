@@ -15,6 +15,8 @@ use Amilio\CoreBundle\Form\Type\ChannelType;
 use Amilio\CoreBundle\Entity\Channel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Cookie;
 
 class ChannelController extends Controller
 {
@@ -146,14 +148,6 @@ class ChannelController extends Controller
         ));
     }
 
-    public function storeHeaderImageAction(Request $request, Channel $channel) 
-    {
-        $image = $request->get('header_image');
-        var_dump( $image );
-        die;        
-        return $this->redirect($this->generateUrl('amilio_core_channel_show', array('channel' => $channel->getId(), 'canonicalName' => $channel->getCanonicalName())));
-    }
-    
     public function deleteAction(Request $request, Channel $channel) 
     {
         if( $request->getMethod() == "POST" ) {
@@ -177,5 +171,52 @@ class ChannelController extends Controller
         $template = str_replace("\\", "_", get_class($item)) . ".html.twig";
         
         return $this->render('AmilioCoreBundle:Channel:' . $template, array("item" => $item, 'element' => $element, 'channel' => $element->getChannel() ));
+    }
+  
+    public function addFavouriteAction(Channel $channel)
+    {
+	$user = $this->getUser();
+	$user->addFavouriteChannel($channel);
+	
+	$em = $this->getDoctrine()->getManager();
+	$em->persist($user);
+	$em->flush();
+
+	$this->setFavCookie();
+
+	return $this->redirect($this->generateUrl('amilio_core_channel_show', array( 'channel' => $channel->getId(), 'canonicalName' => $channel->getCanonicalName()))); 
+    }
+
+    public function removeFavouriteAction(Channel $channel)
+    {
+        $user = $this->getUser();
+
+var_dump( $channel->getId());
+
+        $user->removeFavouriteChannel($channel);
+
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($user);
+        $em->flush();
+
+	$this->setFavCookie();
+
+        return $this->redirect($this->generateUrl('amilio_core_channel_show', array( 'channel' => $channel->getId(), 'canonicalName' => $channel->getCanonicalName())));
+    }
+
+    private function setFavCookie()
+    {
+	$response = new Response();
+
+	$channels = $this->getUser()->getFavouriteChannels();
+	$channelString = "-0-";
+        foreach( $channels as $channel ) {
+                $channelString .= $channel->getId() . "-";
+        }
+
+        $response->headers->setCookie(new Cookie("favs", $channelString, 0, '/', null, false, false));
+
+        $response->send();
     }
 }

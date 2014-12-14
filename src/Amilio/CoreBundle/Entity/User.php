@@ -30,6 +30,13 @@ class User extends BaseUser
      **/
     private $channels;  
     
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="Channel", inversedBy="favUsers")
+     * @ORM\JoinTable(name="favourite_channels")
+     **/
+    private $favouriteChannels;
+
 
     /**
      * Get id
@@ -50,5 +57,22 @@ class User extends BaseUser
     public function getChannels()
     {
         return $this->channels;
+    }
+
+    public function addFavouriteChannel(Channel $channel)
+    {
+        $this->favouriteChannels[] = $channel;
+        return $this;
+    }
+
+    public function getFavouriteChannels()
+    {
+        return $this->favouriteChannels;
+    }
+
+    public function removeFavouriteChannel(Channel $channel)
+    {
+	$this->favouriteChannels->removeElement($channel);
+	return $this;
     }
 }
