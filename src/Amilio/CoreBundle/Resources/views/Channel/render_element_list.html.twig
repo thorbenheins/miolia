@@ -29,6 +29,9 @@
     {% for element in elements%}
         {% render(controller("AmilioCoreBundle:Channel:showElement", { "element": element.id })) %}
     {% endfor %}
+
+    <div id="modalDialog" style="display: none; background-color: white; width: 500px; border: 1px solid #000; padding: 30px; position: relative; top: -300px">
+    </div>
     
 </div>
 
@@ -54,5 +57,24 @@
             	});
             });
         }
-        
+
+      function showModal(url, width)
+      {
+          if (width) {
+                $("#modalDialog").width(width);
+          }
+          $.get( url, function( data ) {
+                  $("#modalDialog").modal({ opacity:80, overlayCss: {backgroundColor:"#000"}});
+                  $("#modalDialog").html( data );
+          });
+      }
+
+      function showProductModal(id, name)
+      {
+          var url = '{{ path("amilio_core_product_show", {'element': 'elementid', 'canonicalName': 'canonicalname' })  }}';
+          url = url.replace("elementid", id);
+          url = url.replace("canonicalname", name);
+
+          showModal(url, "800px");
+      }        
     </script>
