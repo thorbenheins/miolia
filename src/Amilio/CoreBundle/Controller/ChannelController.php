@@ -76,10 +76,12 @@ class ChannelController extends Controller
         if ($channelId == -1) {
             $channel = new Channel();
             $imageName = "";
+	    $update = false;
         }else{
             $channel = $this->getDoctrine()->getRepository('AmilioCoreBundle:Channel')->find($channelId);
             $imageName = $channel->getImage();
             $channel->setImage("");
+	    $update = true;
         }
                
         $em = $this->getDoctrine()->getManager();
@@ -98,7 +100,7 @@ class ChannelController extends Controller
             $channel->setOwner($user); 
             
 	    $parentId = $form->get('parent_id')->getData();
-	    if( $parentId > 0) {
+	    if($parentId > 0 && !$update) {
 	    	$parent = $this->getDoctrine()->getRepository('AmilioCoreBundle:Channel')->find($parentId);
 		$channel->setParent($parent);
 		
