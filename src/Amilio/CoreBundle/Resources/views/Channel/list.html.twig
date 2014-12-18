@@ -5,8 +5,10 @@
     <h1>Kan&auml;le</h1>
     <ul>
         {% for channel in channels %}
-            <li><a href="{{ path('amilio_core_channel_show', {'channel': channel.id, 'canonicalName': channel.canonicalname}) }}">{{ channel.name }}</a></li>
-        {% endfor %}
+	    {% if not(channel.parent) %}
+            	<li><a href="{{ path('amilio_core_channel_show', {'channel': channel.id, 'canonicalName': channel.canonicalname}) }}">{{ channel.name }}</a></li>
+            {% endif %}
+	{% endfor %}
     </ul>
 </div>
 {% endblock %}

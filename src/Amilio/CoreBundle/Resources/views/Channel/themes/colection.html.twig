@@ -11,9 +11,6 @@
 {% block body %}
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52933cc83cff4be0" async="async"></script>
     <div class="theme_homepage">
-	{% if channel.parent %}
-		<div class="center" style=""><div style="background-color: #eee; width: 300px; margin-left: calc( 50% - 125px); padding: 10px;"><a href="{{ path('amilio_core_channel_show', {'channel': channel.parent.id, 'canonicalName': channel.parent.canonicalname}) }}">Zurück zu "{{ channel.parent.name }}"</a></div>
-	{% endif %}
     <div class="content" style="padding-top: 50px; left: -15px; position: relative">
 	<div style="background-color: white; margin-right: 30px; padding: 20px; border: 1px solid #aaaaaa; float: left; width: 443px; height: 412px">
 		<h1>{{ channel.name }}</h1>

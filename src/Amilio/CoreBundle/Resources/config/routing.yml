@@ -3,8 +3,8 @@ amilio_core_homepage:
     defaults: { _controller: AmilioCoreBundle:Default:index }
 
 amilio_core_channel_new:
-    path:     /user/channel/new
-    defaults: { _controller: AmilioCoreBundle:Channel:new }
+    path:     /user/channel/new/{parentId}
+    defaults: { _controller: AmilioCoreBundle:Channel:new, parentId = -1}
     
 amilio_core_channel_edit:
     path:     /user/channel/edit/{channel}/
@@ -51,7 +51,7 @@ amilio_core_product_store:
     defaults: { _controller: AmilioCoreBundle:Product:store }
     
 amilio_core_product_show:
-    path:     /product/{element}/{canonicalName}.html
+    path:     /product/{product}/{canonicalName}.html
     defaults: { _controller: AmilioCoreBundle:Product:show }
     
 amilio_core_product_remove:

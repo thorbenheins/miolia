@@ -57,15 +57,15 @@ class ProductController extends Controller
         return $this->render('AmilioCoreBundle:Product:new.html.twig', array('form' => $form->createView()));
     }
 
-    public function showAction(ChannelElement $element, $canonicalName)
-    {              
-        $product = $this->getDoctrine()->getRepository($element->getType())->findOneBy(array("id" => $element->getForeignId()));
+    public function showAction(Product $product, $canonicalName)
+    {    
+        #$product = $this->getDoctrine()->getRepository($element->getType())->findOneBy(array("id" => $element->getForeignId()));
         
         if ($product->getCanonicalName() != $canonicalName) {
             return $this->redirect($this->generateUrl('amilio_core_product_show', array('product' => $product->getId(), 'canonicalName' => $product->getCanonicalName())), 302);
         }
         
-        $similarElements = $this->getDoctrine()->getRepository("AmilioCoreBundle:ChannelElement")->findBy(array('foreignId' => $element->getForeignId(), 'type' => get_class($product)), array("id" => "ASC"));
+        $similarElements = $this->getDoctrine()->getRepository("AmilioCoreBundle:ChannelElement")->findBy(array('foreignId' => $product->getId(), 'type' => get_class($product)), array("id" => "ASC"));
         
         return $this->render('AmilioCoreBundle:Product:show.html.twig', array('product' => $product, 'similarElements' => $similarElements));
     }

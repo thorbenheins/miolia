@@ -21,25 +21,31 @@ use Symfony\Component\HttpFoundation\Cookie;
 class ChannelController extends Controller
 {
 
-    public function newAction()
+    public function newAction($parentId)
     {
         $channel = new Channel();
-        $form = $this->createForm(new ChannelType(), $channel, array(
+        
+	$form = $this->createForm(new ChannelType(), $channel, array(
             'action' => $this->generateUrl('amilio_core_channel_store')
         ));
+
+        $form->get('parent_id')->setData($parentId);
         
         return $this->render('AmilioCoreBundle:Channel:new.html.twig', array(
             'form' => $form->createView(), 'channel' => $channel
         ));
     }
-    
+   
     public function editAction(Channel $channel)
     {
         $channel->setImage('');
         $form = $this->createForm(new ChannelType(), $channel, array(
             'action' => $this->generateUrl('amilio_core_channel_store', array('channelId' => $channel->getId()))
         ));
-    
+   
+	if( $channel->getParent() ) { 
+		$form->get('parent_id')->setData($channel->getParent()->getId());
+	}
         return $this->render('AmilioCoreBundle:Channel:new.html.twig', array(
             'form' => $form->createView(), 'channel' => $channel
         ));
@@ -82,7 +88,7 @@ class ChannelController extends Controller
         ));
         
         $form->handleRequest($request);
-        
+
         if ($form->isValid()) {
             $channel = $form->getData();
             
@@ -90,7 +96,25 @@ class ChannelController extends Controller
             
             $channel->setType(Channel::TYPE_CHANNEL);
             $channel->setOwner($user); 
-                       
+            
+	    $parentId = $form->get('parent_id')->getData();
+	    if( $parentId > 0) {
+	    	$parent = $this->getDoctrine()->getRepository('AmilioCoreBundle:Channel')->find($parentId);
+		$channel->setParent($parent);
+		
+           	$element = new ChannelElement();
+
+            	$em->persist($channel);
+           	$em->flush();
+
+            	$element->setElement($channel);
+            	$element->setChannel($parent);
+            	$em->persist($element);
+
+            	$channel->addElement($element);
+            	$em->persist($channel);
+            }
+
             if($form->has("image") && (!is_null($form->get("image")->getData()))) {
                 $channel->setImage($this->handleFileUpload($form['image']->getData()));
             }else{
@@ -167,10 +191,9 @@ class ChannelController extends Controller
     public function showElementAction(ChannelElement $element)
     {
         $item = $this->getDoctrine()->getRepository($element->getType())->find($element->getForeignId());
-        
         $template = str_replace("\\", "_", get_class($item)) . ".html.twig";
-        
-        return $this->render('AmilioCoreBundle:Channel:' . $template, array("item" => $item, 'element' => $element, 'channel' => $element->getChannel() ));
+     	$template = str_replace("Proxies___CG___", "", $template);
+	return $this->render('AmilioCoreBundle:Channel:' . $template, array("item" => $item, 'element' => $element, 'channel' => $element->getChannel() ));
     }
   
     public function addFavouriteAction(Channel $channel)

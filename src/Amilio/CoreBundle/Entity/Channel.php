@@ -19,7 +19,7 @@ use Doctrine\ORM\Mapping as ORM;
  * 
  * @ORM\Entity(repositoryClass="Amilio\CoreBundle\Entity\ChannelRepository")
  */
-class Channel
+class Channel implements Addable
 {
     const TYPE_CHANNEL = "0";
     const TYPE_COLLECTION = "1";
@@ -79,6 +79,17 @@ class Channel
      * @ORM\Column(name="channel_of_the_week", type="boolean")
      */
     private $channel_of_the_week = false;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Channel", mappedBy="parent")
+     **/
+    private $children;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Channel", inversedBy="children")
+     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
+     **/
+    private $parent;    
     
     /**
      * @ORM\Column(name="preview_image", type="string", length=255, nullable=true)
@@ -114,6 +125,22 @@ class Channel
     public function getId()
     {
         return $this->id;
+    }
+
+    public function getParent()
+    {
+	return $this->parent;
+    }
+
+    public function hasParent()
+    {
+	return is_null($this->parent);
+    }
+
+    public function setParent(Channel $parent)
+    {
+	$this->parent = $parent;
+	return $this;
     }
 
     public function getTheme()
@@ -285,6 +312,11 @@ class Channel
         return $this;
     }
 
+    public function setTheme($theme)
+    {
+	$this->theme = $theme;
+	return $this;
+    }
 
 
 }

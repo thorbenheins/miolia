@@ -19,12 +19,10 @@ var currentUserName = getCookie("userName");
 
 $(document).ready(function() {
 	$("[class^=user-]").hide();
-	$("[class^=not-user-]").show();
 	$(".user-" + currentUserId).show();
 	if (isLoggedIn()) {
 		$(".user").show();
 		$(".username").html(currentUserName);
-		$(".not-user-" + currentUserId).hide();
 	} else {
 		$(".anonymous").show();
 	}
