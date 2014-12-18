@@ -15,7 +15,7 @@
 		<div class="center" style=""><div style="background-color: #eee; width: 300px; margin-left: calc( 50% - 125px); padding: 10px;"><a href="{{ path('amilio_core_channel_show', {'channel': channel.parent.id, 'canonicalName': channel.parent.canonicalname}) }}">Zurück zu "{{ channel.parent.name }}"</a></div>
 	{% endif %}
     <div class="content" style="padding-top: 50px; left: -15px; position: relative">
-	<div style="background-color: white; margin-right: 30px; padding: 20px; border: 1px solid #aaaaaa; float: left; width: 443px; height: 412px">
+	<div style="text-align: left; background-color: white; margin-right: 30px; padding: 20px; border: 1px solid #aaaaaa; float: left; width: 443px; height: 412px">
 		<h1>{{ channel.name }}</h1>
 		<p class="user-{{ channel.owner.id }}" style="font-size: 12px"><a href='javascript: showModal("{{ path("amilio_core_channel_edit", {'channel': channel.id }) }}")'>Kanal editieren</a></p>
 		<p style="line-height: 28px">{{ channel.description }}</p>

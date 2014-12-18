@@ -1,0 +1,19 @@
+<div id="elementlist">
+
+    {% for channel in channels %}
+	{% if not(channel.parent) %}
+        	{% include "AmilioCoreBundle:Channel:Amilio_CoreBundle_Entity_Channel.html.twig" with { "item": channel } %}
+    	{% endif %}
+    {% endfor %}
+
+</div>    
+    <script type="text/javascript">
+        var $container = $('#elementlist');
+        // init
+        $container.isotope({
+          // options
+          itemSelector: '.item',
+          layoutMode: 'masonry'
+        });
+
+    </script>

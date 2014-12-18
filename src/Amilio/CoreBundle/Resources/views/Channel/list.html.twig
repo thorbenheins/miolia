@@ -2,13 +2,10 @@
 
 {% block body %}
  <div class="content">
-    <h1>Kan&auml;le</h1>
-    <ul>
-        {% for channel in channels %}
-	    {% if not(channel.parent) %}
-            	<li><a href="{{ path('amilio_core_channel_show', {'channel': channel.id, 'canonicalName': channel.canonicalname}) }}">{{ channel.name }}</a></li>
-            {% endif %}
-	{% endfor %}
-    </ul>
+	<div class="center">
+    		<h1 style="font-size: 35px; font-weight: normal; font-family: 'Dancing Script', cursive;">Meine Kan&auml;le</h1>
+   	</div>
+    	{{ include("AmilioCoreBundle:Channel:render_channel_list.html.twig") }}
+
 </div>
 {% endblock %}
