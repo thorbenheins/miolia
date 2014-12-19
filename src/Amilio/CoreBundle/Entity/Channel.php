@@ -322,6 +322,4 @@ class Channel implements Addable
 	$this->theme = $theme;
 	return $this;
     }
-
-
 }

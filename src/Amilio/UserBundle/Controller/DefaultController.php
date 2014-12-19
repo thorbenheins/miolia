@@ -41,4 +41,9 @@ class DefaultController extends Controller
         // @todo this route should be configured
         return $this->redirect($this->generateUrl('amilio_core_homepage'));
     }
+
+    public function showLoginAction()
+    {
+	return $this->render('AmilioUserBundle:Default:login.html.twig');
+    }
 }

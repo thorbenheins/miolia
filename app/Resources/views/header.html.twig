@@ -43,18 +43,9 @@
 	                <li>
                     <li class="top_level_menu anonymous">
                               <a class="simple_link" href="#">Anmelden</a>
-                              <ul id="menu_login"> 
-                                  <li>
-                                    <form action="{{ path("fos_user_security_check") }}" method="post">
-                                      <label>Username</label><br />
-                                      <input type="text" name="_username" required="required" />
-                                      <br />  
-                                      <label>Passwort</label><br>
-                                      <input type="password" name="_password" required="required" />
-                                      <br />
-                                       <input type="hidden" name="_csrf_token" value="{{ fos_csrf_provider.generateCsrfToken('authenticate') }}" />
-                                      <button type="submit">Anmelden</button>
-                                    </form>
+                              <ul> 
+                                <li>
+				     <a href="javascript:showModal('{{ path("amilio_user_login") }}', '400px')">Anmelden</a>
                                 </li>
                                 <li>
                                     <a href="{{ path("fos_user_registration_register") }}">Registrieren.</a>

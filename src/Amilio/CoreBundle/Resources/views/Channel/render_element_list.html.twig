@@ -85,6 +85,7 @@
                   oldUrl = window.location.href;
 		  $("#modalDialog").modal({ opacity:80, overlayCss: {backgroundColor:"#000"}, onClose: function(){window.history.pushState('', '', oldUrl); $.modal.close();} });
                   $("#modalDialogContent").html( data );
+		  processUserFields();
 		  window.history.pushState('', '', newUrl);
           });
       }

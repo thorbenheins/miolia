@@ -184,6 +184,12 @@ class ChannelController extends Controller
             if( $owner->getId() == $this->getUser()->getId()) {
                 $em = $this->getDoctrine()->getManager();
                 $em->remove($channel);
+
+		$channelElements = $this->getDoctrine()->getRepository('AmilioCoreBundle:ChannelElement')->findBy(array('foreignId' => $channel->getId(), 'type' => 'Amilio\CoreBundle\Entity\Channel'));		 
+		foreach( $channelElements as $element ) {
+			$em->remove($element);
+		}
+
                 $em->flush();
                 return $this->redirect($this->generateUrl("amilio_core_channel_list"));
             }
@@ -194,6 +200,7 @@ class ChannelController extends Controller
     public function showElementAction(ChannelElement $element)
     {
         $item = $this->getDoctrine()->getRepository($element->getType())->find($element->getForeignId());
+
         $template = str_replace("\\", "_", get_class($item)) . ".html.twig";
      	$template = str_replace("Proxies___CG___", "", $template);
 	return $this->render('AmilioCoreBundle:Channel:' . $template, array("item" => $item, 'element' => $element, 'channel' => $element->getChannel() ));

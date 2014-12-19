@@ -37,7 +37,6 @@ class User extends BaseUser
      **/
     private $favouriteChannels;
 
-
     /**
      * Get id
      *

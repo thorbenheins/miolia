@@ -1,0 +1,17 @@
+<div id="login">
+
+	<p style="font-size: 12px; padding-bottom: 20px; padding-top: 30px;">Hallo und sch&ouml;n, dass du da bist. Wahrscheinlich willst du dich gerade anmelden, um ein tolles Produkt, dass du gefunden hast hier zu teilen, aber vielleicht willst du auch einfach nur wissen, was es neues in deinem Netzwerk gibt. Egal warum, wir freuen und dass du wieder hier bist.</p>
+
+	<div class="center">                                    
+	<form action="{{ path("fos_user_security_check") }}" method="post">
+             <label>Username</label><br />
+                                      <input type="text" name="_username" required="required" />
+                                      <br />
+                                      <label>Passwort</label><br>
+                                      <input type="password" name="_password" required="required" />
+                                      <br />
+                                       <input type="hidden" name="_csrf_token" value="{{ fos_csrf_provider.generateCsrfToken('authenticate') }}" />
+                                      <button type="submit">Anmelden</button>
+                                    </form>
+	</div>
+</div>
