@@ -1,5 +1,5 @@
-<div class="item" onmouseover="$('#product_{{ item.id }}').show()" onmouseout="$('#product_{{ item.id }}').hide()">
-    <div style="position: relative; height: 0; top: 80px; display: none" id="product_{{ item.id }}">
+<div class="item" onmouseover="$('#product_{{ element.id }}').show()" onmouseout="$('#product_{{ element.id }}').hide()">
+    <div style="position: relative; height: 0; top: 80px; display: none" id="product_{{ element.id }}">
     
         <div style="width: 145px; text-align: center; background-color: #f69a2f; padding: 10px; margin-right: 10px; margin-left: 25px; font-size: 14px; color: white;"><a onclick="showProductModal('{{ item.id }}', '{{ item.canonicalName }}')" href="#" style="color: white">zur Produktseite</a></div> 
         <div style="height: 5px;"></div>
