@@ -2,6 +2,10 @@
 	{% set listname = "elementlist" %}
 {% endif %}
 
+{% if channel is defined %}
+	{% set elements = channel.elements %}
+{% endif %} 
+
 <div id="{{ listname }}" class="elementlist">
     
     {% if showAdd is defined %}
@@ -31,7 +35,7 @@
 	{% endif %}
     {% endif %}
         
-    {% for element in channel.elements %}
+    {% for element in elements %}
         {% render(controller("AmilioCoreBundle:Channel:showElement", { "element": element.id })) %}
     {% endfor %}
 
@@ -63,14 +67,21 @@
             });
         }
 
+        var oldUrl;
+	var newUrl;
+
       function showModal(url, width)
       {
+	  oldUrl = window.location.href;
+	  newUrl = url;
+
           if (width) {
                 $("#modalDialog").width(width);
           }
           $.get( url, function( data ) {
-                  $("#modalDialog").modal({ opacity:80, overlayCss: {backgroundColor:"#000"}});
+                  $("#modalDialog").modal({ opacity:80, overlayCss: {backgroundColor:"#000"}, onClose: function(){window.history.pushState('', '', oldUrl); $.modal.close();} });
                   $("#modalDialog").html( data );
+		  window.history.pushState('', '', newUrl);
           });
       }
 
