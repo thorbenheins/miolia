@@ -1,4 +1,8 @@
-<div id="elementlist">
+{% if not listname is defined %}
+	{% set listname = "elementlist" %}
+{% endif %}
+
+<div id="{{ listname }}" class="elementlist">
     
     {% if showAdd is defined %}
 	{% if showAdd %}
@@ -27,7 +31,7 @@
 	{% endif %}
     {% endif %}
         
-    {% for element in elements%}
+    {% for element in channel.elements %}
         {% render(controller("AmilioCoreBundle:Channel:showElement", { "element": element.id })) %}
     {% endfor %}
 
@@ -37,7 +41,7 @@
 </div>
 
     <script type="text/javascript">
-        var $container = $('#elementlist');
+        var $container = $('#{{ listname }}');
         // init
         $container.isotope({
           // options

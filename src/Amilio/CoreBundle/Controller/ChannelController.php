@@ -145,8 +145,10 @@ class ChannelController extends Controller
         $user = $this->getUser();
         $channels = $user->getChannels();
         
+	$favChannel = $this->getDoctrine()->getRepository('AmilioCoreBundle:Channel')->find(13);
+
         return $this->render('AmilioCoreBundle:Channel:list.html.twig', array(
-            'channels' => $channels
+            'myChannels' => $channels, 'favChannel' => $favChannel
         ));
     }
 
@@ -160,7 +162,6 @@ class ChannelController extends Controller
         
         return $this->render($template, array(
             'channel' => $channel,
-            'elements' => $channel->getElements(),
         ));
     }
 

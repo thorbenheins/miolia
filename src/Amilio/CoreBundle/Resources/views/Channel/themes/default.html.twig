@@ -58,7 +58,7 @@
      });
     </script>
 
-    <div class="content tilelist" style="padding-top: 100px;">        
-         {% include "AmilioCoreBundle:Channel:render_element_list.html.twig" with { "elements": elements, "showAdd": true } %}
+    <div class="content tilelist" style="padding-top: 100px;"> 
+         {% include "AmilioCoreBundle:Channel:render_element_list.html.twig" with { "elements": channel.elements, "showAdd": true } %}
     </div>
 {% endblock %}

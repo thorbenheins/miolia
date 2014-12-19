@@ -5,7 +5,12 @@
 	<div class="center">
     		<h1 style="font-size: 35px; font-weight: normal; font-family: 'Dancing Script', cursive;">Meine Kan&auml;le</h1>
    	</div>
-    	{{ include("AmilioCoreBundle:Channel:render_channel_list.html.twig") }}
+    	{% include "AmilioCoreBundle:Channel:render_channel_list.html.twig" with {"channels": myChannels} %}
+	<div class="center">
+                <h1 style="font-size: 35px; font-weight: normal; font-family: 'Dancing Script', cursive;">Empfohlene Kan&auml;le</h1>
+        </div>
+
+	{% include "AmilioCoreBundle:Channel:render_element_list.html.twig" with {"channel": favChannel, 'listname': 'favChannelList' } %}	
 
 </div>
 {% endblock %}
