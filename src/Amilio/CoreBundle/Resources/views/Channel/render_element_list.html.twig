@@ -7,7 +7,7 @@
 			    <div class="center" style="width: 100%; padding-top: 70px">
 				<img src="/images/add.png" /><br />
 				<a href='javascript: showModal("{{ path("amilio_core_product_new", {'channelId': channel.id }) }}")'>Produkt hinzuf&uuml;gen</a> <br />
-				<a href='javascript: showModal("{{ path("amilio_core_channel_new", {'parentId': channel.id }) }}")'>Kollektion hinzuf&uuml;gen</a>
+				{% if not channel.parent %}<a href='javascript: showModal("{{ path("amilio_core_channel_new", {'parentId': channel.id }) }}")'>Kollektion hinzuf&uuml;gen</a>{% endif %}
 				<p style="padding-top 50px; font-size: 12px; color: #AAA; padding: 30px; margin-top: 30px;">Du kannst hier nicht nur Produkte zu deinem Kanal hinzuf&uuml;gen, sondern auch jede Menge andere Dinge. Find's einfach heraus.</p>
 			    </div>
 			</div>
