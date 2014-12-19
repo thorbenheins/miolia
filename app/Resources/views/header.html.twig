@@ -30,8 +30,11 @@
                             <img src="/images/twitter.png">
                         </a>                                                    
                     </li>
-                    <li>
+                    <li class="user">
                         <a onclick="showNewChannelModal()" href="#">Starte einen Kanal</a>              
+                    </li>
+		    <li class="anonymous">
+                        <a onclick="showLoginModal()" href="#">Starte einen Kanal</a>
                     </li>
                     <li class="top_level_menu user">
  	                  <a href="{{ path('amilio_core_user_index') }}"><span class="username"></span></a>
@@ -45,10 +48,10 @@
                               <a class="simple_link" href="#">Anmelden</a>
                               <ul> 
                                 <li>
-				     <a href="javascript:showModal('{{ path("amilio_user_login") }}', '400px')">Anmelden</a>
+				     <a href="javascript:showLoginModal()">Anmelden</a>
                                 </li>
                                 <li>
-                                    <a href="{{ path("fos_user_registration_register") }}">Registrieren.</a>
+                                    <a href="{{ path("fos_user_registration_register") }}">Registrieren</a>
                                 </li>
                             </ul>
                           </div>
@@ -66,6 +69,11 @@
 		  $("#newChannelModal").modal({ opacity:80, overlayCss: {backgroundColor:"#000"}});
 		  $("#newChannelModal").html( data );
 	  });    	 
+  }
+
+  function showLoginModal()
+  {
+	showModal('{{ path("amilio_user_login") }}', '400px');
   }
   
   jQuery(document).ready(function() {
