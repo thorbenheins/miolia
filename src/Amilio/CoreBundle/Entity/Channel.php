@@ -143,6 +143,11 @@ class Channel implements Addable
 	return $this;
     }
 
+    public function getChildren( )
+    {
+	return $this->children;
+    }
+
     public function getTheme()
     {
         if( $this->theme != "" ) {

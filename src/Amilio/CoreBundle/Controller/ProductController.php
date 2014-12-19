@@ -59,14 +59,14 @@ class ProductController extends Controller
 
     public function showAction(Product $product, $canonicalName)
     {    
-        #$product = $this->getDoctrine()->getRepository($element->getType())->findOneBy(array("id" => $element->getForeignId()));
-        
         if ($product->getCanonicalName() != $canonicalName) {
             return $this->redirect($this->generateUrl('amilio_core_product_show', array('product' => $product->getId(), 'canonicalName' => $product->getCanonicalName())), 302);
         }
         
-        $similarElements = $this->getDoctrine()->getRepository("AmilioCoreBundle:ChannelElement")->findBy(array('foreignId' => $product->getId(), 'type' => get_class($product)), array("id" => "ASC"));
-        
+        #$similarElements = $this->getDoctrine()->getRepository("AmilioCoreBundle:ChannelElement")->findBy(array('foreignId' => $product->getId(), 'type' => get_class($product)), array("id" => "ASC"));
+	$similarElements = $this->getDoctrine()->getRepository("AmilioCoreBundle:ChannelElement")->findByProduct($product);        
+
+
         return $this->render('AmilioCoreBundle:Product:show.html.twig', array('product' => $product, 'similarElements' => $similarElements));
     }
 
@@ -77,7 +77,10 @@ class ProductController extends Controller
     
     public function shareStoreAction(Request $request)
     {
-        $em =  $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine()->getManager();
+
+	// @todo check if post reuqest
+	// @todo check if channel is owned by this->getUser()
 
         $product = $em->find('AmilioCoreBundle:Product', $request->get('productId'));
         $channel = $em->find('AmilioCoreBundle:Channel', $request->get('channelId'));

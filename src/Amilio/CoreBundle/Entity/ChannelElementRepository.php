@@ -3,6 +3,7 @@ namespace Amilio\CoreBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 use Amilio\CoreBundle\Entity\User;
+use Amilio\CoreBundle\Entity\Product;
 
 class ChannelElementRepository extends EntityRepository
 {
@@ -26,5 +27,14 @@ class ChannelElementRepository extends EntityRepository
 	$qb->where($qb->expr()->in('ce.channel', $channelString));
 	$qb->orderBy('ce.id', 'DESC');
 	return $qb->getQuery()->getResult();
+    }
+
+    public function findByProduct(Product $product)
+    {
+	$qb = $this->createQueryBuilder('ce');
+        #$qb->select('DISTINCT ce.channel_id');
+	$qb->where('ce.foreignId = ' . $product->getId());
+	#$qb->where('ce.type = "Amilio\\CoreBundle\\Entity\\Product"');
+        return $qb->getQuery()->getResult();
     }
 }

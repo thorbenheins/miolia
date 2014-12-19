@@ -1,18 +1,25 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}{{ product.name }}{% endblock %}
-
 {% block body %}
     <h1>Produkt in Kanal &uuml;bernehmen</h1>
     
-     {{ product.name }} 
+    {{ product.name }} 
     
     <h2>Kan&auml;le</h2>
     
-    <ul>
-        {% for channel in channels %}
-            <li><a href="{{ path('amilio_core_product_share_store', {'userName': channel.owner, 'channelName': channel.canonicalname}) }}">{{ channel.name }}</a></li>
-        {% endfor %}
-    </ul>
+    	<form method="post" action="{{ path('amilio_core_product_share_store') }}">
+		<input type="hidden" name="productId" value={{ product.id }}">
+		<select name="channelId">
+			{% for channel in channels %}
+				{% if not channel.parent %}
+				<optgroup label="{{ channel.name }}">
+					<option value="{{channel.id }}">{{ channel.name }}</option>
+					{% for child in channel.children %}
+					<option value={{child.id}}">{{child.name}}</option>
+					{% endfor %} 
+				</optgroup>
+				{% endif %}
+			{% endfor %}
+		</select>
+		<input type="submit" value="&uuml;bernehmen">	
+ 	</form>
     
 {% endblock %}

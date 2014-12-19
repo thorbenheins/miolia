@@ -79,6 +79,7 @@
                 $("#modalDialog").width(width);
           }
           $.get( url, function( data ) {
+		  $.modal.close();
                   $("#modalDialog").modal({ opacity:80, overlayCss: {backgroundColor:"#000"}, onClose: function(){window.history.pushState('', '', oldUrl); $.modal.close();} });
                   $("#modalDialog").html( data );
 		  window.history.pushState('', '', newUrl);
