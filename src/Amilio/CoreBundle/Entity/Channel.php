@@ -65,6 +65,11 @@ class Channel implements Addable
     private $type;
 
     /**
+     *  @ORM\Column(name="follower_count", type="integer")
+     */
+    private $followerCount;
+
+    /**
      * @ORM\ManyToMany(targetEntity="User", mappedBy="channels")
      */
     private $users;
@@ -125,6 +130,23 @@ class Channel implements Addable
     public function getId()
     {
         return $this->id;
+    }
+
+    public function getFollowerCount()
+    {
+	return $this->followerCount;
+    }
+
+    public function increaseFollowerCount()
+    {
+	$this->followerCount++;
+	return $this;
+    }
+
+    public function decreaseFollowerCount()
+    {
+        $this->followerCount--;
+        return $this;
     }
 
     public function getParent()

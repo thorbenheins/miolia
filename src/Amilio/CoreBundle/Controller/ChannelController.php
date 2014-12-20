@@ -167,11 +167,12 @@ class ChannelController extends Controller
 
     public function showHottestAction()
     {
-        $newest = $this->getDoctrine()->getRepository('AmilioCoreBundle:Channel')->findBy(array(), array('id' => 'DESC'), 20, 0);
-        $channelsOfTheWeek = $this->getDoctrine()->getRepository('AmilioCoreBundle:Channel')->findChannelsOfTheWeek();
-        
+        $newest = $this->getDoctrine()->getRepository('AmilioCoreBundle:Channel')->findNewest();
+	$mostFollowed = $this->getDoctrine()->getRepository('AmilioCoreBundle:Channel')->findMostFollowed();
+	$favChannel = $this->getDoctrine()->getRepository('AmilioCoreBundle:Channel')->find(13);        
+
         return $this->render('AmilioCoreBundle:Channel:hottest.html.twig', array(
-            'newest' => $newest, 'channelsOfTheWeek' => $channelsOfTheWeek
+            'favChannel' => $favChannel, 'newestChannels' => $newest, 'mostFollowedChannels' => $mostFollowed
         ));
     }
 
@@ -213,6 +214,10 @@ class ChannelController extends Controller
 	
 	$em = $this->getDoctrine()->getManager();
 	$em->persist($user);
+
+        $channel->increaseFollowerCount();
+	$em->persist($channel);
+
 	$em->flush();
 
 	$this->setFavCookie();
@@ -226,9 +231,12 @@ class ChannelController extends Controller
 
         $user->removeFavouriteChannel($channel);
 
-
         $em = $this->getDoctrine()->getManager();
         $em->persist($user);
+
+	$channel->decreaseFollowerCount();
+	$em->persist($channel);
+
         $em->flush();
 
 	$this->setFavCookie();

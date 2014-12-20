@@ -203,7 +203,7 @@ footer {
 }
 
 .elementlist {
-	padding-bottom: 100px;
+	ppadding-bottom: 100px;
 }
 
 .elementlist a:hover {
@@ -234,4 +234,8 @@ footer {
 	font-size: 12px;
 	line-height: 28px;
 	font-family: 'Roboto', sans-serif;
+}
+
+footer {
+	margin-top: 100px;
 }
