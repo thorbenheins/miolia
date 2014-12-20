@@ -9,20 +9,30 @@
     Produkt <br />hinzuf&uuml;gen
 </div>
 
+<style>
+	#product_url {
+		width: 400px;
+		margin-left: 20px;
+	}
+</style>
+
 {{ form_start(form) }}
     <div class="modal_form">
     {{ form_errors(form) }}
+    <div id="step_1">
     {{ form_row(form.url) }}
-        <div class="info">
+	<button style="float: right;margin-bottom: 22px;position: relative; top: -59px;">los</button>
+        <div class="info" style="margin-left: 41px;">
             Im ersten Schritt musst du die URL eingeben des Produktes, welches du bei uns teilen m&ouml;chtest. Da bei uns alles 
             automatisiert passiert k&ouml;nnen wir nicht alle Shops unterst&uuml;tzen. Derzeit unterst&uuml;tzen wir lediglich Produkte,
             die es bei Amazon zu kaufen gibt.
         </div>
+    </div>
     <div class="step_2">
-        {{ form(form) }}
+    {{ form(form) }}
     </div>
     </div>
-    <button style="float: right; position: relative; top: -20px" onclick="$.modal.close();">Abbrechen</button>
+    <!-- button style="float: right; position: relative; top: -20px" onclick="$.modal.close();">Abbrechen</button -->
 {{ form_end(form) }}
 
 {% endblock body %} 
