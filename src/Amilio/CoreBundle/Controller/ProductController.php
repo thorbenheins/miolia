@@ -64,10 +64,9 @@ class ProductController extends Controller
         }
         
         #$similarElements = $this->getDoctrine()->getRepository("AmilioCoreBundle:ChannelElement")->findBy(array('foreignId' => $product->getId(), 'type' => get_class($product)), array("id" => "ASC"));
-	$similarElements = $this->getDoctrine()->getRepository("AmilioCoreBundle:ChannelElement")->findByProduct($product);        
+	$containingChannels = $this->getDoctrine()->getRepository("AmilioCoreBundle:Channel")->findByProduct($product);        
 
-
-        return $this->render('AmilioCoreBundle:Product:show.html.twig', array('product' => $product, 'similarElements' => $similarElements));
+        return $this->render('AmilioCoreBundle:Product:show.html.twig', array('product' => $product, 'containingChannels' => $containingChannels));
     }
 
     public function shareAction(Product $product)

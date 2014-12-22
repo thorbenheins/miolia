@@ -78,5 +78,5 @@ amilio_core_static_show:
 # User Routes    
 
 amilio_core_user_index:
-    path:     /user/
-    defaults: { _controller: AmilioCoreBundle:User:index }
+    path:     /user/{index}
+    defaults: { _controller: AmilioCoreBundle:User:index, index: 1 }

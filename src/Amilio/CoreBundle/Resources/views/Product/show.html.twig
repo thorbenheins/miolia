@@ -16,8 +16,8 @@
   <h2 style="font-size: 14px">In folgenden Kan&auml;len vorhanden</h2> 
 
   <ul>
-    {% for element in similarElements %}
-        <li><a href="{{ path('amilio_core_channel_show', {'channel': element.channel.id, 'canonicalName': element.channel.canonicalname}) }}">{{ element.channel.name }}</a></li>
+    {% for channel in containingChannels %}
+        <li><a href="{{ path('amilio_core_channel_show', {'channel': channel.id, 'canonicalName': channel.canonicalname}) }}">{{channel.name }}</a></li>
     {% endfor %}
   </ul>
 </div>

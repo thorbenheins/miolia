@@ -13,7 +13,7 @@ class Url
             'limit' => null,
             'lowercase' => true,
             'replacements' => array(),
-            'transliterate' => false,
+            'transliterate' => true,
         );
     
         // Merge options

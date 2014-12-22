@@ -7,34 +7,41 @@ use Amilio\CoreBundle\Entity\Product;
 
 class ChannelElementRepository extends EntityRepository
 {
-
     public function findChannels(Addable $element)
     {
+	
         return $this->findBy(array("type" => get_class($element), "foreignId" => $element->getId()), array("id" => "desc"), 5);
     }
 
-    public function findFavouritesByUser(User $user)
+    public function findFavouritesByUser(User $user, $start, $count)
     {
-	$channels = $user->getFavouriteChannels();
-
-	$channelString = "0";
-
-	foreach( $channels as $channel) {
-		$channelString .= ', ' . $channel->getId();
-	}
-
 	$qb = $this->createQueryBuilder('ce');
-	$qb->where($qb->expr()->in('ce.channel', $channelString));
+	$qb->join('ce.channel', 'c');
+	$qb->join('c.owner', 'o');
+	$qb->join('o.favouriteChannels', 'fc');
+	$qb->where('c.owner = :user'); 
 	$qb->orderBy('ce.id', 'DESC');
+	$qb->distinct();
+	$qb->setMaxResults($count);
+	$qb->setFirstResult($start);
+	$qb->setParameter('user', $user);
 	return $qb->getQuery()->getResult();
     }
 
     public function findByProduct(Product $product)
     {
+	return array();
+
 	$qb = $this->createQueryBuilder('ce');
-        #$qb->select('DISTINCT ce.channel_id');
+	
+	$qb->select('ch');
 	$qb->where('ce.foreignId = ' . $product->getId());
-	#$qb->where('ce.type = "Amilio\\CoreBundle\\Entity\\Product"');
+	$qb->where('ce.type = :type');
+	$qb->join('ce.channel', 'ch');
+
+	
+	
+	$qb->setParameter('type', get_class($product));
         return $qb->getQuery()->getResult();
     }
 }

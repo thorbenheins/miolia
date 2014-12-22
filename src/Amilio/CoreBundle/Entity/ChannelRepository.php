@@ -21,6 +21,20 @@ class ChannelRepository extends EntityRepository
 
     public function findMostFollowed($count = 5)
     {
-        return $this->findBy(array(), array("followerCount" => "desc"), $count);
+	$qb = $this->createQueryBuilder('c');
+        $qb->where('c.parent is NULL');
+        $qb->setMaxResults($count);
+        $qb->orderBy('c.followerCount', 'DESC');
+        return $qb->getQuery()->getResult();
+    }
+
+    public function findByProduct(Product $product)
+    {
+        $qb = $this->createQueryBuilder('ch');
+
+	$qb->join('ch.elements', 'ce');
+	$qb->where($qb->expr()->andX('ce.foreignId = ' . $product->getId(), 'ce.type = :type'));
+        $qb->setParameter('type', get_class($product));
+        return $qb->getQuery()->getResult();
     }
 }

@@ -1,4 +1,3 @@
-<header>
     <div class="menu">
         <div class="content">
             <div id="menu_navigation">
@@ -36,7 +35,7 @@
 		    <li class="anonymous">
                         <a onclick="showLoginModal()" href="#">Starte einen Kanal</a>
                     </li>
-                    <li class="top_level_menu user">
+                    <li class="top_level_menu user" style="padding-right: 0">
  	                  <a href="{{ path('amilio_core_user_index') }}"><span class="username"></span></a>
                       <ul>
 			  <li><a href="{{ path('amilio_core_user_index') }}">Mein Favoritenkanal</li> 
@@ -44,7 +43,7 @@
                           <li><a href="{{ path('fos_user_security_logout') }}">Abmelden</a></li>
                       </ul>
 	                <li>
-                    <li class="top_level_menu anonymous">
+                    <li class="top_level_menu anonymous" style="padding-right: 0">
                               <a class="simple_link" href="#">Anmelden</a>
                               <ul> 
                                 <li>
@@ -60,7 +59,6 @@
             </div>       
         </div>
     </div>
-</header>
 
 <script>
   function showNewChannelModal()

@@ -50,7 +50,7 @@
 
 </script>
  
-        <title>{% block title %}amilio.de{% endblock title %}</title>
+        <title>{% block title %}amilio - Das soziale Produktnetzwekt{% endblock title %}</title>
     </head>
     <body>
         <div id="newChannelModal" style="display: none; background-color: white; width: 500px; border: 1px solid #000; padding: 30px; position: relative; top: -300px"></div>
@@ -69,17 +69,25 @@
            }
         </script>
         
-        {% include 'header.html.twig' %}
-        
-        {% for type, messages in app.session.flashBag.all %}
-            {% for message in messages %}
-                <div class="{{ type }}">
-                    {{ message|trans({}, 'FOSUserBundle') }}
-                </div>
-            {% endfor %}
-        {% endfor %}
+        <header>
+		{% include 'header.html.twig' %}
+                <style>
+			#submenu {
+				width: 100%;
+                		background-color: white;
+                		border-bottom: 1px solid #d7d7d7;
+                		padding-bottom: 10px;
+                		padding-top: 10px;
+        		}
+		</style>
+    		<div id="submenu">
+        		<div class="content" style="text-align: left">
+                	{% block submenu %}{% endblock %}
+        		</div>
+    		</div>
+	</header> 
 
-    	<div style="padding-top: 35px">
+    	<div style="padding-top: 75px">
             {% block body %}
             {% endblock body %}
     	</div> 

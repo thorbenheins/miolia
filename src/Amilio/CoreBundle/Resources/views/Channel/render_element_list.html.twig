@@ -8,34 +8,6 @@
 
 <div id="{{ listname }}" class="elementlist">
     
-    {% if showAdd is defined %}
-	{% if showAdd %}
-		<div class="item">
-			<div class="user-{{ channel.owner.id }}">
-			    <div class="center" style="width: 100%; padding-top: 70px">
-				<img src="/images/add.png" /><br />
-				<a href='javascript: showModal("{{ path("amilio_core_product_new", {'channelId': channel.id }) }}")'>Produkt hinzuf&uuml;gen</a> <br />
-				{% if not channel.parent %}<a href='javascript: showModal("{{ path("amilio_core_channel_new", {'parentId': channel.id }) }}")'>Kollektion hinzuf&uuml;gen</a>{% endif %}
-				<p style="padding-top 50px; font-size: 12px; color: #AAA; padding: 30px; margin-top: 30px;">Du kannst hier nicht nur Produkte zu deinem Kanal hinzuf&uuml;gen, sondern auch jede Menge andere Dinge. Find's einfach heraus.</p>
-			    </div>
-			</div>
-			<div style="width: 100%; padding-top: 70px" class="center not-user-{{ channel.owner.id }}">
-				<div id="addFav">
-					<img src="/images/add.png" /><br />
-					<a class="user" href="{{ path('amilio_core_channel_add_favourite', {'channel': channel.id}) }}">Kanal folgen.</a>
-					<a class="anonymous" href="javascript:showLoginModal()">Kanal folgen.</a>
-					<p style="padding-top 50px; font-size: 12px; color: #AAA; padding: 30px; margin-top: 30px;">Du kannst hier nicht nur Produkte zu deinem Kanal hinzuf&uuml;gen, sondern auch jede Menge andere Dinge. Find's einfach heraus.</p>
-				</div>
-        			<div id="removeFav">
-					<img src="/images/add.png" /><br />
-					<a href="{{ path('amilio_core_channel_remove_favourite', {'channel': channel.id}) }}">Nicht mehr folgen.</a>
-					<p style="padding-top 50px; font-size: 12px; color: #AAA; padding: 30px; margin-top: 30px;">Du kannst hier nicht nur Produkte zu deinem Kanal hinzuf&uuml;gen, sondern auch jede Menge andere Dinge. Find's einfach heraus.</p>
-				</div>
-			</div>
-		</div>
-	{% endif %}
-    {% endif %}
-        
     {% for element in elements %}
         {% render(controller("AmilioCoreBundle:Channel:showElement", { "element": element.id })) %}
     {% endfor %}

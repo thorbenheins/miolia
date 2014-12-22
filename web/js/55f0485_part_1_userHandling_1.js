@@ -13,19 +13,24 @@ function isLoggedIn() {
 	return currentUserId > 0;
 }
 
+function processUserFields()
+{
+        $("[class^=user-]").hide();
+        $("[class^=not-user-]").show();
+        $(".user-" + currentUserId).show();
+        if (isLoggedIn()) {
+                $(".user").show();
+                $(".username").html(currentUserName);
+                $(".not-user-" + currentUserId).hide();
+        } else {
+                $(".anonymous").show();
+        }
+}
+
 var currentUserId = getCookie("userId");
 
 var currentUserName = getCookie("userName");
 
 $(document).ready(function() {
-	$("[class^=user-]").hide();
-	$("[class^=not-user-]").show();
-	$(".user-" + currentUserId).show();
-	if (isLoggedIn()) {
-		$(".user").show();
-		$(".username").html(currentUserName);
-		$(".not-user-" + currentUserId).hide();
-	} else {
-		$(".anonymous").show();
-	}
+	processUserFields();
 });

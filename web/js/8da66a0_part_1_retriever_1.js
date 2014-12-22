@@ -21,7 +21,7 @@
                 $("#product_imageThumbnail").after('<img src="'+data.imageThumbnail+'">');
 
                 $(".step_2").show();
-                
+		$("#step_1").hide();                
                 //console.debug(data)
             }).always(function() {
                 $("#spinner_product_url").remove();

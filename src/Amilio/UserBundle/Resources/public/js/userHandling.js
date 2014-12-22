@@ -27,8 +27,7 @@ function processUserFields()
         }
 }
 
-var currentUserId = getCookie("userId");
-
+var currentUserId   = getCookie("userId");
 var currentUserName = getCookie("userName");
 
 $(document).ready(function() {

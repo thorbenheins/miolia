@@ -27,7 +27,7 @@ class DefaultController extends Controller
 	$response->send();
 
         // @todo this route should be configured
-        return $this->redirect($this->generateUrl('amilio_core_user_index'));
+        return $this->redirect($this->generateUrl('amilio_core_user_index', array( 'start' => 0)));
     }
     
     public function postLogoutAction()

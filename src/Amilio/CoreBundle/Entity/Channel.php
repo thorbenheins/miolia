@@ -67,7 +67,7 @@ class Channel implements Addable
     /**
      *  @ORM\Column(name="follower_count", type="integer")
      */
-    private $followerCount;
+    private $followerCount = 0;
 
     /**
      * @ORM\ManyToMany(targetEntity="User", mappedBy="channels")

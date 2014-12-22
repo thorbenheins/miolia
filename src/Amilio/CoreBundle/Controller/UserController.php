@@ -10,9 +10,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class UserController extends Controller
 {
-    public function indexAction()
+    public function indexAction($index)
     {
-	$favs = $this->getDoctrine()->getRepository('AmilioCoreBundle:ChannelElement')->findFavouritesByUser($this->getUser());
+	$elementsPerPage = 30;
+
+	$favs = $this->getDoctrine()->getRepository('AmilioCoreBundle:ChannelElement')->findFavouritesByUser($this->getUser(), ($index - 1) * $elementsPerPage, $elementsPerPage);
 
         return $this->render('AmilioCoreBundle:User:index.html.twig', array('favs' => $favs));
     }

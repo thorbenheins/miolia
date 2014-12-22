@@ -2,41 +2,101 @@
 
 {% block title %}{{ channel.name }} auf amilio.de{% endblock %}
 
-{% block javascripts%}
-    {{ parent() }}
-
-    <script src="/includes/isotope/isotope.pkgd.min.js"></script>
-{% endblock  javascripts%}
+{% block submenu %}
+	<div style="float: left; width: 445px">
+	     {% if channel.parent %}
+             	<a style="padding-right: 5px; color: black" href="{{ path('amilio_core_channel_show', {'channel': channel.parent.id, 'canonicalName': channel.parent.canonicalname}) }}">{{ channel.parent.name }}</a> <span style="padding-right: 5px">></span>
+        	{% endif %}
+		{{ channel.name }}
+	</div>
+	<div style="float: left">
+               <span class='st_fblike_hcount' displayText='Facebook Like'></span>
+               <span class='st_twitter_hcount' displayText='Tweet'></span>
+               <span class='st_pinterest_hcount' displayText='Pinterest'></span>
+	</div>
+	<div style="float: right; margin-right: 30px">
+                <span style="border-right: 1px solid #DDD; padding-right: 10px; margin-right: 10px;">
+                        {{ channel.followerCount }} Follower
+                </span>
+		<span class="addFav">
+			<a style="color: #DDD" href="{{ path('amilio_core_channel_add_favourite', {'channel': channel.id}) }}">&hearts;</a>
+		</span>
+		<span class="removeFav">
+			<a style="color: #FF0066" href="{{ path('amilio_core_channel_remove_favourite', {'channel': channel.id}) }}">&hearts;</a>
+		</span>
+	</div>
+	<div style="clear: both"></div> 
+{% endblock %}
 
 {% block body %}
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52933cc83cff4be0" async="async"></script>
     <div class="theme_homepage">
-	{% if channel.parent %}
-		<div class="center" style=""><div style="background-color: #eee; width: 300px; margin-left: calc( 50% - 125px); padding: 10px;"><a href="{{ path('amilio_core_channel_show', {'channel': channel.parent.id, 'canonicalName': channel.parent.canonicalname}) }}">Zurück zu "{{ channel.parent.name }}"</a></div>
-	{% endif %}
     <div class="content" style="padding-top: 50px; left: -15px; position: relative">
-	<div style="text-align: left; background-color: white; margin-right: 30px; padding: 20px; border: 1px solid #aaaaaa; float: left; width: 443px; height: 412px">
-		<h1>{{ channel.name }}</h1>
-		<p class="user-{{ channel.owner.id }}" style="font-size: 12px"><a href='javascript: showModal("{{ path("amilio_core_channel_edit", {'channel': channel.id }) }}")'>Kanal editieren</a></p>
-		<p style="line-height: 28px">{{ channel.description }}</p>
+	<div {# style="text-align: left; background-color: white; margin-right: 30px; padding: 20px; border: 1px solid #cdcdcd; float: left; width: 1153px; #}">
+		<div class="center">
+			<h1 style="font-size: 29px; font-family: 'Source Sans Pro', sans-serif; margin: 0">{{ channel.name }}</h1>	
+			<div style="padding-top: 10px; font-size: 12px">
+                        	{{ channel.description }}
+        		</div>
+		</div>
+		{#<div style="clear:both"></div>
+		<p style="line-height: 28px; font-size: 14px; ">{{ channel.description }}</p>#}
+		<style>
+			.channelbutton {
+				background-color: white; width: 193px; padding: 10px; text-align: left; border: 1px solid #cdcdcd;
+				float: left;
+				margin-left: 15px;
+				margin-right: 15px;
+				height: 20px;
+			}
+
+			.channelbutton .icon {
+				position: relative; top: -8px; margin-left: 5px; font-size: 25px; font-weight: bold; float: left
+			}
 		
-	        <div style="z-index: 2;width:100%; text-align: center; padding-top: 30px">
-        		<span class='st_fblike_hcount' displayText='Facebook Like'></span>
-        		<span class='st_twitter_hcount' displayText='Tweet'></span>
-        		<span class='st_pinterest_hcount' displayText='Pinterest'></span>
-        	</div>
-		<div style="margin-left: 150px; margin-top: 30px; width: 100px; text-align: center; color: white; background-color: #5D7CA6; padding: 10px;">{{ channel.followerCount }} Follower</div>
+			.channelbutton .label {
+				font-size: 14px; margin-left: 30px;
+			}
+		</style>
 	</div>
-	{% if channel.image %}
+	{# if channel.image %}
 	<div>
             <img src="{{ channel.image }}">
 	</div>
 	{% else %}
 	<div style="width: 675px; height: 452px"></div>
-	{% endif %}
+	{% endif #}
     </div>
-        
-    </div>
+
+	<div style="clear:both"></div>
+
+	<div class="user-{{ channel.owner.id }} tilelist content" style="margin-top: 30px;">
+                        <div class="channelbutton user-{{ channel.owner.id }}">
+                                <div class="icon">+</div>
+                                <div class="label"><a href='javascript: showModal("{{ path("amilio_core_channel_edit", {'channel': channel.id }) }}")'>Kanal bearbeiten</a></div>
+                        </div>
+		         <div class="channelbutton">
+                                <div class="icon">+</div>
+                                <div class="label"><a href='javascript: showModal("{{ path("amilio_core_product_new", {'channelId': channel.id }) }}")'>Produkt hinzuf&uuml;gen</a></div>
+                        </div>
+			{% if not channel.parent %}
+                        <div class="channelbutton">
+                                <div class="icon">+</div>
+                                <div class="label"><a href='javascript: showModal("{{ path("amilio_core_channel_new", {'parentId': channel.id }) }}")'>Kollektion hinzuf&uuml;gen</a></div>
+                        </div>
+			{% endif %}
+                        {#<div class="channelbutton">
+                                <div class="icon">+</div>
+                                <div class="label">Text hinzuf&uuml;gen</div>
+                        </div>
+			<div class="channelbutton">
+                                <div class="icon">+</div>
+                                <div class="label">Bild hinzuf&uuml;gen</div>
+                        </div>#}
+        </div>
+
+	<div style="clear:both"></div>
+	
     <script>
       function isFavourite()
       {
@@ -50,16 +110,17 @@
 
       $(function() {
 	if ( isFavourite() ) {
-		$("#addFav").hide();
-        	$("#removeFav").show();
+		$(".addFav").hide();
+        	$(".removeFav").show();
         } else {
-		$("#addFav").show();
-		$("#removeFav").hide();
+		$(".addFav").show();
+		$(".removeFav").hide();
         }
      });
     </script>
 
-    <div class="content tilelist" style="padding-top: 100px;"> 
+    <div class="content tilelist" style="padding-top: 30px"> 
          {% include "AmilioCoreBundle:Channel:render_element_list.html.twig" with { "elements": channel.elements, "showAdd": true } %}
+    </div>
     </div>
 {% endblock %}
