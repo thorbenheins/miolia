@@ -9,7 +9,7 @@
 
 <div class="item">
 	<div>
-		<div style="width: 150px; margin-top: 220px; padding-left: 25px;">
+		<div style="width: 150px; margin-top: 220px; padding-left: 25px; {% if channel.previewImage %}background-image: url('{{ channel.previewImage }}'){% endif %}">
 			<span class="highlight" style="line-height: 34px"><a style="color: white" href="{{ path('amilio_core_channel_show', {'channel': item.id, 'canonicalName': item.canonicalname}) }}">{{ item.name }}</a></span>
 		</div>
 	</div>

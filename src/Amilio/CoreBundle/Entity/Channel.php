@@ -11,12 +11,12 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Channel
- * 
- * @todo add canonical name für url building * 
+ *
+ * @todo add canonical name für url building *
  *
  * @ORM\Table()
  * @ORM\Entity
- * 
+ *
  * @ORM\Entity(repositoryClass="Amilio\CoreBundle\Entity\ChannelRepository")
  */
 class Channel implements Addable
@@ -80,7 +80,7 @@ class Channel implements Addable
      */
     private $owner;
 
-    /** 
+    /**
      * @ORM\Column(name="channel_of_the_week", type="boolean")
      */
     private $channel_of_the_week = false;
@@ -94,18 +94,18 @@ class Channel implements Addable
      * @ORM\ManyToOne(targetEntity="Channel", inversedBy="children")
      * @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
      **/
-    private $parent;    
-    
+    private $parent;
+
     /**
      * @ORM\Column(name="preview_image", type="string", length=255, nullable=true)
      */
     private $previewImage;
-    
+
     /**
      * @ORM\Column(name="canonical_name", type="string", length=255)
      */
     private $canonical_name;
-    
+
     /**
      * @ORM\OneToMany(targetEntity="ChannelElement", mappedBy="channel", cascade={"remove"})
      * @ORM\OrderBy({"id" = "DESC"})
@@ -121,7 +121,7 @@ class Channel implements Addable
      * @ORM\Column(name="theme", type="string", length=25, nullable=true)
      */
     private $theme = "default";
-    
+
     /**
      * Get id
      *
@@ -134,13 +134,13 @@ class Channel implements Addable
 
     public function getFollowerCount()
     {
-	return $this->followerCount;
+        return $this->followerCount;
     }
 
     public function increaseFollowerCount()
     {
-	$this->followerCount++;
-	return $this;
+        $this->followerCount++;
+        return $this;
     }
 
     public function decreaseFollowerCount()
@@ -151,38 +151,38 @@ class Channel implements Addable
 
     public function getParent()
     {
-	return $this->parent;
+        return $this->parent;
     }
 
     public function hasParent()
     {
-	return is_null($this->parent);
+        return is_null($this->parent);
     }
 
     public function setParent(Channel $parent)
     {
-	$this->parent = $parent;
-	return $this;
+        $this->parent = $parent;
+        return $this;
     }
 
-    public function getChildren( )
+    public function getChildren()
     {
-	return $this->children;
+        return $this->children;
     }
 
     public function getTheme()
     {
-        if( $this->theme != "" ) {
+        if ($this->theme != "") {
             return $this->theme;
         }
-        
+
         return "default";
     }
-    
+
     /**
      * Set description
      *
-     * @param string $description            
+     * @param string $description
      * @return Channel
      */
     public function setDescription($description)
@@ -205,7 +205,7 @@ class Channel implements Addable
     /**
      * Set name
      *
-     * @param string $name            
+     * @param string $name
      * @return Channel
      */
     public function setName($name)
@@ -240,7 +240,7 @@ class Channel implements Addable
     /**
      * Set image
      *
-     * @param string $image            
+     * @param string $image
      * @return Channel
      */
     public function setImage($image)
@@ -265,7 +265,7 @@ class Channel implements Addable
     /**
      * Set type
      *
-     * @param string $type            
+     * @param string $type
      * @return Channel
      */
     public function setType($type)
@@ -307,11 +307,11 @@ class Channel implements Addable
         return $this->owner;
     }
 
-    public function addElement(ChannelElement $element) 
+    public function addElement(ChannelElement $element)
     {
         $this->elements[] = $element;
-    } 
-       
+    }
+
     public function getElements()
     {
         return $this->elements;
@@ -319,7 +319,7 @@ class Channel implements Addable
 
     public function getHeaderBackgroundColor()
     {
-	return $this->headerBackgroundColor;
+        return $this->headerBackgroundColor;
     }
 
     /**
@@ -330,7 +330,7 @@ class Channel implements Addable
         return $this->previewImage;
     }
 
-	/**
+    /**
      * @param field_type $previewImage
      */
     public function setPreviewImage($previewImage)
@@ -341,7 +341,7 @@ class Channel implements Addable
 
     public function setTheme($theme)
     {
-	$this->theme = $theme;
-	return $this;
+        $this->theme = $theme;
+        return $this;
     }
 }
