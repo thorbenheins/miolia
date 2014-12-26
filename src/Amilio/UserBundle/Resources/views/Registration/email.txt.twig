@@ -1,0 +1,20 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% block subject %}
+{% autoescape false %}
+Willkommen bei amilio
+{% endautoescape %}
+{% endblock %}
+{% block body_text %}
+{% autoescape false %}
+
+Hallo {{user.username}},
+
+wir freuen uns sehr, dass du dich für amilio interessierst. Bitte besuche folgenden Link, um dein Benutzerkonto zu bestätigen:
+{{confirmationUrl}}
+
+Viel Spaß mit deinen Kanälen,
+das amilio-Team
+
+{% endautoescape %}
+{% endblock %}
+{% block body_html %}{% endblock %}

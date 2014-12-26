@@ -8,14 +8,18 @@ DirectoryIndex app.php
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    #RewriteCond %{REQUEST_FILENAME} !-d
-
+# rewrite amilio.de => www.amilio.de
 RewriteCond %{HTTP_HOST} !^www.
 RewriteCond %{HTTP_HOST} !^$ [NC]
 RewriteRule ^(.*) http://www.%{HTTP_HOST}/$1 [R=301,L]
 
-    #RewriteCond %{HTTP_HOST} !^www\.amilio\.de$ [NC]
-    #RewriteRule ^(.*)$ http://www.amilio.de/$1 [L,R=301]
+
+<Files app_dev.php>
+	AuthName "Development Environment"
+	AuthType Basic
+	AuthUserFile /var/www/vhost/www.amilio.de/web/.htpasswd
+	require valid-user
+</Files>
 
     # Determine the RewriteBase automatically and set it as environment variable.
     # If you are using Apache aliases to do mass virtual hosting or installed the

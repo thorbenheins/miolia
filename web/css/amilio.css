@@ -225,8 +225,9 @@ footer {
 	font-family: 'Abel', sans-serif;
 	height: 45px;
 	text-align: center;
-	width: 213px;
 	background-color: white;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 .elementlist .desc {
