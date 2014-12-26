@@ -14,10 +14,14 @@
     <script type="text/javascript">
         var $container = $('#{{ listname }}');
         // init
+
         $container.isotope({
           // options
           itemSelector: '.item',
-          layoutMode: 'masonry'
-        });
+          masonry: {
+            columnWidth: 215,
+            gutter: 30
+          }
+	});
 
     </script>

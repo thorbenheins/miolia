@@ -1,3 +1,9 @@
-<div class="item width{{ item.width }} height{{ item.height }}">
-    <img src="/upload/image/{{ item.image }}"
+<div class="item width{{ item.width }} height{{ item.height }}"> 
+    {% if item.url %}
+	<a href="{{ item.url }}">
+    {% endif %}
+	<img src="/upload/image/{{ item.image }}">
+    {% if item.url %}
+        </a>
+    {% endif %}
 </div>
