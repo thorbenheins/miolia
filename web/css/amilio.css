@@ -186,7 +186,7 @@ footer {
 	width: 1230px;
 }
 
-.elementlist .item img {
+.elementlist .item .image img {
 	height: auto;
 	width: auto;
 	max-width: 180px;
@@ -203,7 +203,7 @@ footer {
 }
 
 .elementlist {
-	ppadding-bottom: 100px;
+	margin-left: 15px;
 }
 
 .elementlist a:hover {
@@ -212,11 +212,15 @@ footer {
 
 .elementlist .item {
 	padding: 0;
-	margin: 0 15px 30px 15px;
+	margin-bottom: 30px;
 	height: 360px;
 	border: 1px solid #cdcdcd;
 	width: 213px;
 	background-color: white;
+}
+
+.item.width2 {
+	width: 458px;
 }
 
 .elementlist .title {

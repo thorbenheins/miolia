@@ -7,7 +7,7 @@
 {% endif %} 
 
 <div id="{{ listname }}" class="elementlist">
-    
+
     {% for element in elements %}
         {% render(controller("AmilioCoreBundle:Channel:showElement", { "element": element.id })) %}
     {% endfor %}
@@ -26,8 +26,11 @@
         $container.isotope({
           // options
           itemSelector: '.item',
-          layoutMode: 'masonry'
-        });
+          masonry: {
+            columnWidth: 215,
+            gutter: 30
+          }
+	});
 
         var elementToRemove;
         

@@ -36,6 +36,20 @@ class Image implements Addable
     private $image;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="width", type="integer", length=1)
+     */
+    private $width = 1;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="height", type="integer", length=1)
+     */
+    private $height = 1;
+
+    /**
      * Get id
      *
      * @return integer
@@ -44,6 +58,17 @@ class Image implements Addable
     {
         return $this->id;
     }
+
+    public function getWidth()
+    {
+	return $this->width;
+    }
+
+    public function getHeight()
+    {
+	return $this->height;
+    }
+
 
     /**
      * Set url
