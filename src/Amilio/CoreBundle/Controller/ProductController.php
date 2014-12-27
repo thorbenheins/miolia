@@ -36,78 +36,84 @@ class ProductController extends Controller
             $channel = $this->getDoctrine()->getManager()->find('AmilioCoreBundle:Channel', $channelId);
             $product = $form->getData();
             // $product->addChannel($channel);
-            
+
             $element = new ChannelElement();
 
             $em->persist($product);
             $em->flush();
-            
+
             $element->setElement($product);
             $element->setChannel($channel);
             $em->persist($element);
 
             $channel->addElement($element);
             $em->persist($channel);
-            
+
             $em->flush();
-            
-            return $this->redirect($this->generateUrl('amilio_core_channel_show', array("channel" => $channel->getId(),  "canonicalName" => $channel->getCanonicalName())));
+
+            return $this->redirect($this->generateUrl('amilio_core_channel_show', array("channel" => $channel->getId(), "canonicalName" => $channel->getCanonicalName())));
         }
 
         return $this->render('AmilioCoreBundle:Product:new.html.twig', array('form' => $form->createView()));
     }
 
-    public function showAction(Product $product, $canonicalName)
-    {    
+    public function showAction(Request $request, Product $product, $canonicalName)
+    {
+
         if ($product->getCanonicalName() != $canonicalName) {
             return $this->redirect($this->generateUrl('amilio_core_product_show', array('product' => $product->getId(), 'canonicalName' => $product->getCanonicalName())), 302);
         }
-        
-        #$similarElements = $this->getDoctrine()->getRepository("AmilioCoreBundle:ChannelElement")->findBy(array('foreignId' => $product->getId(), 'type' => get_class($product)), array("id" => "ASC"));
-	$containingChannels = $this->getDoctrine()->getRepository("AmilioCoreBundle:Channel")->findByProduct($product);        
 
-        return $this->render('AmilioCoreBundle:Product:show.html.twig', array('product' => $product, 'containingChannels' => $containingChannels));
+        $containingChannels = $this->getDoctrine()->getRepository("AmilioCoreBundle:Channel")->findByProduct($product);
+
+        if ($request->isXmlHttpRequest()) {
+            $template = 'AmilioCoreBundle:Product:show.modal.html.twig';
+        } else {
+            $template = 'AmilioCoreBundle:Product:show.html.twig';
+        }
+
+        return $this->render($template, array('product' => $product, 'containingChannels' => $containingChannels));
     }
 
     public function shareAction(Product $product)
     {
         return $this->render('AmilioCoreBundle:Product:share.html.twig', array('product' => $product, 'channels' => $this->getUser()->getChannels()));
     }
-    
+
     public function shareStoreAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
-	// @todo check if post reuqest
-	// @todo check if channel is owned by this->getUser()
+        // @todo check if post reuqest
+        // @todo check if channel is owned by this->getUser()
 
         $product = $em->find('AmilioCoreBundle:Product', $request->get('productId'));
         $channel = $em->find('AmilioCoreBundle:Channel', $request->get('channelId'));
-        
+
         $element = new ChannelElement();
 
         $element->setElement($product);
         $element->setChannel($channel);
-        
+
         $em->persist($element);
         $em->flush();
-        
-        return $this->redirect($this->generateUrl('amilio_core_channel_show', array('canonicalName' => $channel->getCanonicalName(), 'channel' => $channel->getId() )));
-    }  
 
-    public function removeAction(Request $request, ChannelElement $element) 
+        return $this->redirect($this->generateUrl('amilio_core_channel_show', array('canonicalName' => $channel->getCanonicalName(), 'channel' => $channel->getId())));
+    }
+
+    public function removeAction(Request $request, ChannelElement $element)
     {
         $channel = $element->getChannel();
-        
-        if( $this->getUser()->getId() != $channel->getOwner()->getId() || $request->getMethod() != "POST") {
+
+        if ($this->getUser()->getId() != $channel->getOwner()->getId() || $request->getMethod() != "POST") {
             throw new AccessDeniedHttpException();
         }
-        
-        $em =  $this->getDoctrine()->getManager();
-        
+
+        $em = $this->getDoctrine()->getManager();
+
         $em->remove($element);
-        $em->flush();  
-        
-        return $this->redirect($this->generateUrl('amilio_core_channel_show', array('canonicalName' => $channel->getCanonicalName(), 'channel' => $channel->getId() )));
-    }  
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('amilio_core_channel_show', array('canonicalName' => $channel->getCanonicalName(), 'channel' => $channel->getId())));
+    }
 }

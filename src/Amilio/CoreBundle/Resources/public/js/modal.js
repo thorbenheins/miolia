@@ -26,12 +26,12 @@ function showModal(url, width) {
 	});
 }
 
-function showProductModal(id, name) {
+function showProductModal(id, name, channelId) {
 	var url = product_element_show_path;
 	url = url.replace("elementid", id);
 	url = url.replace("canonicalname", name);
 
-	showModal(url, "800px");
+	showModal(url + "#" + channelId, "800px");
 }
 
 var elementToRemove;
