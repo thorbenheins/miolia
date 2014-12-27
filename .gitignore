@@ -7,6 +7,9 @@
 .idea/
 
 /web/upload
+/web/css
+/web/js
+
 *.swp
 
 # Cache and logs (Symfony2)
