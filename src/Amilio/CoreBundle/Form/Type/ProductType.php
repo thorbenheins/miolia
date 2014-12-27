@@ -14,10 +14,11 @@ class ProductType extends AbstractType
             ->add("name", "text", array('label' => 'Produktname' ))
             ->add('description', "textarea", array('label' => 'Produktbeschreibung' ))
             ->add('price', "money", array('label' => 'Preis ' ))
+            ->add('foreignId', 'hidden')
             ->add('image', 'hidden')
             ->add('imageThumbnail', 'hidden')
             ->add('save', 'submit', array('label' => 'Produkt erstellen' ))
-        ;          
+        ;
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

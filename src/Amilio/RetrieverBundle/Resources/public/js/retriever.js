@@ -14,6 +14,7 @@
                 $("#product_name").val(data.name);
                 $("#product_description").val(data.description);
                 $("#product_price").val(data.price);
+                $("#product_foreignId").val(data.foreignId);
                 $("#product_image").val(data.image);
                 $("#product_imageThumbnail").val(data.imageThumbnail);
 

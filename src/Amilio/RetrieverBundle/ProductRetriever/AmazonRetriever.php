@@ -13,6 +13,7 @@ use ApaiIO\Operations\Lookup;
 
 class AmazonRetriever implements ProductRetriever
 {
+    const RETRIEVER_ID = 'amazon';
 
     /**
      *
@@ -27,7 +28,7 @@ class AmazonRetriever implements ProductRetriever
 
     public function canHandleUrl($url)
     {
-        return 0 < preg_match("^(http|https)://www.amazon.de/^", $url); 
+        return 0 < preg_match("^(http|https)://www.amazon.de/^", $url);
     }
 
     public function retrieve($url)
@@ -37,7 +38,7 @@ class AmazonRetriever implements ProductRetriever
         //$url = "http://www.amazon.de/gp/product/B00F3B4B8S/ref=s9_psimh_gw_p21_d21_i4?pf_rd_m=A3JWKAKR8XB7XF&pf_rd_s=center-2&pf_rd_r=11EACAJB1RXQF5WVCTC7&pf_rd_t=101&pf_rd_p=455353687&pf_rd_i=301128";
 
         $pattern = '^/dp/(.*)/^';
-        
+
         preg_match($pattern, $url, $matches);
 
         // If the url did not match our requirements we dont want to do anything
@@ -73,7 +74,7 @@ class AmazonRetriever implements ProductRetriever
         $query = "//a:Item/a:ASIN";
         $nodes = $xpath->query($query);
         if ($nodes->length > 0) {
-            $product->setForeignId($nodes->item(0)->nodeValue);
+            $product->setForeignId(self::RETRIEVER_ID . ':' . $nodes->item(0)->nodeValue);
         }
         $query = "//a:ItemAttributes/a:Title";
         $nodes = $xpath->query($query);
