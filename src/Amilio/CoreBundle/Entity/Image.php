@@ -28,6 +28,14 @@ class Image implements Addable
      */
     private $url;
 
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="label", type="string", length=255, nullable=true))
+     */
+    private $label;
+
     /**
      * @var string
      *
@@ -116,4 +124,9 @@ class Image implements Addable
         return $this->image;
     }
 
+
+    public function getLabel()
+    {
+	return $this->label;
+    }
 }

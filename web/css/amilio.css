@@ -223,6 +223,10 @@ footer {
 	width: 458px;
 }
 
+.item.width3 {
+	width: 703px;
+}
+
 .elementlist .title {
 	padding-bottom: 15px;
 	font-size: 15px;
@@ -244,3 +248,11 @@ footer {
 footer {
 	margin-top: 100px;
 }
+
+.highlight {
+    color:#fff;
+    background:#FF0066;
+    box-shadow:10px 0 0 #FF0066, -10px 0 0 #FF0066;
+    padding: 5px 0;
+}
+

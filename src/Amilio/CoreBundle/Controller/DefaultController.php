@@ -9,9 +9,11 @@ class DefaultController extends Controller
     public function indexAction()
     {
         $newest = $this->getDoctrine()->getRepository('AmilioCoreBundle:ChannelElement')->findBy(array(), array('id' => 'DESC'), 10, 0);
+
+        $homepageChannel = $this->getDoctrine()->getRepository('AmilioCoreBundle:Channel')->find(30);
         
 	return $this->render('AmilioCoreBundle:Default:index.html.twig', array(
-            'newest' => $newest
+            'newest' => $newest, 'homepageChannel' => $homepageChannel
         ));
     }
 

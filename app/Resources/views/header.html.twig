@@ -30,20 +30,20 @@
                         </a>                                                    
                     </li>
                     <li class="user">
-                        <a onclick="showNewChannelModal()" href="#">Starte einen Kanal</a>              
+                        <a onclick="showModal('{{ path('amilio_core_channel_new') }}')" href="#">Starte einen Kanal</a>              
                     </li>
 		    <li class="anonymous">
                         <a onclick="showLoginModal()" href="#">Starte einen Kanal</a>
                     </li>
                     <li class="top_level_menu user" style="padding-right: 0">
- 	                  <a href="{{ path('amilio_core_user_index') }}"><span class="username"></span></a>
+ 	              <a href="{{ path('amilio_core_user_index') }}"><span class="username"></span></a>
                       <ul>
-			  <li><a href="{{ path('amilio_core_user_index') }}">Mein Favoritenkanal</li> 
+			  <li><a href="{{ path('amilio_core_user_index') }}">Mein Favoritenkanal</a></li> 
                           <li><a href="{{ path('amilio_core_channel_list') }}">Meine Kan&auml;le</a></li>
                           <li><a href="{{ path('fos_user_security_logout') }}">Abmelden</a></li>
                       </ul>
 	                <li>
-                    <li class="top_level_menu anonymous" style="padding-right: 0">
+                           <li class="top_level_menu anonymous" style="padding-right: 0">
                               <a class="simple_link" href="#">Anmelden</a>
                               <ul> 
                                 <li>
@@ -53,7 +53,6 @@
                                     <a href="{{ path("fos_user_registration_register") }}">Registrieren</a>
                                 </li>
                             </ul>
-                          </div>
                     </li>
                 </ul>
             </div>       
@@ -61,14 +60,6 @@
     </div>
 
 <script>
-  function showNewChannelModal()
-  {
-	  $.get( "{{ path('amilio_core_channel_new') }}", function( data ) {
-		  $("#newChannelModal").modal({ opacity:80, overlayCss: {backgroundColor:"#000"}});
-		  $("#newChannelModal").html( data );
-	  });    	 
-  }
-
   function showLoginModal()
   {
 	showModal('{{ path("amilio_user_login") }}', '400px');

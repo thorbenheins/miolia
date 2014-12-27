@@ -1,4 +1,4 @@
-<div class="item width{{ item.width }} height{{ item.height }}"> 
+{#<div class="item width{{ item.width }} height{{ item.height }}"> 
     {% if item.url %}
 	<a href="{{ item.url }}">
     {% endif %}
@@ -6,4 +6,15 @@
     {% if item.url %}
         </a>
     {% endif %}
+</div>#}
+
+<div class="item width{{ item.width }} height{{ item.height }}" style="background-image: url(/upload/image/{{ item.image }})">
+       	{% if item.url %}<a href="{{ item.url }}">{% endif %}
+	<div>
+                <div style="width: 150px; margin-top: 220px; padding-left: 25px;">
+                        <span class="highlight" style="line-height: 34px">{{ item.label }}</span>
+                </div>
+        </div>
+	{% if item.url %}</a>{% endif %}
 </div>
+
