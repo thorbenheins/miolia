@@ -1,0 +1,18 @@
+{% extends 'base.system.html.twig' %}
+
+{% block submenu %}
+     Registrierung
+{% endblock %}
+
+{% block message %}
+
+        <h1>Registrierung fast abgeschlossen</h1>
+        <p>
+           Du hast es gleich geschafft. Schaue zum Abchluss noch in dein E-Mail-Postfach und klicke auf den Link, den du dort findet. Danach kannst du beginnen
+           deine eigenen Kan&auml;le anzulegen und Spass zu haben.
+        </p>
+        <p style="padding-top: 50px;">
+            <span class="highlight"><a href="{{ path('amilio_core_homepage') }}">Zur&uuml;ck zur Startseite</a></span>
+        </p>
+
+{% endblock %}

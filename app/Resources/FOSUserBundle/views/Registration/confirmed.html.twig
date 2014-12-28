@@ -1,0 +1,18 @@
+{% extends 'base.system.html.twig' %}
+
+{% block submenu %}
+     Registrierung abgeschlossen
+{% endblock %}
+
+{% block message %}
+
+        <h1>Registrierung abgeschlossen</h1>
+        <p>
+            Sch&ouml;, dass du da bist. Du bist nur ein Mitglied der amilio-Familie. Herzlich willkommen.
+        </p>
+        <p style="padding-top: 50px;">
+            <span class="highlight"><a href="javascript:showModal('{{ path('amilio_core_channel_new') }}')">Starte deinen ersten Kanal.</a></span><br />
+            <span class="highlight"><a href="javascript:showModal('{{ path('amilio_core_channel_new') }}')">St&ouml;bere ein wenig auf amilio.</a></span>
+        </p>
+
+{% endblock %}
