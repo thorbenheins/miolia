@@ -31,13 +31,16 @@ class ProductController extends Controller
 
         $form->handleRequest($request);
 
+        // @todo check if the user is allowed to add the product
+
         if ($form->isValid()) {
 
             $channel = $this->getDoctrine()->getManager()->find('AmilioCoreBundle:Channel', $channelId);
             $product = $form->getData();
-            // $product->addChannel($channel);
 
             $element = new ChannelElement();
+
+            $product->setOwner($this->getUser());
 
             $em->persist($product);
             $em->flush();

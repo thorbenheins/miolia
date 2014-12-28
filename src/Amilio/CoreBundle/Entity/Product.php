@@ -101,6 +101,12 @@ class Product implements \JsonSerializable, Addable
     private $manufacturer;
 
     /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="ownedChannels")
+     * @ORM\JoinColumn(name="owner_id", referencedColumnName="id")
+     */
+    private $owner;
+
+    /**
      * Get id
      *
      * @return integer
@@ -307,7 +313,26 @@ class Product implements \JsonSerializable, Addable
         $this->imageThumbnail = $imageThumbnail;
     }
 
+
+
     /**
+     * @return the $owner
+     */
+    public function getOwner()
+    {
+        return $this->owner;
+    }
+
+	/**
+     * @param field_type $owner
+     */
+    public function setOwner($owner)
+    {
+        $this->owner = $owner;
+        return $this;
+    }
+
+	/**
      * (PHP 5 &gt;= 5.4.0)<br/>
      * Specify data which should be serialized to JSON
      * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
