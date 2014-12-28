@@ -7,5 +7,9 @@ amilio_user_post_logout:
     defaults: { _controller: AmilioUserBundle:Default:postLogout }
 
 amilio_user_login:
-    path:     /system/notallowed/
+    path:     /system/unsetcookies/
     defaults: { _controller: AmilioUserBundle:Default:showLogin }
+    
+amilio_user_notallowed:
+    path:     /system/notallowed/
+    defaults: { _controller: AmilioUserBundle:Default:notAllowed }
