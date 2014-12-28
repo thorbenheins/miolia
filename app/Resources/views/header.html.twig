@@ -9,8 +9,8 @@
                     <li>
                         <a href="{{ path( 'amilio_core_static_show', { blogurl: "ueber-uns"  }) }}">&Uuml;ber uns</a>
                     </li>
-                    <li>  
-			<a href="http://blog.amilio.de">Blog</a>
+                    <li>
+			            <a href="http://blog.amilio.de">Blog</a>
                     </li>
                     <li>
                         <a href="{{ path('amilio_core_channel_hottest') }}">Kan&auml;le</a>
@@ -21,52 +21,50 @@
                 <ul class="sf-menu">
                     <li>
                         <a href="http://www.facebook.com/amilio.de">
-                            <img alt="Unsere Facebook-Seite" src="/images/facebook.png"> 
+                            <img alt="Unsere Facebook-Seite" src="/images/facebook.png">
                         </a>
                     </li>
                     <li>
                         <a href="http://www.twitter.com/amilio_de">
                             <img src="/images/twitter.png" alt="Unser Twitter-Account">
-                        </a>                                                    
+                        </a>
                     </li>
                     <li class="user">
-                        <a onclick="showModal('{{ path('amilio_core_channel_new') }}')" href="#">Starte einen Kanal</a>              
+                        <a onclick="showModal('{{ path('amilio_core_channel_new') }}')" href="#">Starte einen Kanal</a>
                     </li>
-		    <li class="anonymous">
+		            <li class="anonymous">
                         <a onclick="showLoginModal()" href="#">Starte einen Kanal</a>
                     </li>
                     <li class="top_level_menu user" style="padding-right: 0">
- 	              <a href="{{ path('amilio_core_user_index') }}"><span class="username"></span></a>
-                      <ul>
-			  <li><a href="{{ path('amilio_core_user_index') }}">Mein Favoritenkanal</a></li> 
+ 	                    <a href="{{ path('amilio_core_user_index') }}"><span class="username"></span></a>
+                        <ul>
+			              <li><a href="{{ path('amilio_core_user_index') }}">Mein Favoritenkanal</a></li>
                           <li><a href="{{ path('amilio_core_channel_list') }}">Meine Kan&auml;le</a></li>
                           <li><a href="{{ path('fos_user_security_logout') }}">Abmelden</a></li>
                       </ul>
 	                <li>
-                           <li class="top_level_menu anonymous" style="padding-right: 0">
-                              <a class="simple_link" href="#">Anmelden</a>
-                              <ul> 
-                                <li>
-				     <a href="javascript:showLoginModal()">Anmelden</a>
-                                </li>
-                                <li>
-                                    <a href="{{ path("fos_user_registration_register") }}">Registrieren</a>
-                                </li>
-                            </ul>
+                    <li class="top_level_menu anonymous" style="padding-right: 0">
+                       <a class="simple_link" href="#">Anmelden</a>
+                       <ul>
+                          <li>
+		                     <a href="javascript:showLoginModal()">Anmelden</a>
+                          </li>
+                          <li>
+                              <a href="{{ path("fos_user_registration_register") }}">Registrieren</a>
+                          </li>
+                      </ul>
                     </li>
                 </ul>
-            </div>       
+            </div>
         </div>
     </div>
-
 <script>
   function showLoginModal()
   {
 	showModal('{{ path("amilio_user_login") }}', '400px');
   }
-  
+
   jQuery(document).ready(function() {
 	  jQuery('ul.sf-menu').superfish();
   });
-
 </script>
