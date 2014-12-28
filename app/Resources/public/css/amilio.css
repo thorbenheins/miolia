@@ -268,3 +268,39 @@ footer {
 	padding-bottom: 10px;
 	padding-top: 10px;
 }
+
+.modal_form {
+	font-size: 14px;
+}
+
+.modal_form h1 {
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+.modal_form input[type="text"] {
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+.modal_form input[type="checkbox"] {
+	margin-right: 5px;
+	margin-bottom: 15px;
+	width: 10px;
+}
+
+.modal_form input[type="submit"] {
+	margin-top: 15px;
+	width: 305px;
+	height: 30px;
+	font-size: 14px;
+
+	border: none;
+
+    background:#FF0066;
+    color:#FFFFFF;    
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    display:inline-block;
+    -webkit-font-smoothing: antialiased;
+
+}]
