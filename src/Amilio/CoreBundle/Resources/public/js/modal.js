@@ -1,12 +1,19 @@
 var oldUrl;
 var newUrl;
 
-function showModal(url, width) {
-	newUrl = url;
+function showModal(url, width, keepUrl) {
+	
 
 	if (width) {
 		$("#modalDialog").width(width);
 	}
+
+	if (keepUrl) {
+		newUrl = window.location.href;
+	}else{
+		newUrl = url;
+	}
+	
 	$.get(url, function(data) {
 		$.modal.close();
 		oldUrl = window.location.href;
