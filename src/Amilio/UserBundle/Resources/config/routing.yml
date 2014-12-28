@@ -13,3 +13,7 @@ amilio_user_login:
 amilio_user_notallowed:
     path:     /system/notallowed/
     defaults: { _controller: AmilioUserBundle:Default:notAllowed }
+    
+amilio_user_check_email:
+    path:     /system/register/checkemail/
+    defaults: { _controller: AmilioUserBundle:Default:checkEmail }
