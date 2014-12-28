@@ -1,17 +1,14 @@
-<div id="login">
+{% extends 'base.system.html.twig' %}
 
-	<p style="font-size: 12px; padding-bottom: 20px; padding-top: 30px;">Hallo und sch&ouml;n, dass du da bist. Wahrscheinlich willst du dich gerade anmelden, um ein tolles Produkt, dass du gefunden hast hier zu teilen, aber vielleicht willst du auch einfach nur wissen, was es neues in deinem Netzwerk gibt. Egal warum, wir freuen und dass du wieder hier bist.</p>
+{% block message %}
 
-	<div class="center">                                    
-	<form action="{{ path("fos_user_security_check") }}" method="post">
-             <label>Username</label><br />
-                                      <input type="text" name="_username" required="required" />
-                                      <br />
-                                      <label>Passwort</label><br>
-                                      <input type="password" name="_password" required="required" />
-                                      <br />
-                                       <input type="hidden" name="_csrf_token" value="{{ fos_csrf_provider.generateCsrfToken('authenticate') }}" />
-                                      <button type="submit">Anmelden</button>
-                                    </form>
-	</div>
-</div>
+        <h1>Zugriff verboten</h1>
+        <p>
+            Ups. Es sieht so aus, als ob du gerade versucht hast eine Seite zu besuchen, f&uuml;r die du keine Rechte besitzt. Dies kann passieren, wenn du zum
+            Bispiel nicht angemeldet bist. Versuche es doch nach der Anmeldung einfach noch einmal und schau was passiert.
+        </p>
+        <p style="padding-top: 50px;">
+            <span class="highlight"><a href="javascript:showLoginModal()">Anmelden</a></span>
+        </p>
+
+{% endblock %}

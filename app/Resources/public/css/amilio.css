@@ -300,3 +300,15 @@ footer {
 	display: inline-block;
 	-webkit-font-smoothing: antialiased;
 }
+
+#message h1 {
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+.highlight a {
+	color: white;
+}
+
+.highlight a:HOVER {
+	border-color: white;
+}

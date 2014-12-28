@@ -24,18 +24,22 @@ class DefaultController extends Controller
         $response->headers->setCookie(new Cookie("favs", $channelString, 0, '/', null, false, false));
 
         $response->send();
-
         // @todo this route should be configured
         return $this->render('AmilioUserBundle:Default:closemodal.html.twig', array('url' => $this->generateUrl('amilio_core_user_index', array('start' => 0))));
     }
 
-    public function postLogoutAction()
+    private function clearCookies()
     {
         $response = new Response();
         $response->headers->setCookie(new Cookie("userId", '', 0, '/', null, false, false));
         $response->headers->setCookie(new Cookie("userName", '', 0, '/', null, false, false));
         $response->headers->setCookie(new Cookie("favs", '', 0, '/', null, false, false));
         $response->send();
+    }
+
+    public function postLogoutAction()
+    {
+        $this->clearCookies();
 
         // @todo this route should be configured
         return $this->redirect($this->generateUrl('amilio_core_homepage'));
@@ -43,6 +47,7 @@ class DefaultController extends Controller
 
     public function showLoginAction()
     {
+        $this->clearCookies();
         return $this->render('AmilioUserBundle:Default:login.html.twig');
     }
 }
