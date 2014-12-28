@@ -48,6 +48,16 @@ class DefaultController extends Controller
     public function showLoginAction()
     {
         $this->clearCookies();
-        return $this->render('AmilioUserBundle:Default:login.html.twig');
+        return $this->redirect($this->generateUrl('amilio_user_notallowed'));
+    }
+
+    public function notAllowedAction()
+    {
+        return $this->render('AmilioUserBundle:Default:notAllowed.html.twig');
+    }
+
+    public function checkEmailAction()
+    {
+        return $this->render('AmilioUserBundle:Default:checkEmail.html.twig');
     }
 }
