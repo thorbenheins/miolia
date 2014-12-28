@@ -1,11 +1,13 @@
 var oldUrl;
 var newUrl;
 
-function showModal(url, width, keepUrl) {
-	
-
+function showModal(url, width, keepUrl, useIFrame, height) {
 	if (width) {
 		$("#modalDialog").width(width);
+	}
+	
+	if( height ) {
+		$("#modalDialogContent").height(height);
 	}
 
 	if (keepUrl) {
@@ -14,7 +16,7 @@ function showModal(url, width, keepUrl) {
 		newUrl = url;
 	}
 	
-	$.get(url, function(data) {
+	if(useIFrame) {
 		$.modal.close();
 		oldUrl = window.location.href;
 		$("#modalDialog").modal({
@@ -27,10 +29,27 @@ function showModal(url, width, keepUrl) {
 				$.modal.close();
 			}
 		});
-		$("#modalDialogContent").html(data);
-		processUserFields();
+		$("#modalDialogContent").html('<iframe frameborder="0" src="' + url + '" width="100%" height="100%" />');
 		window.history.pushState('', '', newUrl);
-	});
+	}else{
+		$.get(url, function(data) {
+			$.modal.close();
+			oldUrl = window.location.href;
+			$("#modalDialog").modal({
+				opacity : 80,
+				overlayCss : {
+					backgroundColor : "#000"
+				},
+				onClose : function() {
+					window.history.pushState('', '', oldUrl);
+					$.modal.close();
+				} 
+			});
+			$("#modalDialogContent").html(data);
+			processUserFields();
+			window.history.pushState('', '', newUrl);
+		});
+	}
 }
 
 function showProductModal(id, name, channelId) {
@@ -51,4 +70,9 @@ function confirmElementRemove(id) {
 			location.reload();
 		});
 	});
+}
+
+function closeModal()
+{
+	$.modal.close();
 }

@@ -74,7 +74,7 @@ amilio_core_channel_hottest:
 amilio_core_static_show:
     path:     /we/{blogurl}/
     defaults: { _controller: AmilioCoreBundle:Default:showStatic }
-
+    
 # User Routes    
 
 amilio_core_user_index:

@@ -109,7 +109,7 @@ footer {
 	float: left;
 	padding-right: 20px;
 	position: absolute;
-	left: calc(50% -     635px);
+	left: calc(50% -       635px);
 	top: 8px;
 }
 
@@ -130,12 +130,12 @@ footer {
 }
 
 .modal_form input {
-	width: 100%;
+	width: 99%;
 	margin-bottom: 10px;
 }
 
 .modal_form textarea {
-	width: 100%;
+	width: 99%;
 	margin-bottom: 10px;
 }
 
@@ -278,7 +278,6 @@ footer {
 }
 
 .modal_form input[type="text"] {
-	width: 100%;
 	margin-bottom: 15px;
 }
 
@@ -293,14 +292,11 @@ footer {
 	width: 305px;
 	height: 30px;
 	font-size: 14px;
-
 	border: none;
-
-    background:#FF0066;
-    color:#FFFFFF;    
-    border-radius: 7px;
-    -moz-border-radius: 7px;
-    display:inline-block;
-    -webkit-font-smoothing: antialiased;
-
-}]
+	background: #FF0066;
+	color: #FFFFFF;
+	border-radius: 7px;
+	-moz-border-radius: 7px;
+	display: inline-block;
+	-webkit-font-smoothing: antialiased;
+}
