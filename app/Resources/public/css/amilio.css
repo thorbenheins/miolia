@@ -5,6 +5,11 @@ body {
 	margin: 0;
 	font-family: 'Source Sans Pro', sans-serif;
 	background-color: #f9f9f9;
+    min-height: 100%;
+}
+
+html {
+   height: 100%;
 }
 
 a {
