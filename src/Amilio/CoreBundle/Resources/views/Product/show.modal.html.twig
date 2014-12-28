@@ -8,7 +8,7 @@ Modal
 		<h1>{{ product.name }}</h1>
 		<p style="font-size: 12px">{{ product.description }}</p>
 		<div style="padding-top: 50px">
-			<div style="padding: 10px; float: left; background-color: #ea691b; color: white;"><a style="color: white" href="{{ product.url }}" target="_blank">Zum Shop</div>
+			<div style="padding: 10px; float: left; background-color: #ea691b; color: white;"><a style="color: white" href="{{ product.partnerUrl }}" target="_blank">Zum Shop</div>
 			<div style="margin-left: 120px; width: 205px; background-color: #f69a2f; padding: 10px;"><a style="color: white" href="javascript:showModal('{{ path('amilio_core_product_share', {'product': product.id}) }}', '300px')">In eigenen Kanal &uuml;bernehmen</a></div>
 		</div>
 	</div>

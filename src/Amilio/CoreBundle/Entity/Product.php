@@ -2,6 +2,8 @@
 
 namespace Amilio\CoreBundle\Entity;
 
+use Amilio\RetrieverBundle\UrlCreator\Composite;
+
 use Doctrine\Bundle\DoctrineBundle\Registry;
 
 use Amilio\CoreBundle\Util\Url;
@@ -83,7 +85,7 @@ class Product implements \JsonSerializable, Addable
      */
     private $currency = self::CURRENCY_EUR;
 
-  
+
     /**
      * @var string
      *
@@ -97,11 +99,11 @@ class Product implements \JsonSerializable, Addable
      * @ORM\Column(name="manufacturer", type="string", length=255, nullable=true)
      */
     private $manufacturer;
-    
+
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -124,7 +126,7 @@ class Product implements \JsonSerializable, Addable
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -135,7 +137,7 @@ class Product implements \JsonSerializable, Addable
     {
         return $this->canonicalName;
     }
-    
+
     /**
      * Set description
      *
@@ -152,7 +154,7 @@ class Product implements \JsonSerializable, Addable
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -191,11 +193,17 @@ class Product implements \JsonSerializable, Addable
     /**
      * Get url
      *
-     * @return string 
+     * @return string
      */
     public function getUrl()
     {
         return $this->url;
+    }
+
+    public function getPartnerUrl()
+    {
+        $urlCreator = new Composite();
+        return $urlCreator->getUrl($this);
     }
 
     /**
@@ -214,7 +222,7 @@ class Product implements \JsonSerializable, Addable
     /**
      * Get image
      *
-     * @return string 
+     * @return string
      */
     public function getImage()
     {
@@ -237,7 +245,7 @@ class Product implements \JsonSerializable, Addable
     /**
      * Get price
      *
-     * @return integer 
+     * @return integer
      */
     public function getPrice()
     {
@@ -266,7 +274,7 @@ class Product implements \JsonSerializable, Addable
     {
         return $this->foreignId;
     }
-       
+
     /**
      * @return string
      */

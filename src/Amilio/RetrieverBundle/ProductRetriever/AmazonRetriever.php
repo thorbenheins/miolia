@@ -101,7 +101,6 @@ class AmazonRetriever implements ProductRetriever
         }
 
         //TODO: The image dimensions might be interesting too for css styles etc.
-        //
 
         $query = "//a:ItemAttributes/a:Manufacturer";
         $nodes = $xpath->query($query);
