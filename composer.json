@@ -10,6 +10,10 @@
         {
             "type": "git",
             "url": "https://github.com/Exeu/ExeuApaiIOBundle"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/daFish/PondTunesBundle"
         }
     ],
     "require": {
@@ -26,7 +30,8 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "exeu/apai-io": "dev-master",
-        "exeu/apai-io-bundle": "dev-master"
+        "exeu/apai-io-bundle": "dev-master",
+        "pond/tunes-bundle": "*"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
