@@ -42,11 +42,13 @@ function showModal(url, width, keepUrl, useIFrame, height) {
 				},
 				onClose : function() {
 					window.history.pushState('', '', oldUrl);
+					// ga('send','pageview', oldUrl);
 					$.modal.close();
 				} 
 			});
 			$("#modalDialogContent").html(data);
 			processUserFields();
+			ga('send','pageview', url);
 			window.history.pushState('', '', newUrl);
 		});
 	}
