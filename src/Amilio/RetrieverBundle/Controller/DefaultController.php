@@ -3,6 +3,7 @@ namespace Amilio\RetrieverBundle\Controller;
 
 use Amilio\CoreBundle\Entity\Product;
 
+use Amilio\RetrieverBundle\ProductRetriever\AppleITunesRetriever;
 use Amilio\RetrieverBundle\ProductRetriever\CompositeRetriever;
 use Amilio\RetrieverBundle\ProductRetriever\AmazonRetriever;
 use Amilio\RetrieverBundle\ProductRetriever\ProductRetriever;
@@ -19,10 +20,11 @@ class DefaultController extends Controller
     public function getProductInfoAction(Request $request)
     {
         $url = $request->get("url");
-
+        
         $compositeRetriever = new CompositeRetriever();
         $compositeRetriever->addRetriever(new AmazonRetriever($this->get("apaiio")));
-        
+        $compositeRetriever->addRetriever(new AppleITunesRetriever($this->get('pond_tunes.lookup')));
+
         if ($compositeRetriever->canHandleUrl($url)) {
             //get the info from the site
             $product = $compositeRetriever->retrieve($url);
