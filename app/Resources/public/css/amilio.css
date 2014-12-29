@@ -293,7 +293,7 @@ footer {
 
 .modal_form input[type="submit"] {
 	margin-top: 15px;
-	width: 300px;
+	width: 320px;
 	height: 30px;
 	font-size: 14px;
 	border: none;
@@ -351,4 +351,8 @@ footer {
 	padding: 30px;
 	position: fixed;
 	top: 120px;
+}
+
+#modal h1 {
+	padding-top: 0;
 }
