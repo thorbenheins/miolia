@@ -42,13 +42,22 @@ function showModal(url, width, keepUrl, useIFrame, height) {
 				},
 				onClose : function() {
 					window.history.pushState('', '', oldUrl);
-					// ga('send','pageview', oldUrl);
 					$.modal.close();
 				} 
 			});
 			$("#modalDialogContent").html(data);
+			
+			// show share this buttons 
+			stButtons.locateElements();
+			stButtons.url('http://www.google.de');
+			
+			// show/hide user fields
 			processUserFields();
+			
+			// track the page impression with google analytics
 			ga('send','pageview', url);
+			
+			// set new url in browser bar
 			window.history.pushState('', '', newUrl);
 		});
 	}
@@ -77,4 +86,11 @@ function confirmElementRemove(id) {
 function closeModal()
 {
 	$.modal.close();
+}
+
+var modalConfirmFunction;
+
+function confirm(callback) {
+	   modalConfirmFunction = callback;
+	   $("#confirm").modal({ opacity:80, overlayCss: {backgroundColor:"#000"}});
 }

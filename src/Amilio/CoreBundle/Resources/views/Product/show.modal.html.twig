@@ -1,6 +1,14 @@
 <div id="productshow" style="width: 800px">
 	<div style="float: left; padding-right: 30px">
 		<img src="{{ product.image }}" style="max-width: 300px; max-height: 300px" />
+
+        <br/>
+
+	    <div style="float: left; padding-top: 50px;">
+           <span class='st_fblike_hcount' displayText='Facebook Like' st_url="{{ app.request.uri }}"></span>
+           <span class='st_twitter_hcount' displayText='Tweet' st_url="{{ app.request.uri }}"></span>
+           <span class='st_pinterest_hcount' displayText='Pinterest' st_url="{{ app.request.uri }}"></span>
+	    </div>
 	</div>
 	<div style="margin-left: 320px">
 		<h1 style="padding:0">{{ product.name }}</h1>

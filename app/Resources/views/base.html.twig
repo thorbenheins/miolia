@@ -35,11 +35,11 @@
 
     	    <script src="{{ asset('includes/superfish/js/superfish.js') }}" type="text/javascript"></script>
     	    <script src="{{ asset('includes/simplemodal/jquery.simplemodal.1.4.4.min.js') }}" type="text/javascript"></script>
+	        <script src="{{ asset('includes/isotope/isotope.pkgd.min.js') }}"></script>
+
 
             <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
             <script type="text/javascript">stLight.options({publisher: "0a8d16ba-5656-4348-8127-fc28018c5509", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
-
-	    <script src="/includes/isotope/isotope.pkgd.min.js"></script>
 
 
 	{% endblock %}
@@ -66,15 +66,6 @@
                 <p style="padding-bottom: 20px">Wollen Sie dieses Element wirklich l&ouml;schen?</p>
                 <button style="margin-right: 10px;" onclick="modalConfirmFunction(); $.modal.close();">Ja</button><button class="simplemodal-close">Nein</button>
             </div>
-
-            <script type="text/javascript">
-               var modalConfirmFunction;
-
-               function confirm(callback) {
-            	   modalConfirmFunction = callback;
-              	   $("#confirm").modal({ opacity:80, overlayCss: {backgroundColor:"#000"}});
-               }
-            </script>
 
             <header>
                 {% include 'header.html.twig' %}
