@@ -49,7 +49,6 @@ function showModal(url, width, keepUrl, useIFrame, height) {
 			
 			// show share this buttons 
 			stButtons.locateElements();
-			stButtons.url('http://www.google.de');
 			
 			// show/hide user fields
 			processUserFields();
