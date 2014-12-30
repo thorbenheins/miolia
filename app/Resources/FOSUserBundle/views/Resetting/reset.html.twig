@@ -1,14 +1,14 @@
 {% extends "base.system.html.twig" %}
 
 {% block submenu %}
-     Registrierung abgeschlossen
+     Passwort zur&uuml;cksetzen
 {% endblock %}
 
 {% block message %}
 
-        <h1>Passwort zurücksetzen</h1>
-        <p>
+        <h1>Passwort zur&uuml;cksetzen</h1>
+        <div id="reset_form">
             {% include "FOSUserBundle:Resetting:reset_content.html.twig" %}
-        </p>
+        </div>
 
 {% endblock %}

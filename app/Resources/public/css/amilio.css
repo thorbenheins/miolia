@@ -356,3 +356,14 @@ footer {
 #modal h1 {
 	padding-top: 0;
 }
+
+#reset_form label {
+  width: 200px;
+  font-size: 14px;
+  display: block;
+  padding-top: 20px;
+}
+
+#reset_form input[type="submit"] {
+  margin-top: 20px;
+}
