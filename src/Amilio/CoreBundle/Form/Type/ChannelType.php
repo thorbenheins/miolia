@@ -10,20 +10,14 @@ class ChannelType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add("name", "text")
-            ->add('description', "textarea")
-            //->add('image', "file", array('required' => false))
-	    ->add('parent_id', "hidden", array('mapped' => false))
-            ->add('save', 'submit', array(
-            'label' => 'Kanal speichern'            
-        ));          
+        $builder->add("name", "text")->add('description', "textarea")
+                ->add('parent_id', "hidden", array('mapped' => false))
+                ->add('save', 'submit', array('label' => 'Kanal speichern'));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'Amilio\CoreBundle\Entity\Channel'
-        ));
+        $resolver->setDefaults(array('data_class' => 'Amilio\CoreBundle\Entity\Channel'));
     }
 
     public function getName()

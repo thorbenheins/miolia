@@ -47,8 +47,8 @@ amilio_core_product_new:
     defaults: { _controller: AmilioCoreBundle:Product:new }
     
 amilio_core_product_store:
-    path:     /user/product/{channelId}/store
-    defaults: { _controller: AmilioCoreBundle:Product:store }
+    path:     /user/product/store/{channel}/{productId}
+    defaults: { _controller: AmilioCoreBundle:Product:store, productId: -1 }
     
 amilio_core_product_show:
     path:     /product/{product}/{canonicalName}.html
@@ -65,6 +65,10 @@ amilio_core_product_share:
 amilio_core_product_share_store:
     path:     /user/share/store/product/
     defaults: { _controller: AmilioCoreBundle:Product:shareStore }
+    
+amilio_core_product_edit:
+    path:     /user/product/edit/{product}/{channel}
+    defaults: { _controller: AmilioCoreBundle:Product:edit }
     
 amilio_core_channel_hottest:
     path:     /channels/

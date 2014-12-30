@@ -19,15 +19,22 @@ class ProductController extends Controller
 {
     public function newAction($channelId)
     {
-        $form = $this->createForm(new ProductType(), new Product(), array('action' => $this->generateUrl('amilio_core_product_store', array("channelId" => $channelId))));
-
-        return $this->render('AmilioCoreBundle:Product:new.html.twig', array('form' => $form->createView()));
+        $product = new Product();
+        $form = $this->createForm(new ProductType(), $product, array('action' => $this->generateUrl('amilio_core_product_store', array("channel" => $channelId))));
+        return $this->render('AmilioCoreBundle:Product:new.html.twig', array('product' => $product, 'form' => $form->createView()));
     }
 
-    public function storeAction(Request $request, $channelId)
+    public function storeAction(Request $request, Channel $channel, $productId)
     {
+        if ($productId == -1) {
+            $product = new Product();
+        } else {
+            $product = $this->getDoctrine()->getRepository("AmilioCoreBundle:Product")->find($productId);
+        }
+
+
         $em = $this->getDoctrine()->getManager();
-        $form = $this->createForm(new ProductType(), new Product(), array('action' => $this->generateUrl('amilio_core_product_store', array("channelId" => $channelId))));
+        $form = $this->createForm(new ProductType(), $product, array('action' => $this->generateUrl('amilio_core_product_store', array("channel" => $channel->getId(), 'productId' => $productId))));
 
         $form->handleRequest($request);
 
@@ -35,28 +42,29 @@ class ProductController extends Controller
 
         if ($form->isValid()) {
 
-            $channel = $this->getDoctrine()->getManager()->find('AmilioCoreBundle:Channel', $channelId);
             $product = $form->getData();
 
-            $element = new ChannelElement();
-
-            $product->setOwner($this->getUser());
+            if ($productId == -1) {
+                $element = new ChannelElement();
+                $product->setOwner($this->getUser());
+            }
 
             $em->persist($product);
             $em->flush();
 
-            $element->setElement($product);
-            $element->setChannel($channel);
-            $em->persist($element);
+            if ($productId == -1) {
+                $element->setElement($product);
+                $element->setChannel($channel);
+                $em->persist($element);
 
-            $channel->addElement($element);
-            $em->persist($channel);
+                $channel->addElement($element);
+                $em->persist($channel);
 
-            $em->flush();
+                $em->flush();
+            }
 
             return $this->redirect($this->generateUrl('amilio_core_channel_show', array("channel" => $channel->getId(), "canonicalName" => $channel->getCanonicalName())));
         }
-
         return $this->render('AmilioCoreBundle:Product:new.html.twig', array('form' => $form->createView()));
     }
 
@@ -118,5 +126,11 @@ class ProductController extends Controller
         $em->flush();
 
         return $this->redirect($this->generateUrl('amilio_core_channel_show', array('canonicalName' => $channel->getCanonicalName(), 'channel' => $channel->getId())));
+    }
+
+    public function editAction(Product $product, Channel $channel)
+    {
+        $form = $this->createForm(new ProductType(), $product, array('action' => $this->generateUrl('amilio_core_product_store', array("channel" => $channel->getId(), 'productId' => $product->getId()))));
+        return $this->render('AmilioCoreBundle:Product:new.html.twig', array('product' => $product, 'form' => $form->createView()));
     }
 }

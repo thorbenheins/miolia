@@ -1,28 +1,28 @@
 <div class="modal_form">
     <h1>Kanal</h1>
     <div class="info">
-        Du hast dich also dazu entschieden einen neuen Kanal anzulegen. Wunderbar. 
+        Du hast dich also dazu entschieden einen neuen Kanal anzulegen. Wunderbar.
     </div>
-    
+
     {{ form_start(form) }}
         {{ form_errors(form) }}
-        
+
         <input type="hidden" name="id" value="{{ channel.id }}">
-        
+
         {{ form(form) }}
     {{ form_end(form) }}
     <button style="float: right; position: relative; top: -50px" onclick="$.modal.close();">Abbrechen</button>
-    
+
     {%  if channel.id %}
     <div style="margin-top: 20px">
         <a href="#" onclick="$('#confirmChannelDelete').show();" style="font-size:12px">Kanal l&ouml;schen</a>
-        
+
         <div id="confirmChannelDelete" style="display: none; padding-top: 20px">
             <p>Wollen Sie diesen Kanal wirklich l&ouml;schen?</p>
-            <button style="margin-right: 10px;" onclick="removeChannel();">Ja</button><button onclick="$('#confirmChannelDelete').hide();">Nein</button> 
+            <button style="margin-right: 10px;" onclick="removeChannel();">Ja</button><button onclick="$('#confirmChannelDelete').hide();">Nein</button>
         </div>
     </div>
-    
+
     <script>
         function removeChannel()
         {
@@ -30,7 +30,7 @@
         		  location.href="{{ path("amilio_core_channel_list") }}";
         	});
         }
-        
+
     </script>
     {% endif %}
 </div>
