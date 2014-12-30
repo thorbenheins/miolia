@@ -113,7 +113,7 @@ footer {
 	float: left;
 	padding-right: 20px;
 	position: absolute;
-	left: calc(50% -           635px);
+	left: calc(50% -             635px);
 	top: 8px;
 }
 
@@ -358,12 +358,39 @@ footer {
 }
 
 #reset_form label {
-  width: 200px;
-  font-size: 14px;
-  display: block;
-  padding-top: 20px;
+	width: 200px;
+	font-size: 14px;
+	display: block;
+	padding-top: 20px;
 }
 
 #reset_form input[type="submit"] {
-  margin-top: 20px;
+	margin-top: 20px;
+}
+
+.productItem .options {
+	position: relative;
+	height: 0;
+	top: 90px;
+	display: none;
+	font-size: 14px;
+}
+
+.productItem .option {
+	width: 145px;
+	text-align: center;
+	padding: 10px;
+	margin-right: 10px;
+	margin-left: 25px;
+	color: white;
+	margin-bottom: 5px
+}
+
+.productItem .option.small {
+	/* width: 100px; */
+	font-size: 12px;
+}
+
+.productItem a {
+	color: white;
 }
