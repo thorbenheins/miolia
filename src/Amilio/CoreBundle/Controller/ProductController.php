@@ -26,12 +26,22 @@ class ProductController extends Controller
 
     public function storeAction(Request $request, Channel $channel, $productId)
     {
+        if ($request->getMethod() != "POST") {
+            throw new AccessDeniedHttpException();
+        }
+
         if ($productId == -1) {
             $product = new Product();
         } else {
             $product = $this->getDoctrine()->getRepository("AmilioCoreBundle:Product")->find($productId);
+            if( $product->getOwner() != $this->getUser() ) {
+                throw new AccessDeniedHttpException();
+            }
         }
 
+        if( $channel->getOwner() != $this->getUser() ) {
+            throw new AccessDeniedHttpException();
+        }
 
         $em = $this->getDoctrine()->getManager();
         $form = $this->createForm(new ProductType(), $product, array('action' => $this->generateUrl('amilio_core_product_store', array("channel" => $channel->getId(), 'productId' => $productId))));
