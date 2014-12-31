@@ -239,7 +239,7 @@ footer {
 .elementlist .title {
 	padding-bottom: 15px;
 	font-size: 15px;
-	font-family: 'Abel', sans-serif;
+	/* font-family: 'Abel', sans-serif; */
 	height: 45px;
 	text-align: center;
 	background-color: white;
@@ -383,7 +383,8 @@ footer {
 	margin-right: 10px;
 	margin-left: 25px;
 	color: white;
-	margin-bottom: 5px
+	margin-bottom: 5px;
+	border-radius: 5px;
 }
 
 .productItem .option.small {
