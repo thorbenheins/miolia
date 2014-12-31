@@ -395,3 +395,7 @@ footer {
 .productItem a {
 	color: white;
 }
+
+#productshow a:hover {
+	border-color: white;
+}
