@@ -84,3 +84,7 @@ amilio_core_static_show:
 amilio_core_user_index:
     path:     /user/{index}
     defaults: { _controller: AmilioCoreBundle:User:index, index: 1 }
+    
+amilio_core_user_channels:
+    path:     /u/{username}
+    defaults: { _controller: AmilioCoreBundle:User:showChannels }

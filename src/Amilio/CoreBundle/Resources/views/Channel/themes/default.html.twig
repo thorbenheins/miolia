@@ -7,6 +7,7 @@
 
 {% block submenu %}
 	<div style="float: left; width: 445px">
+	     <a style="padding-right: 5px; color: black" href="{{ path( 'amilio_core_user_channels', {username: channel.owner.usernameCanonical }) }}">{{ channel.owner.username }}</a> &gt;
 	     {% if channel.parent %}
              	<a style="padding-right: 5px; color: black" href="{{ path('amilio_core_channel_show', {'channel': channel.parent.id, 'canonicalName': channel.parent.canonicalname}) }}">{{ channel.parent.name }}</a> <span style="padding-right: 5px">></span>
         	{% endif %}
