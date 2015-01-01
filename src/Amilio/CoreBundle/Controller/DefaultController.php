@@ -18,6 +18,9 @@ class DefaultController extends Controller
     {
         $url = "http://blog.amilio.de/" . $blogurl . "/";
         $content = file_get_contents($url);
-        return $this->render('AmilioCoreBundle:Default:static.html.twig', array('content' => $content));
+	
+        $title = str_replace("-->", "", str_replace("<!--", "", strtok($content, "\n")));
+
+        return $this->render('AmilioCoreBundle:Default:static.html.twig', array('content' => $content, "title" => $title));
     }
 }
