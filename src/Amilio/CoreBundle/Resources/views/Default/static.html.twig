@@ -1,7 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
+{% block title %}{{ title }}{% endblock %}
 
+{% block submenu %}<a style="color: black; padding-right: 5px" href="{{ path( "amilio_core_homepage" ) }}">Startseite</a> &gt; {{ title }}{% endblock %}
+
+{% block body %}
 	<div id="static" class="content" style="padding-bottom: 50px">
 		{{ content|raw }}
 	</div>

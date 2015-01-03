@@ -53,7 +53,9 @@ class DefaultController extends Controller
 
     public function notAllowedAction()
     {
-        return $this->render('AmilioUserBundle:Default:notAllowed.html.twig');
+        $response = $this->render('AmilioUserBundle:Default:notAllowed.html.twig');
+        $response->setStatusCode(403);
+        return $response;
     }
 
     public function checkEmailAction()

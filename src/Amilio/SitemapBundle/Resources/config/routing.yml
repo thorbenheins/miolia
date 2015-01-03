@@ -1,0 +1,11 @@
+amilio_sitemap_master:
+    path:     /sitemap/sitemap.xml
+    defaults: { _controller: AmilioSitemapBundle:Default:index }
+    
+amilio_sitemap_channel:
+    path:     /sitemap/channel.xml
+    defaults: { _controller: AmilioSitemapBundle:Default:channel}
+    
+amilio_sitemap_product:
+    path:     /sitemap/product.xml
+    defaults: { _controller: AmilioSitemapBundle:Default:product}

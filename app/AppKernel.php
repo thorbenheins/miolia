@@ -27,6 +27,7 @@ class AppKernel extends Kernel
             new Exeu\ApaiIOBundle\ExeuApaiIOBundle(),
             new Amilio\UserBundle\AmilioUserBundle(),
             new Pond\TunesBundle\PondTunesBundle(),
+            new Amilio\SitemapBundle\AmilioSitemapBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

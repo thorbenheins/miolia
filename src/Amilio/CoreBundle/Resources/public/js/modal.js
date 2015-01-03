@@ -32,25 +32,46 @@ function showModal(url, width, keepUrl, useIFrame, height) {
 		$("#modalDialogContent").html('<iframe frameborder="0" src="' + url + '" width="100%" height="100%" />');
 		window.history.pushState('', '', newUrl);
 	}else{
-		$.get(url, function(data) {
-			$.modal.close();
-			oldUrl = window.location.href;
-			$("#modalDialog").modal({
-				opacity : 80,
-				overlayCss : {
-					backgroundColor : "#000"
+		
+		$.ajax( {
+			url: url,
+			type: "GET",
+			success:  function(data) {
+				$.modal.close();
+				oldUrl = window.location.href;
+				$("#modalDialog").modal({
+					opacity : 80,
+					overlayCss : {
+						backgroundColor : "#000"
+					},
+					onClose : function() {
+						window.history.pushState('', '', oldUrl);
+						$.modal.close();
+					} 
+				});
+				$("#modalDialogContent").html(data);
+				
+				// show share this buttons 
+				stButtons.locateElements();
+				
+				// show/hide user fields
+				processUserFields();
+				
+				// track the page impression with google analytics
+				ga('send','pageview', url);
+				
+				// set new url in browser bar
+				window.history.pushState('', '', newUrl);
+			
 				},
-				onClose : function() {
-					window.history.pushState('', '', oldUrl);
-					// ga('send','pageview', oldUrl);
-					$.modal.close();
-				} 
-			});
-			$("#modalDialogContent").html(data);
-			processUserFields();
-			ga('send','pageview', url);
-			window.history.pushState('', '', newUrl);
-		});
+		    error: function (XMLHttpRequest, textStatus, errorThrown) {
+		    	if( errorThrown == "Forbidden" ) {
+		    		$.modal.close();
+		    		parent.location.href = system_notallowed_path;
+		    	}
+		    } 
+	      }
+		);		
 	}
 }
 
@@ -77,4 +98,11 @@ function confirmElementRemove(id) {
 function closeModal()
 {
 	$.modal.close();
+}
+
+var modalConfirmFunction;
+
+function confirm(callback) {
+	   modalConfirmFunction = callback;
+	   $("#confirm").modal({ opacity:80, overlayCss: {backgroundColor:"#000"}});
 }

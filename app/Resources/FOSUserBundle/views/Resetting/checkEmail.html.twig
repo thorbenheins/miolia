@@ -1,0 +1,9 @@
+{% extends "base.modal.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block body %}
+<p style="padding-top: 50px;">
+{{ 'resetting.check_email'|trans({'%email%': email}) }}
+</p>
+{% endblock %}

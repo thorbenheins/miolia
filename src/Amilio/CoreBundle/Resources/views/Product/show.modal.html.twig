@@ -1,15 +1,23 @@
-Modal
-
 <div id="productshow" style="width: 800px">
 	<div style="float: left; padding-right: 30px">
 		<img src="{{ product.image }}" style="max-width: 300px; max-height: 300px" />
+
+        <br/>
+
+	    <div style="float: left; padding-top: 50px;">
+           <span class='st_fblike_hcount' displayText='Facebook Like' st_url="{{ app.request.uri }}"></span>
+           <span class='st_twitter_hcount' displayText='Tweet' st_url="{{ app.request.uri }}"></span>
+           <span class='st_pinterest_hcount' displayText='Pinterest' st_url="{{ app.request.uri }}"></span>
+	    </div>
 	</div>
 	<div style="margin-left: 320px">
-		<h1>{{ product.name }}</h1>
-		<p style="font-size: 12px">{{ product.description }}</p>
+		<h1 style="padding:0">{{ product.name }}</h1>
+		<p style="font-size: 12px; line-height: 23px;">{{ product.description }}</p>
 		<div style="padding-top: 50px">
 			<div style="padding: 10px; float: left; background-color: #ea691b; color: white;"><a style="color: white" href="{{ product.partnerUrl }}" target="_blank">Zum Shop</div>
-			<div style="margin-left: 120px; width: 205px; background-color: #f69a2f; padding: 10px;"><a style="color: white" href="javascript:showModal('{{ path('amilio_core_product_share', {'product': product.id}) }}', '300px')">In eigenen Kanal &uuml;bernehmen</a></div>
+			<div class="user" style="margin-left: 120px; width: 205px; background-color: #f69a2f; padding: 10px;">
+			    <div><a href="javascript:showModal('{{ path('amilio_core_product_share', {'product': product.id}) }}', '300px')">In eigenen Kanal &uuml;bernehmen</a></div>
+		    </div>
 		</div>
 	</div>
 </div>

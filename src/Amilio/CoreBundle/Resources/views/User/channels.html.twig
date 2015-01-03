@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block submenu %}
+       Die Kan&auml;le von {{ user.username }}
+{% endblock %}
+
+{% block body %}
+ <div class="content">
+	<div class="center">
+    		<h1> Die Kan&auml;le von {{ user.username }}</h1>
+   	</div>
+
+   	<div class="tilelist">
+	    {% include "AmilioCoreBundle:Channel:render_channel_list.html.twig" with {"channels": channels} %}
+    </div>
+
+</div>
+{% endblock %}

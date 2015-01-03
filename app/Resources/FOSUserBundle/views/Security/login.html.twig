@@ -24,6 +24,8 @@
         <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
 
         <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+
+        <span style="padding-top: 10px; font-size: 13px"><a href="{{ path('fos_user_resetting_request') }}">Passwort vergessen?</a></span>
     </form>
 </div>
 {% endblock body %}
