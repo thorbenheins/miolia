@@ -145,7 +145,7 @@ object(Pond\Tunes\Result)#450 (1) {
         $product->setManufacturer($result->artistName);
         $product->setPrice(floatval($result->collectionPrice));
         $product->setCurrency($result->currency);
-        $product->setUrl($result->collectionViewUrl."&at=" . $pgnAffiliateId);
+        $product->setUrl(sprintf("%s&at=%s", $result->collectionViewUrl, $pgnAffiliateId));
 
         return $product;
     }

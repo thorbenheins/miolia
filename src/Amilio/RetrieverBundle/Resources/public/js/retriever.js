@@ -11,7 +11,10 @@
 
                 //TODO do this a bit nicer. 
 
+
+
                 $("#product_name").val(data.name);
+                $("#product_url").val(data.url);
                 $("#product_description").val(data.description);
                 $("#product_price").val(data.price);
                 $("#product_foreignId").val(data.foreignId);
